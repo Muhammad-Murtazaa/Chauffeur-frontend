@@ -1,179 +1,453 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Phone, 
-  CalendarCheck, 
-  ArrowRight, 
-  Plane, 
-  Building2, 
-  Clock, 
-  Compass, 
-  HeartHandshake, 
-  MapPin, 
-  ShieldCheck, 
-  Sparkles, 
-  CheckCircle2,
-  Car,
-  ChevronRight
+  ChevronRight, 
+  ChevronLeft, 
+  Check, 
+  Star, 
+  Plus, 
+  Minus, 
+  ArrowUpRight 
 } from 'lucide-react';
-import QuickStatsStrip from '../components/QuickStatsStrip';
-import QuoteBookingWidget from '../components/QuoteBookingWidget';
-import ReviewsSection from '../components/ReviewsSection';
-import FaqAccordion from '../components/FaqAccordion';
-import VehicleCard from '../components/VehicleCard';
-import { fleetData } from '../data/fleetData';
-import { servicesData } from '../data/servicesData';
-import { areasData } from '../data/areasData';
 
 export default function Home() {
-  // Top 4 featured vehicles for the home page showcase
-  const featuredFleet = fleetData.filter(v => 
-    ['premium-sedan', 'premium-suv', 'jet-sprinter', 'charter-bus'].includes(v.id)
-  );
+  // Reviews carousel state
+  const [reviewIdx, setReviewIdx] = useState(0);
+
+  // FAQ accordion state
+  const [openFaq, setOpenFaq] = useState(0);
+
+  const reviews = [
+    {
+      name: "Michelle Diefenderfer",
+      avatar: "https://lh3.googleusercontent.com/a-/ALV-UjWuZ1tm8my5pp-P6QcMSMSMIxE-VTaQvmy7x93NVRLn_GUxkE38=w64-h64-c-rp-mo-br100",
+      text: "NYC Premier Limo provided great rates, quick responses, and were on top of everything for our group with short notice. I'd definitely use them again in future!"
+    },
+    {
+      name: "Tina Belanger",
+      avatar: "https://lh3.googleusercontent.com/a-/ALV-UjVOkDzcfXCZk7RgPsjP3BrNc9MCKfFliz8PbnbG1MzQxfNVf28=w64-h64-c-rp-mo-br100",
+      text: "Our driver was timely and drove us safely to our destination. Our driver was very nice and professional. The van was beautiful as well. Highly recommend."
+    },
+    {
+      name: "Shaina Godfrey",
+      avatar: "https://lh3.googleusercontent.com/a-/ALV-UjWuZ1tm8my5pp-P6QcMSMSMIxE-VTaQvmy7x93NVRLn_GUxkE38=w64-h64-c-rp-mo-br100",
+      text: "I would definitely recommend NYC Premier Limo to my family and friends as well as use their services again. It was easy to book the service. If I had any questions, customer service was always available to provide answers. My driver, Mrs. Khan was very understanding and stayed in contact with me to ensure a successful pick up and drop off."
+    },
+    {
+      name: "Brandy Famous",
+      avatar: "https://lh3.googleusercontent.com/a-/ALV-UjVOkDzcfXCZk7RgPsjP3BrNc9MCKfFliz8PbnbG1MzQxfNVf28=w64-h64-c-rp-mo-br100",
+      text: "Professional and courteous driver was on time and the car was just as advertised I will be using them again."
+    },
+    {
+      name: "Grant Patterson",
+      avatar: "https://lh3.googleusercontent.com/a-/ALV-UjWuZ1tm8my5pp-P6QcMSMSMIxE-VTaQvmy7x93NVRLn_GUxkE38=w64-h64-c-rp-mo-br100",
+      text: "NYC Premier Limousines provided top-quality transportation. Comfortable ride, punctual service, and overall great value."
+    }
+  ];
+
+  const faqs = [
+    {
+      q: "How do I book a ride?",
+      a: "Book online through our real-time portal, call us directly, or message the team. Support is available 24/7 to confirm your car."
+    },
+    {
+      q: "What areas do you serve?",
+      a: "All five boroughs of NYC and the wider tri-state area (NY, NJ, CT), plus JFK, LaGuardia, Newark and Teterboro airports."
+    },
+    {
+      q: "What vehicles are in your fleet?",
+      a: "Executive sedans, luxury SUVs, premium vans and larger group vehicles — matched to your passenger count and luggage."
+    },
+    {
+      q: "Do you offer flat rates or hourly?",
+      a: "Both. Flat rates apply to airport and point-to-point transfers; hourly charters suit multi-stop and corporate travel. The quote is what you pay."
+    },
+    {
+      q: "Can I book for weddings or special occasions?",
+      a: "Yes. We arrange transportation for weddings, proms, anniversaries and other occasions, with vehicles to match the day."
+    }
+  ];
+
+  const nextReviews = () => {
+    setReviewIdx((prev) => (prev + 1) % (reviews.length - 2));
+  };
+  const prevReviews = () => {
+    setReviewIdx((prev) => (prev === 0 ? reviews.length - 3 : prev - 1));
+  };
 
   return (
-    <div className="bg-[#060B10] text-white">
-      {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex flex-col justify-center pt-24 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        {/* Background Image with Dark Luxury Gradients */}
+    <div className="font-sans text-[#1D1D1B] bg-[#F9F7F2]">
+      
+      {/* =========================================================================
+          1. HERO SECTION (Dark / Luxury City Street Background)
+      ========================================================================= */}
+      <section className="relative min-h-[620px] lg:min-h-[680px] flex items-center justify-center text-center px-4 sm:px-6 pt-20 pb-28 bg-[#0B1219] overflow-hidden">
+        {/* Background photo */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-1000 scale-105"
-          style={{ backgroundImage: `url('https://nycpremierlimo.com/wp-content/uploads/2026/08/professional-limousine-service-fleet-lineup-nyc.webp')` }}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url('https://nycpremierlimo.com/wp-content/uploads/2026/08/hero-nyc-limousine-service-chauffeur-manhattan-1-1536x864.webp')` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#060B10]/95 via-[#060B10]/85 to-[#060B10]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#060B10]/95 via-transparent to-[#060B10]/95" />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/65 backdrop-brightness-75" />
 
-        <div className="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Hero Left Content */}
-          <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold/15 text-gold border border-gold/30 text-xs font-bold uppercase tracking-widest">
-              <Sparkles className="w-3.5 h-3.5" />
-              NYC's Leading Chauffeur & Limousine Service
-            </div>
-
-            <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08]">
-              Limo Service NYC
-              <span className="block text-gold font-normal italic sm:text-5xl lg:text-6xl mt-1">
-                Luxury Car & Chauffeur Service
-              </span>
-            </h1>
-
-            <p className="text-base sm:text-lg text-neutral-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              Chauffeured airport transfers, corporate car service, hourly hire and point-to-point rides across New York, New Jersey and Connecticut — flat rates confirmed before you travel, 24/7 dispatch, no surge pricing.
-            </p>
-
-            {/* Quick CTAs */}
-            <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4">
-              <a
-                href="tel:+13478889797"
-                className="bg-gold hover:bg-gold-hover text-black px-8 py-4 rounded-full font-bold text-sm tracking-wide transition shadow-xl shadow-gold/25 flex items-center gap-2 group"
-              >
-                <Phone className="w-4 h-4" />
-                <span>Call (347) 888-9797</span>
-              </a>
-
-              <Link
-                to="/reservations"
-                className="border border-white/20 hover:border-gold hover:text-gold text-white px-8 py-4 rounded-full font-bold text-sm tracking-wide transition flex items-center gap-2 bg-white/5 backdrop-blur-md"
-              >
-                <CalendarCheck className="w-4 h-4 text-gold" />
-                <span>Get A Flat-Rate Quote</span>
-              </Link>
-            </div>
-
-            {/* Micro Trust Points */}
-            <div className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-neutral-400">
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-gold" />
-                TLC Licensed Drivers
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-gold" />
-                Zero Surge Pricing
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-gold" />
-                Complimentary Flight Tracking
-              </span>
-            </div>
+        <div className="relative z-10 max-w-4xl mx-auto space-y-6">
+          {/* Eyebrow with gold divider */}
+          <div className="flex items-center justify-center gap-3">
+            <span className="w-10 h-[1px] bg-[#e09900]" />
+            <span className="text-[12px] uppercase font-bold tracking-[0.14em] text-[#e09900]">
+              CHAUFFEUR SERVICE NYC
+            </span>
+            <span className="w-10 h-[1px] bg-[#e09900]" />
           </div>
 
-          {/* Hero Right Widget: Instant Quote Calculator */}
-          <div className="lg:col-span-5 w-full">
-            <QuoteBookingWidget compact={true} />
+          {/* Heading */}
+          <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#e09900] leading-[1.08]">
+            Luxury Limo & Chauffeur Service in NYC
+          </h1>
+
+          {/* Subtitle */}
+          <p className="text-sm sm:text-base text-white/90 max-w-2xl mx-auto font-medium leading-[1.8em]">
+            Chauffeured airport transfers, corporate car service, hourly hire and point-to-point rides across New York, New Jersey and Connecticut — flat rates confirmed before you travel, 24/7 dispatch, no surge pricing.
+          </p>
+
+          {/* Gold Button */}
+          <div className="pt-2">
+            <Link
+              to="/reservations"
+              className="inline-block bg-[#e09900] hover:bg-[#c88800] text-black font-bold text-[15px] px-9 py-3.5 rounded-full transition duration-200 shadow-xl"
+            >
+              Get A Quote
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* 5-Item Quick Stats Strip (Matching Original) */}
-      <QuickStatsStrip />
+      {/* =========================================================================
+          2. STATS / TRUST STRIP (Crisp White Bar with Dividers)
+      ========================================================================= */}
+      <section className="relative z-20 max-w-6xl mx-auto -mt-10 px-4">
+        <div className="bg-white rounded-2xl border border-black/10 shadow-xl py-6 px-6 sm:px-8 grid grid-cols-2 md:grid-cols-5 gap-6 text-left">
+          {[
+            { num: "01", title: "Flight Tracking", desc: "We watch your flight and adjust pickup" },
+            { num: "02", title: "All-Inclusive Pricing", desc: "Tolls and gratuity included" },
+            { num: "03", title: "Meet & Greet", desc: "In-terminal pickup on request" },
+            { num: "04", title: "Tri-State Coverage", desc: "New York, New Jersey, Connecticut" },
+            { num: "05", title: "5 Star Rated", desc: "Service trusted by riders" }
+          ].map((stat, i) => (
+            <div key={i} className={`space-y-1 ${i === 4 ? 'col-span-2 md:col-span-1' : ''} ${i > 0 ? 'md:border-l md:border-neutral-200 md:pl-5' : ''}`}>
+              <div className="text-[12px] font-bold text-[#e09900] tracking-wider font-sans">
+                {stat.num}
+              </div>
+              <h4 className="text-[14px] font-bold text-[#1D1D1B] leading-snug">
+                {stat.title}
+              </h4>
+              <p className="text-[12px] text-[#6D685F] leading-snug">
+                {stat.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-      {/* Google Trustindex Reviews Section */}
-      <div className="mt-16">
-        <ReviewsSection />
-      </div>
+      {/* =========================================================================
+          3. REVIEWS SECTION (Trustindex Google Carousel on Warm Cream)
+      ========================================================================= */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div className="relative">
+          {/* 3 Review Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {reviews.slice(reviewIdx, reviewIdx + 3).map((rev, idx) => (
+              <div 
+                key={idx}
+                className="bg-white rounded-2xl border border-neutral-200/80 p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition text-left"
+              >
+                <div>
+                  <div className="flex items-center gap-3 mb-3">
+                    <img
+                      src={rev.avatar}
+                      alt={rev.name}
+                      className="w-11 h-11 rounded-full object-cover shrink-0"
+                    />
+                    <div>
+                      <h4 className="text-[14px] font-bold text-[#1D1D1B] leading-tight">
+                        {rev.name}
+                      </h4>
+                      <p className="text-[11px] text-[#6D685F] leading-snug mt-0.5">
+                        Trustindex verifies Google review
+                      </p>
+                    </div>
+                  </div>
 
-      {/* Services Grid Section */}
-      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold/15 text-gold border border-gold/30 text-xs font-bold uppercase tracking-wider">
-            Premium Transportation
+                  {/* 5 Stars */}
+                  <div className="flex items-center gap-1 mb-3">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-[#e09900] text-[#e09900]" />
+                    ))}
+                  </div>
+
+                  {/* Review text */}
+                  <p className="text-[13px] text-[#46423B] leading-relaxed line-clamp-4">
+                    "{rev.text}"
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
-          <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white">
-            Six Ways to Travel in Comfort
+
+          {/* Carousel Arrows */}
+          <button
+            onClick={prevReviews}
+            className="absolute -left-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white shadow-md border border-neutral-200 flex items-center justify-center text-neutral-700 hover:text-black hover:bg-neutral-50 transition hidden md:flex"
+            aria-label="Previous"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            onClick={nextReviews}
+            className="absolute -right-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white shadow-md border border-neutral-200 flex items-center justify-center text-neutral-700 hover:text-black hover:bg-neutral-50 transition hidden md:flex"
+            aria-label="Next"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </div>
+
+        {/* Verified by Trustindex badge link */}
+        <div className="text-right mt-4 pr-1">
+          <a
+            href="https://www.trustindex.io"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 text-[12px] font-bold text-[#147a3e] hover:underline"
+          >
+            <span>Verified by Trustindex</span>
+            <span className="text-[10px] bg-[#147a3e]/10 px-2 py-0.5 rounded">4.9 ★★★★★</span>
+          </a>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          4. SERVICES SECTION: "NYC Chauffeur Service — Six Ways We Move You"
+      ========================================================================= */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        {/* Section Header */}
+        <div className="mb-10">
+          <div className="flex items-center gap-2 mb-2">
+            <span className="w-6 h-[1px] bg-[#e09900]" />
+            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#e09900]">
+              SERVICES
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-end">
+            <div className="md:col-span-7">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1D1D1B] leading-tight">
+                NYC Chauffeur Service — Six Ways We Move You
+              </h2>
+            </div>
+            <div className="md:col-span-5">
+              <p className="text-[15px] text-[#6D685F] leading-relaxed">
+                One standard of service across every trip — from the airport curb to the boardroom door to the big night out.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* 2x3 Photographic Card Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            {
+              num: "01",
+              title: "Airport Transportation",
+              desc: "Private transfers to JFK, LaGuardia, Newark and Teterboro with flight tracking and flat-rate pricing.",
+              link: "/airport-car-service",
+              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/airport-limo-service-chauffeur-loading-luggage.webp"
+            },
+            {
+              num: "02",
+              title: "Corporate Transportation",
+              desc: "Discreet, punctual travel for executives, client pickups, roadshows and conferences.",
+              link: "/corporate-limo-service",
+              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/alt-corporate-car-service-chauffeur-door.webp"
+            },
+            {
+              num: "03",
+              title: "Hourly Chauffeur",
+              desc: "A car and chauffeur reserved for a block of time — the vehicle waits with you between stops, so a full day of meetings is one booking, not six.",
+              link: "/hourly-car-service",
+              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/hourly-chauffeur-service-nyc-hotel-door-service.webp"
+            },
+            {
+              num: "04",
+              title: "Point-to-Point",
+              desc: "One pickup, one destination, one fixed price agreed before you travel. Direct rides between homes, hotels, offices, and venues.",
+              link: "/point-to-point-limo-service",
+              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/point-to-point-car-service-soho-passenger-pickup-1024x683.webp"
+            },
+            {
+              num: "05",
+              title: "City-to-City Rides",
+              desc: "Private long-distance travel from NYC to Boston, Philadelphia, D.C., the Hamptons and beyond.",
+              link: "/city-to-city-rides",
+              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/city-to-city-car-service-manhattan-skyline-highway.webp"
+            },
+            {
+              num: "06",
+              title: "Special Occasions",
+              desc: "Weddings, proms, anniversaries and milestones — arrivals worth remembering.",
+              link: "/special-occasions",
+              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/special-occasion-limo-service-red-carpet-arrival.webp"
+            }
+          ].map((item, idx) => (
+            <div 
+              key={idx}
+              className="group relative h-[360px] rounded-2xl overflow-hidden shadow-md flex flex-col justify-end p-6 transition-all duration-300 hover:shadow-2xl"
+            >
+              {/* Background Image */}
+              <img
+                src={item.image}
+                alt={item.title}
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              {/* Dark gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent" />
+
+              {/* Card Content Overlay */}
+              <div className="relative z-10 text-white space-y-2">
+                <span className="text-[12px] font-bold text-[#e09900]">
+                  {item.num}
+                </span>
+                <h3 className="font-serif text-2xl font-bold text-white leading-snug">
+                  {item.title}
+                </h3>
+                <p className="text-[12px] text-white/80 leading-relaxed line-clamp-2">
+                  {item.desc}
+                </p>
+                <div className="pt-2">
+                  <Link
+                    to={item.link}
+                    className="inline-flex items-center gap-1 text-[13px] font-bold text-[#e09900] group-hover:text-white transition"
+                  >
+                    <span>Explore service</span>
+                    <ArrowUpRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* =========================================================================
+          5. FLEET SECTION: "Our Luxury Fleet — Sedans, SUVs & Sprinter Limousines"
+      ========================================================================= */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+          <div className="flex items-center justify-center gap-3">
+            <span className="w-8 h-[1px] bg-[#e09900]" />
+            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#e09900]">
+              THE FLEET
+            </span>
+            <span className="w-8 h-[1px] bg-[#e09900]" />
+          </div>
+
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1D1D1B] leading-tight">
+            Our Luxury Fleet — Sedans, SUVs & Sprinter Limousines
           </h2>
-          <p className="text-sm sm:text-base text-neutral-400">
-            One standard of service across every trip — from the airport curb to the boardroom door to the big night out.
+          <p className="text-[15px] text-[#6D685F] leading-relaxed">
+            From executive sedans to 55-passenger coaches, our luxury fleet is matched to your party size, luggage, and occasion — every vehicle detailed and chauffeur-driven.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {servicesData.map((svc) => (
+        {/* 2x2 Grid of 4 White Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {[
+            {
+              categoryBadge: "SEDAN",
+              classTag: "Executive class",
+              title: "Premium Sedan",
+              passengers: "3 Passengers",
+              luggage: "3 Luggage",
+              service: "Professionally chauffeured",
+              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/Premium-Sedan.webp"
+            },
+            {
+              categoryBadge: "SUV",
+              classTag: "First class",
+              title: "Premium SUV",
+              passengers: "6 Passengers",
+              luggage: "6 Luggage",
+              service: "Professionally chauffeured",
+              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/Premium-SUV.webp"
+            },
+            {
+              categoryBadge: "SPRINTER",
+              classTag: "Group class",
+              title: "Sprinter Van",
+              passengers: "14 Passengers",
+              luggage: "14 Luggage",
+              service: "Professionally chauffeured",
+              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/Sprinter-Van.webp"
+            },
+            {
+              categoryBadge: "BUS",
+              classTag: "Group class",
+              title: "Charter Bus",
+              passengers: "55 Passengers",
+              luggage: "55 Luggage",
+              service: "Professionally chauffeured",
+              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/Charter-Bus.webp"
+            }
+          ].map((veh, idx) => (
             <div
-              key={svc.id}
-              className="bg-[#0E1722] rounded-3xl border border-white/10 overflow-hidden flex flex-col justify-between hover:border-gold/50 transition-all duration-300 group hover:shadow-2xl hover:shadow-gold/10"
+              key={idx}
+              className="bg-white rounded-2xl border border-neutral-200/80 overflow-hidden shadow-sm hover:shadow-lg transition duration-300 flex flex-col justify-between"
             >
               <div>
-                {/* Service Hero Image */}
-                <div className="relative aspect-[16/10] overflow-hidden">
+                {/* Photo with category badge */}
+                <div className="relative aspect-[16/10] bg-neutral-100 flex items-center justify-center p-4">
                   <img
-                    src={svc.heroImage}
-                    alt={svc.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
+                    src={veh.image}
+                    alt={veh.title}
+                    className="w-full h-full object-contain"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0E1722] via-transparent to-black/40" />
-                  <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-gold border border-gold/30">
-                    {svc.number}
+                  <div className="absolute top-4 left-4 bg-[#1D1D1B] text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                    {veh.categoryBadge}
                   </div>
                 </div>
 
-                <div className="p-6 sm:p-8">
-                  <h3 className="font-serif text-2xl font-bold text-white group-hover:text-gold transition">
-                    {svc.title}
+                {/* Card Content */}
+                <div className="p-6 sm:p-8 space-y-3 text-left">
+                  <div className="text-[12px] font-bold text-[#6D685F] uppercase tracking-wider">
+                    {veh.classTag}
+                  </div>
+                  <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#1D1D1B]">
+                    {veh.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-neutral-400 mt-2.5 leading-relaxed">
-                    {svc.shortDesc}
-                  </p>
 
-                  <ul className="mt-5 space-y-2 text-xs text-neutral-300">
-                    {svc.features.slice(0, 3).map((f, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" />
-                        <span>{f}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  {/* Specs */}
+                  <div className="grid grid-cols-2 gap-2 pt-2 text-[13px] text-[#46423B] font-medium border-t border-neutral-100">
+                    <div>{veh.passengers}</div>
+                    <div>{veh.luggage}</div>
+                    <div className="col-span-2 text-[#6D685F]">{veh.service}</div>
+                  </div>
                 </div>
               </div>
 
-              <div className="p-6 sm:p-8 pt-0">
+              {/* Bottom Card Actions */}
+              <div className="p-6 sm:p-8 pt-0 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 border-t border-neutral-100 mt-2">
                 <Link
-                  to={svc.slug}
-                  className="inline-flex items-center gap-2 text-xs font-bold text-gold hover:text-gold-hover transition group/link"
+                  to="/reservations"
+                  className="bg-[#e09900] hover:bg-[#c88800] text-black font-bold text-xs px-6 py-3 rounded-full text-center transition"
                 >
-                  <span>Explore Service</span>
-                  <ArrowRight className="w-3.5 h-3.5 transition group-hover/link:translate-x-1" />
+                  Book now
+                </Link>
+                <Link
+                  to="/fleet"
+                  className="text-xs font-bold text-[#1D1D1B] hover:text-[#e09900] text-center transition py-2"
+                >
+                  View the Full Fleet →
                 </Link>
               </div>
             </div>
@@ -181,128 +455,364 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Fleet Showcase */}
-      <section className="py-24 bg-[#080E15] border-y border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold/15 text-gold border border-gold/30 text-xs font-bold uppercase tracking-wider mb-3">
-                Executive Fleet
+      {/* =========================================================================
+          6. AIRPORT SECTION (High-Contrast Jet Black Block)
+      ========================================================================= */}
+      <section className="bg-[#000000] text-white py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto space-y-12">
+          {/* Top Two-Column Block */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <div className="lg:col-span-7 space-y-4">
+              <div className="flex items-center gap-2">
+                <span className="w-6 h-[1px] bg-[#e09900]" />
+                <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#e09900]">
+                  AIRPORT TRANSPORTATION
+                </span>
               </div>
-              <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white">
-                Luxury Vehicles Matched to Your Journey
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
+                Three airports. One car service that knows all of them.
               </h2>
-              <p className="text-sm text-neutral-400 mt-2 max-w-2xl">
-                From executive sedans to 55-passenger coaches, our luxury fleet is matched to your party size, luggage, and occasion — every vehicle detailed and chauffeur-driven.
+              <p className="text-[15px] text-white/80 leading-relaxed max-w-xl">
+                We watch your flight from the moment it pushes back. Land early and we’re already there; land three hours late and nothing changes for you except the time we pull up.
               </p>
             </div>
 
-            <Link
-              to="/fleet"
-              className="inline-flex items-center gap-2 bg-white/5 hover:bg-gold hover:text-black text-white px-6 py-3 rounded-full text-xs font-bold border border-white/10 transition shrink-0"
-            >
-              <span>View Full Fleet (10+ Vehicles)</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {featuredFleet.map((vehicle) => (
-              <VehicleCard key={vehicle.id} vehicle={vehicle} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Airport Transfers Spotlight: JFK, LGA, EWR */}
-      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#0E1722] rounded-3xl border border-white/10 p-8 sm:p-12 relative overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-6 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold/15 text-gold border border-gold/30 text-xs font-bold uppercase tracking-wider">
-                Airport Transportation
-              </div>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
-                We Watch Your Flight From Takeoff to Touchdown
-              </h2>
-              <p className="text-sm text-neutral-300 leading-relaxed">
-                Land early and we’re already at curbside; land three hours late and nothing changes for you except the time we pull up. No waiting on taxi lines or enduring surge pricing in rain.
-              </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-neutral-300">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-gold shrink-0" />
-                  <span>Live FAA Radar Tracking</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-gold shrink-0" />
-                  <span>Complimentary Flight Wait Time</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-gold shrink-0" />
-                  <span>In-Terminal Meet & Greet Available</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-gold shrink-0" />
-                  <span>Door-to-Door Curbside Luggage Service</span>
-                </div>
+            <div className="lg:col-span-5 space-y-4">
+              {/* 6-item checklist */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-[13px] text-white/90">
+                {[
+                  "Live flight tracking on every arrival",
+                  "Complimentary wait time after landing",
+                  "Luggage handled at both ends",
+                  "Meet-and-greet in the terminal",
+                  "Departures timed to check-in",
+                  "One chauffeur, start to finish"
+                ].map((feat, i) => (
+                  <div key={i} className="flex items-start gap-2">
+                    <Check className="w-4 h-4 text-[#e09900] shrink-0 mt-0.5" />
+                    <span>{feat}</span>
+                  </div>
+                ))}
               </div>
 
-              <div className="pt-2 flex flex-wrap items-center gap-4">
+              <div className="pt-2">
                 <Link
                   to="/airport-car-service"
-                  className="bg-gold hover:bg-gold-hover text-black px-6 py-3 rounded-full font-bold text-xs tracking-wide transition shadow-lg shadow-gold/20"
+                  className="inline-block bg-[#e09900] hover:bg-[#c88800] text-black font-bold text-xs px-7 py-3.5 rounded-full transition"
                 >
                   Book Airport Transfer
                 </Link>
-                <a
-                  href="tel:+13478889797"
-                  className="border border-white/20 hover:border-gold hover:text-gold text-white px-6 py-3 rounded-full font-bold text-xs transition"
-                >
-                  Dispatch: (347) 888-9797
-                </a>
               </div>
             </div>
+          </div>
 
-            {/* Airport Cards */}
-            <div className="lg:col-span-6 space-y-4">
-              {[
-                {
-                  code: "JFK",
-                  name: "John F. Kennedy International",
-                  desc: "Queens · All Terminals 1–8. International arrivals, long-haul departures, and rides on to Manhattan, Brooklyn or the Hamptons.",
-                  link: "/jfk-airport-limo-service"
-                },
-                {
-                  code: "LGA",
-                  name: "LaGuardia Airport",
-                  desc: "Queens · Terminals A–C. Closest airport to Midtown Manhattan. Under 30 minutes when the pickup is timed right.",
-                  link: "/lga-airport-limo-service"
-                },
-                {
-                  code: "EWR",
-                  name: "Newark Liberty International",
-                  desc: "New Jersey · Terminals A–C. Cross-Hudson transfers routed around tunnel traffic, timed to your actual landing.",
-                  link: "/ewr-airport-limo-service"
-                }
-              ].map(airport => (
-                <Link
-                  key={airport.code}
-                  to={airport.link}
-                  className="block p-5 rounded-2xl bg-[#14202D] border border-white/5 hover:border-gold/50 transition group"
-                >
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <span className="font-serif text-xl font-bold text-gold">{airport.code}</span>
-                        <span className="text-xs text-neutral-400">· {airport.name}</span>
-                      </div>
-                      <p className="text-xs text-neutral-300 mt-1 leading-relaxed">
-                        {airport.desc}
-                      </p>
-                    </div>
-                    <ChevronRight className="w-5 h-5 text-neutral-500 group-hover:text-gold group-hover:translate-x-1 transition shrink-0 mt-1" />
+          {/* 3 Dark Airport Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                badge: "JFK",
+                title: "JFK Car Service",
+                subtitle: "Queens · All terminals",
+                desc: "International arrivals, long-haul departures, and rides on to Manhattan, Brooklyn or the Hamptons.",
+                link: "/jfk-airport-limo-service"
+              },
+              {
+                badge: "LGA",
+                title: "LaGuardia Car Service",
+                subtitle: "Queens · Terminals A–C",
+                desc: "Closest airport to Midtown. Under 30 minutes when the pickup is timed right — much longer when it isn’t.",
+                link: "/lga-airport-limo-service"
+              },
+              {
+                badge: "EWR",
+                title: "Newark Car Service",
+                subtitle: "New Jersey · Terminals A–C",
+                desc: "Cross-Hudson transfers routed around tunnel traffic, with pickup timed to your actual landing.",
+                link: "/ewr-airport-limo-service"
+              }
+            ].map((ap, idx) => (
+              <div
+                key={idx}
+                className="bg-[#11161D] border border-white/10 rounded-2xl p-6 flex flex-col justify-between hover:border-[#e09900]/50 transition duration-300"
+              >
+                <div className="space-y-3">
+                  <div className="inline-block bg-[#e09900] text-black text-xs font-bold px-2.5 py-1 rounded-md">
+                    {ap.badge}
                   </div>
+                  <h3 className="font-serif text-xl font-bold text-white">
+                    {ap.title}
+                  </h3>
+                  <div className="text-[12px] font-medium text-white/60">
+                    {ap.subtitle}
+                  </div>
+                  <p className="text-[13px] text-white/75 leading-relaxed">
+                    {ap.desc}
+                  </p>
+                </div>
+
+                <div className="pt-6">
+                  <Link
+                    to={ap.link}
+                    className="inline-flex items-center gap-1 text-[13px] font-bold text-[#e09900] hover:underline"
+                  >
+                    <span>Explore service</span>
+                    <ArrowUpRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          7. CORPORATE SECTION (Warm Cream Background)
+      ========================================================================= */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto space-y-12">
+        {/* Top Two-Column Block */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div className="lg:col-span-7 space-y-4">
+            <div className="flex items-center gap-2">
+              <span className="w-6 h-[1px] bg-[#e09900]" />
+              <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#e09900]">
+                CORPORATE TRAVEL
+              </span>
+            </div>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1D1D1B] leading-tight">
+              Your team doesn't move. Neither do we.
+            </h2>
+            <p className="text-[15px] text-[#6D685F] leading-relaxed max-w-xl">
+              Corporate travel is judged on the days that go sideways. We hold the car when the meeting runs over, we know which building entrances work at 8am, and we brief the chauffeur on the itinerary before the first pickup. Book once and everything between the first stop and the last drop is handled.
+            </p>
+          </div>
+
+          <div className="lg:col-span-5 space-y-4">
+            {/* 6-item corporate checklist */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-[13px] text-[#46423B]">
+              {[
+                "Vetted, background-checked chauffeurs",
+                "Wait time held when meetings overrun",
+                "Dedicated account manager",
+                "One chauffeur, all day",
+                "Saved traveller profiles",
+                "Consolidated monthly invoicing"
+              ].map((feat, i) => (
+                <div key={i} className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-[#e09900] shrink-0 mt-0.5" />
+                  <span>{feat}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="pt-2">
+              <Link
+                to="/corporate-limo-service"
+                className="inline-block bg-[#e09900] hover:bg-[#c88800] text-black font-bold text-xs px-7 py-3.5 rounded-full transition"
+              >
+                Book Corporate Travel
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* 3 White Corporate Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            {
+              badge: "01",
+              title: "Corporate Car Service",
+              subtitle: "Sedan or SUV · Per trip",
+              desc: "Transfers for staff, partners and visiting clients, including airport pickups for guests new to the city.",
+              link: "/corporate-limo-service"
+            },
+            {
+              badge: "02",
+              title: "Hourly Chauffeur Service",
+              subtitle: "Hourly · One chauffeur",
+              desc: "One booking across offices, meetings, hotels and airports. The car stays with you between stops.",
+              link: "/hourly-car-service"
+            },
+            {
+              badge: "03",
+              title: "Open an Account",
+              subtitle: "Monthly billing · Invoiced",
+              desc: "Streamlined billing and saved profiles for teams that travel often. One invoice, one point of contact.",
+              link: "/contact-us"
+            }
+          ].map((corp, idx) => (
+            <div
+              key={idx}
+              className="bg-white border border-neutral-200/80 rounded-2xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition"
+            >
+              <div className="space-y-3">
+                <div className="inline-block bg-[#e09900] text-black text-xs font-bold px-2.5 py-1 rounded-md">
+                  {corp.badge}
+                </div>
+                <h3 className="font-serif text-xl font-bold text-[#1D1D1B]">
+                  {corp.title}
+                </h3>
+                <div className="text-[12px] font-medium text-[#6D685F]">
+                  {corp.subtitle}
+                </div>
+                <p className="text-[13px] text-[#46423B] leading-relaxed">
+                  {corp.desc}
+                </p>
+              </div>
+
+              <div className="pt-6">
+                <Link
+                  to={corp.link}
+                  className="inline-flex items-center gap-1 text-[13px] font-bold text-[#e09900] hover:underline"
+                >
+                  <span>Explore service</span>
+                  <ArrowUpRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* =========================================================================
+          8. STATEMENT & TWO FEATURED CALLOUT COLLAGES
+      ========================================================================= */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto space-y-16 border-t border-neutral-200/60">
+        {/* Editorial Statement Header */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div className="lg:col-span-6 space-y-2">
+            <div className="flex items-center gap-2">
+              <span className="w-6 h-[1px] bg-[#e09900]" />
+              <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#e09900]">
+                NYC & TRI-STATE AREA CHAUFFEUR
+              </span>
+            </div>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1D1D1B] leading-tight">
+              Luxury Black Car Service Across NY, NJ & CT
+            </h2>
+          </div>
+          <div className="lg:col-span-6">
+            <p className="text-[15px] text-[#6D685F] leading-relaxed">
+              A 5 am run to JFK, a <Link to="/manhattan-limo-service" className="text-[#e09900] underline">Broadway night out</Link>, a wedding, a private ride to the Hamptons — you tell us the trip, we assign the right vehicle and chauffeur, and we agree on the price before anyone gets in the car. No meter, no surge, no waiting on the curb. Late-model luxury sedans, full-size SUVs, executive Sprinter vans, and charter coaches, across the five boroughs and the tri-state area, 24 hours a day.
+            </p>
+          </div>
+        </div>
+
+        {/* Callout 1: Professional Limousine Service with Photo Collage */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          {/* Left: Image with Inset */}
+          <div className="lg:col-span-6 relative">
+            <div className="relative rounded-2xl overflow-hidden shadow-lg aspect-[16/10]">
+              <img
+                src="https://nycpremierlimo.com/wp-content/uploads/2026/08/professional-limousine-service-fleet-lineup-nyc-1024x576.webp"
+                alt="Professional Limousine Service"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute top-4 left-4 bg-[#e09900] text-black text-xs font-bold px-3 py-1 rounded-md">
+                Every chauffeur, every ride
+              </div>
+            </div>
+            {/* Small Inset Photo */}
+            <div className="absolute -bottom-6 right-4 w-40 sm:w-48 rounded-xl overflow-hidden border-4 border-white shadow-2xl">
+              <img
+                src="https://nycpremierlimo.com/wp-content/uploads/2026/08/alt-corporate-car-service-chauffeur-door.webp"
+                alt="Chauffeur Service Door"
+                className="w-full h-auto object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Right: Content */}
+          <div className="lg:col-span-6 space-y-4 pl-0 lg:pl-4">
+            <div className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#e09900]">
+              RELIABILITY AT SCALE
+            </div>
+            <h3 className="font-serif text-3xl font-bold text-[#1D1D1B]">
+              Professional Limousine Service
+            </h3>
+            <p className="text-[14px] text-[#6D685F] leading-relaxed">
+              We hold the car when the meeting runs over, and we know which entrances work at 8am. Book once and we handle everything between the first pickup and the last drop.
+            </p>
+
+            <div className="grid grid-cols-2 gap-3 pt-2 text-[13px] text-[#1D1D1B] font-medium">
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-[#e09900]" />
+                <span>Licensed Professional Chauffeurs</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-[#e09900]" />
+                <span>24/7 trip Support</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-[#e09900]" />
+                <span>Dedicated account manager</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-[#e09900]" />
+                <span>Tri-state Reach</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-[#e09900]" />
+                <span>Clear, Flat-rate Options</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-[#e09900]" />
+                <span>Discretion at top</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Callout 2: Coverage & Service Areas with Statue of Liberty & Pill Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center pt-8">
+          {/* Left: Heading + Statue of Liberty Image */}
+          <div className="lg:col-span-7 space-y-4">
+            <div className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#e09900]">
+              TRI-STATE REACH
+            </div>
+            <h3 className="font-serif text-3xl font-bold text-[#1D1D1B]">
+              Transportation across NYC and the tri-state area.
+            </h3>
+            <p className="text-[14px] text-[#6D685F] leading-relaxed">
+              Local rides, airport travel, long-distance transfers and corporate transportation across the five boroughs and beyond — hotels, venues and custom destinations included.
+            </p>
+
+            <div className="rounded-2xl overflow-hidden shadow-lg aspect-[16/9] mt-4">
+              <img
+                src="https://nycpremierlimo.com/wp-content/uploads/2026/08/Service-Area-Homepage-1.png"
+                alt="NYC Skyline & Statue of Liberty"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Right: "Explore our service areas" White Card with Pill Grid */}
+          <div className="lg:col-span-5 bg-white rounded-2xl border border-neutral-200/80 p-8 shadow-sm">
+            <div className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#e09900] mb-1">
+              LOCATIONS
+            </div>
+            <h4 className="font-serif text-2xl font-bold text-[#1D1D1B] mb-6">
+              Explore our service areas.
+            </h4>
+
+            <div className="grid grid-cols-2 gap-3">
+              {[
+                { name: "Manhattan", link: "/manhattan-limo-service" },
+                { name: "Brooklyn", link: "/brooklyn-limo-service" },
+                { name: "Queens", link: "/queens-limo-service" },
+                { name: "The Bronx", link: "/the-bronx-limo-service" },
+                { name: "Staten Island", link: "/staten-island-limo" },
+                { name: "New Jersey", link: "/areas-we-serve" },
+                { name: "Connecticut", link: "/areas-we-serve" },
+                { name: "The Hamptons", link: "/city-to-city-rides" },
+                { name: "Westchester", link: "/areas-we-serve" },
+                { name: "Long Island", link: "/areas-we-serve" }
+              ].map((area, i) => (
+                <Link
+                  key={i}
+                  to={area.link}
+                  className="px-4 py-2.5 rounded-lg border border-neutral-200 text-center text-[13px] font-semibold text-[#1D1D1B] hover:border-[#e09900] hover:text-[#e09900] transition"
+                >
+                  {area.name}
                 </Link>
               ))}
             </div>
@@ -310,227 +820,151 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Corporate Transportation Section */}
-      <section className="py-24 bg-[#080E15] border-y border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-6 order-2 lg:order-1 relative">
-            <img
-              src="https://nycpremierlimo.com/wp-content/uploads/2026/08/Corporate-Limo.jpg"
-              alt="Corporate Chauffeur"
-              className="rounded-3xl shadow-2xl border border-white/10 w-full object-cover"
-              loading="lazy"
-            />
-            <div className="absolute -bottom-6 -right-6 hidden sm:block bg-[#101A24] border border-gold/30 rounded-2xl p-5 shadow-2xl max-w-xs">
-              <div className="font-serif text-base font-bold text-white">
-                Executive Accounts
-              </div>
-              <p className="text-xs text-neutral-400 mt-1 leading-relaxed">
-                Consolidated monthly invoicing, saved traveler profiles, and priority dispatch.
-              </p>
+      {/* =========================================================================
+          9. THREE STEPS SECTION: "From quote to curbside in three steps."
+      ========================================================================= */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white border-y border-neutral-200/60">
+        <div className="max-w-5xl mx-auto text-center space-y-12">
+          <div className="space-y-3">
+            <div className="flex items-center justify-center gap-3">
+              <span className="w-8 h-[1px] bg-[#e09900]" />
+              <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#e09900]">
+                HOW IT WORKS
+              </span>
+              <span className="w-8 h-[1px] bg-[#e09900]" />
             </div>
-          </div>
 
-          <div className="lg:col-span-6 order-1 lg:order-2 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold/15 text-gold border border-gold/30 text-xs font-bold uppercase tracking-wider">
-              Executive Travel
-            </div>
-            <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white leading-tight">
-              A Refined Standard for Corporate Mobility
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1D1D1B]">
+              From quote to curbside in three steps.
             </h2>
-            <p className="text-sm text-neutral-300 leading-relaxed">
-              Corporate travel is judged on the days that go sideways. We hold the car when the meeting runs over, we know which building entrances work at 8:00 AM, and we brief the chauffeur on the itinerary before the first pickup. Book once and everything between the first stop and the last drop is handled.
+            <p className="text-[15px] text-[#6D685F]">
+              Book in under 2 Minutes and get instant confirmation in your email.
             </p>
-
-            <div className="space-y-3">
-              {[
-                "Vetted, background-checked chauffeurs in executive suits",
-                "Complimentary wait time held when board meetings overrun",
-                "Dedicated corporate account manager for roadshows",
-                "Non-Disclosure Agreements & strict passenger confidentiality",
-                "Centralized monthly billing with itemized receipts"
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-3 text-xs sm:text-sm text-neutral-200">
-                  <CheckCircle2 className="w-4 h-4 text-gold shrink-0" />
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="pt-4 flex items-center gap-4">
-              <Link
-                to="/corporate-limo-service"
-                className="bg-gold hover:bg-gold-hover text-black px-7 py-3 rounded-full font-bold text-xs tracking-wide transition shadow-lg shadow-gold/20"
-              >
-                Book Corporate Travel
-              </Link>
-              <Link
-                to="/contact-us"
-                className="border border-white/20 hover:border-gold hover:text-gold text-white px-6 py-3 rounded-full font-bold text-xs transition"
-              >
-                Open Corporate Account
-              </Link>
-            </div>
           </div>
-        </div>
-      </section>
 
-      {/* Tri-State Areas Served Interactive Grid */}
-      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold/15 text-gold border border-gold/30 text-xs font-bold uppercase tracking-wider">
-            Coverage Area
-          </div>
-          <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white">
-            Transportation Across NYC & The Tri-State Area
-          </h2>
-          <p className="text-sm sm:text-base text-neutral-400">
-            Local rides, airport travel, long-distance transfers and corporate transportation across the five boroughs and beyond — hotels, venues, and custom destinations included.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {areasData.map((area) => (
-            <Link
-              key={area.id}
-              to={area.slug}
-              className="group bg-[#0E1722] rounded-3xl border border-white/10 overflow-hidden hover:border-gold/50 transition-all duration-300 flex flex-col justify-between"
-            >
-              <div className="relative aspect-[16/10] overflow-hidden">
-                <img
-                  src={area.image}
-                  alt={area.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0E1722] via-transparent to-black/40" />
-                <div className="absolute bottom-3 left-4">
-                  <h3 className="font-serif text-2xl font-bold text-white group-hover:text-gold transition">
-                    {area.name}
-                  </h3>
-                  <div className="text-xs text-neutral-300">{area.tagline}</div>
-                </div>
-              </div>
-
-              <div className="p-6 space-y-3">
-                <p className="text-xs text-neutral-400 leading-relaxed line-clamp-2">
-                  {area.description}
-                </p>
-
-                <div className="pt-2 flex items-center justify-between text-xs font-bold text-gold border-t border-white/5">
-                  <span>Explore Service Area</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition" />
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* 3-Step Booking Guide */}
-      <section className="py-24 bg-[#080E15] border-y border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold/15 text-gold border border-gold/30 text-xs font-bold uppercase tracking-wider mb-3">
-            Easy Booking Process
-          </div>
-          <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white mb-4">
-            From Quote to Curbside in Three Steps
-          </h2>
-          <p className="text-sm text-neutral-400 max-w-xl mx-auto mb-16">
-            Book in under 2 minutes and receive instant confirmation in your email with transparent flat pricing.
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             {[
               {
-                step: "01",
+                num: "01",
                 title: "Share your itinerary",
-                desc: "Enter your pickup address, airport terminal, destination, timing, and passenger requirements."
+                desc: "Enter the pickup, destination, timing and passenger details."
               },
               {
-                step: "02",
+                num: "02",
                 title: "Select your vehicle",
-                desc: "Review our luxury sedan, SUV, Sprinter, or coach options with guaranteed all-inclusive rates."
+                desc: "Review the class, capacity and clear rate for your journey."
               },
               {
-                step: "03",
+                num: "03",
                 title: "Ride with confidence",
-                desc: "Receive your chauffeur's name, cell number, and vehicle license details 24 hours prior to travel."
+                desc: "You will get the chauffeur's details one day before the pickup."
               }
-            ].map((stepItem, idx) => (
-              <div
-                key={idx}
-                className="bg-[#0E1722] border border-white/10 rounded-3xl p-8 relative hover:border-gold/40 transition"
-              >
-                <div className="font-serif text-4xl font-bold text-gold/30 mb-4">
-                  {stepItem.step}
+            ].map((step, i) => (
+              <div key={i} className="space-y-3 px-4">
+                <div className="w-14 h-14 rounded-full border-2 border-[#e09900] flex items-center justify-center mx-auto text-[#e09900] font-serif text-xl font-bold">
+                  {step.num}
                 </div>
-                <h3 className="font-serif text-xl font-bold text-white mb-2">
-                  {stepItem.title}
+                <h3 className="font-serif text-xl font-bold text-[#1D1D1B]">
+                  {step.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed">
-                  {stepItem.desc}
+                <p className="text-[13px] text-[#6D685F] leading-relaxed max-w-xs mx-auto">
+                  {step.desc}
                 </p>
               </div>
             ))}
           </div>
-
-          <div className="mt-12">
-            <Link
-              to="/reservations"
-              className="bg-gold hover:bg-gold-hover text-black px-8 py-4 rounded-full font-bold text-sm tracking-wide transition shadow-xl shadow-gold/25 inline-flex items-center gap-2"
-            >
-              <span>Start Your Booking</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* Frequently Asked Questions */}
-      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold/15 text-gold border border-gold/30 text-xs font-bold uppercase tracking-wider">
-            Got Questions?
+      {/* =========================================================================
+          10. FAQ SECTION: "Limo Service NYC — Frequently Asked Questions"
+      ========================================================================= */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+        <div className="mb-10">
+          <div className="flex items-center gap-2 mb-2">
+            <span className="w-6 h-[1px] bg-[#e09900]" />
+            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#e09900]">
+              QUESTIONS
+            </span>
           </div>
-          <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-sm sm:text-base text-neutral-400">
-            Confirm exact pricing, vehicle availability, pickup instructions, and trip requirements directly with NYC Premier Limo.
-          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-end">
+            <div className="md:col-span-7">
+              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1D1D1B] leading-tight">
+                Limo Service NYC — Frequently Asked Questions
+              </h2>
+            </div>
+            <div className="md:col-span-5">
+              <p className="text-[14px] text-[#6D685F] leading-relaxed">
+                Confirm exact pricing, vehicle availability, pickup instructions, and trip requirements directly with NYC Premier Limo.
+              </p>
+            </div>
+          </div>
         </div>
 
-        <FaqAccordion />
+        {/* Accordion list on clean white borders */}
+        <div className="divide-y divide-neutral-200 border-y border-neutral-200">
+          {faqs.map((faq, idx) => {
+            const isOpen = openFaq === idx;
+            return (
+              <div key={idx} className="py-5 text-left">
+                <button
+                  type="button"
+                  onClick={() => setOpenFaq(isOpen ? -1 : idx)}
+                  className="w-full flex items-center justify-between text-left gap-4 group"
+                >
+                  <span className="font-serif text-lg sm:text-xl font-bold text-[#1D1D1B] group-hover:text-[#e09900] transition">
+                    {faq.q}
+                  </span>
+                  <span className="text-[#6D685F] shrink-0">
+                    {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+                  </span>
+                </button>
+                {isOpen && (
+                  <p className="mt-3 text-[14px] text-[#6D685F] leading-relaxed pr-8">
+                    {faq.a}
+                  </p>
+                )}
+              </div>
+            );
+          })}
+        </div>
       </section>
 
-      {/* Final Call to Action Strip */}
-      <section className="py-20 bg-gradient-to-r from-[#0E1722] via-[#14202D] to-[#0E1722] border-t border-white/10">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center space-y-6">
-          <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white">
-            Book Your Next Trip With NYC Premier Limo
-          </h2>
-          <p className="text-sm sm:text-base text-neutral-300 max-w-2xl mx-auto leading-relaxed">
-            Request a quote online or speak to dispatch directly. Quotes are free, the price is fixed before you book, and someone answers the phone 24 hours a day — including holidays.
-          </p>
+      {/* =========================================================================
+          11. PRE-FOOTER CTA (Dark Rounded Box with Gold Button)
+      ========================================================================= */}
+      <section className="px-4 sm:px-6 lg:px-8 pb-16 max-w-6xl mx-auto">
+        <div className="bg-[#11161D] rounded-3xl p-8 sm:p-12 border border-[#e09900]/30 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 text-left">
+          <div className="space-y-3 max-w-xl">
+            <div className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#e09900]">
+              START YOUR TRIP
+            </div>
+            <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight">
+              Book your next trip with NYC Premier Limo.
+            </h3>
+            <p className="text-[14px] text-white/70 leading-relaxed">
+              Request a quote online or speak to dispatch directly. Quotes are free, the price is fixed before you book, and someone answers the phone 24 hours a day — including holidays.
+            </p>
+          </div>
 
-          <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
+          <div className="flex flex-wrap items-center gap-4 shrink-0">
             <a
               href="tel:+13478889797"
-              className="bg-gold hover:bg-gold-hover text-black px-8 py-4 rounded-full font-bold text-sm tracking-wide transition shadow-xl shadow-gold/25 flex items-center gap-2"
+              className="bg-[#e09900] hover:bg-[#c88800] text-black font-bold text-xs px-7 py-3.5 rounded-full transition shadow-lg"
             >
-              <Phone className="w-4 h-4" />
-              <span>Call (347) 888-9797</span>
+              Call Now
             </a>
-
             <Link
               to="/reservations"
-              className="border border-white/20 hover:border-gold hover:text-gold text-white px-8 py-4 rounded-full font-bold text-sm tracking-wide transition bg-white/5"
+              className="border border-white/20 hover:border-[#e09900] text-white hover:text-[#e09900] font-bold text-xs px-7 py-3.5 rounded-full transition"
             >
-              <span>Instant Online Quote</span>
+              Instant Quote
             </Link>
           </div>
         </div>
       </section>
+
     </div>
   );
 }

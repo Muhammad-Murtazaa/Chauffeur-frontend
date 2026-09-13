@@ -8,25 +8,29 @@ export default {
     extend: {
       colors: {
         gold: {
-          DEFAULT: '#E09900',
-          hover: '#F5B027',
-          light: '#FFF5E5',
-          dark: '#B37A00',
+          DEFAULT: '#e09900',
+          hover: '#c88800',
+          light: '#fff8eb',
+          dark: '#b37a00',
           muted: 'rgba(224, 153, 0, 0.16)',
-          border: '#C9A227'
+          border: '#e09900'
         },
-        obsidian: {
-          950: '#060B10',
-          900: '#0B1219',
-          850: '#101923',
-          800: '#162230',
-          700: '#1F2F42',
-          600: '#2A3F58'
+        cream: {
+          DEFAULT: '#F9F7F2',
+          light: '#FCFBF8',
+          dark: '#F2EFE8',
+          border: '#E8E4DA'
+        },
+        dark: {
+          DEFAULT: '#1D1D1B',
+          pure: '#000000',
+          surface: '#111111',
+          card: '#161F2A'
         }
       },
       fontFamily: {
         serif: ['"Playfair Display"', 'Georgia', 'serif'],
-        sans: ['"DM Sans"', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        sans: ['"DM Sans"', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
       }
     },
   },
