@@ -48,7 +48,7 @@ export default function Home() {
 
   const faqs = [
     {
-      q: "How do I book a ride?",
+      q: "How do I make a reservation?",
       a: "Book online through our real-time portal, call us directly, or message the team. Support is available 24/7 to confirm your car."
     },
     {
@@ -60,11 +60,11 @@ export default function Home() {
       a: "Executive sedans, luxury SUVs, premium vans and larger group vehicles — matched to your passenger count and luggage."
     },
     {
-      q: "Do you offer flat rates or hourly?",
+      q: "Are your prices flat or hourly?",
       a: "Both. Flat rates apply to airport and point-to-point transfers; hourly charters suit multi-stop and corporate travel. The quote is what you pay."
     },
     {
-      q: "Can I book for weddings or special occasions?",
+      q: "Can I book for weddings or special events?",
       a: "Yes. We arrange transportation for weddings, proms, anniversaries and other occasions, with vehicles to match the day."
     }
   ];
@@ -908,19 +908,16 @@ export default function Home() {
       {/* =========================================================================
           10. FAQ SECTION: "Limo Service NYC — Frequently Asked Questions"
       ========================================================================= */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+      <section className="py-20 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
         <div className="mb-10">
-          <div className="flex items-center gap-2 mb-2">
-            <span className="w-6 h-[1px] bg-[#e09900]" />
-            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#e09900]">
-              QUESTIONS
-            </span>
+          <div className="text-[12px] font-bold uppercase tracking-[0.14em] text-[#e09900] mb-3">
+            &mdash; QUESTIONS
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-end">
             <div className="md:col-span-7">
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1D1D1B] leading-tight">
-                Limo Service NYC — Frequently Asked Questions
+                Limo Service NYC &mdash; Frequently Asked Questions
               </h2>
             </div>
             <div className="md:col-span-5">
@@ -931,29 +928,42 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Accordion list on clean white borders */}
+        {/* Accordion list with smooth slide transition */}
         <div className="divide-y divide-neutral-200 border-y border-neutral-200">
           {faqs.map((faq, idx) => {
             const isOpen = openFaq === idx;
             return (
-              <div key={idx} className="py-5 text-left">
+              <div key={idx} className="py-2 text-left">
                 <button
                   type="button"
                   onClick={() => setOpenFaq(isOpen ? -1 : idx)}
-                  className="w-full flex items-center justify-between text-left gap-4 group"
+                  className="w-full flex items-center justify-between text-left gap-4 py-4 group cursor-pointer select-none transition-colors"
+                  aria-expanded={isOpen}
                 >
-                  <span className="font-serif text-lg sm:text-xl font-bold text-[#1D1D1B] group-hover:text-[#e09900] transition">
+                  <span className="font-serif text-lg sm:text-xl font-bold text-[#1D1D1B] group-hover:text-[#e09900] transition-colors duration-200">
                     {faq.q}
                   </span>
-                  <span className="text-[#6D685F] shrink-0">
-                    {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+                  <span className="w-8 h-8 rounded-full bg-black/5 group-hover:bg-[#e09900]/10 flex items-center justify-center text-[#6D685F] group-hover:text-[#e09900] transition-colors duration-200 shrink-0">
+                    <Plus
+                      className={`w-4 h-4 transition-transform duration-350 ease-in-out ${
+                        isOpen ? 'rotate-45 text-[#e09900]' : 'rotate-0'
+                      }`}
+                    />
                   </span>
                 </button>
-                {isOpen && (
-                  <p className="mt-3 text-[14px] text-[#6D685F] leading-relaxed pr-8">
-                    {faq.a}
-                  </p>
-                )}
+
+                {/* Smooth Expand/Collapse Grid Container */}
+                <div
+                  className={`grid transition-all duration-300 ease-in-out ${
+                    isOpen ? 'grid-rows-[1fr] opacity-100 pb-4' : 'grid-rows-[0fr] opacity-0 pb-0'
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <p className="text-[14px] sm:text-[15px] text-[#6D685F] leading-relaxed pr-8">
+                      {faq.a}
+                    </p>
+                  </div>
+                </div>
               </div>
             );
           })}
