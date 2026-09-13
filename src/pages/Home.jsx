@@ -689,88 +689,104 @@ export default function Home() {
       {/* =========================================================================
           8. STATEMENT & TWO FEATURED CALLOUT COLLAGES
       ========================================================================= */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto space-y-16 border-t border-neutral-200/60">
-        {/* Editorial Statement Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          <div className="lg:col-span-6 space-y-2">
-            <div className="flex items-center gap-2">
-              <span className="w-6 h-[1px] bg-[#e09900]" />
-              <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#e09900]">
-                NYC & TRI-STATE AREA CHAUFFEUR
-              </span>
+      {/* 8A. Editorial Statement Header (Pure White Background) */}
+      <section className="bg-white py-16 sm:py-20 border-t border-zinc-200/60">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <div className="lg:col-span-6 space-y-3">
+              <div className="text-[12px] font-bold uppercase tracking-[0.14em] text-[#e09900]">
+                &mdash; NYC &middot; NEW JERSEY &middot; CONNECTICUT
+              </div>
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[44px] font-bold text-black leading-[1.12]">
+                Luxury Black Car<br />
+                Service Across NY, NJ<br />
+                &amp; CT
+              </h2>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1D1D1B] leading-tight">
-              Luxury Black Car Service Across NY, NJ & CT
-            </h2>
-          </div>
-          <div className="lg:col-span-6">
-            <p className="text-[15px] text-[#6D685F] leading-relaxed">
-              A 5 am run to JFK, a <Link to="/manhattan-limo-service" className="text-[#e09900] underline">Broadway night out</Link>, a wedding, a private ride to the Hamptons — you tell us the trip, we assign the right vehicle and chauffeur, and we agree on the price before anyone gets in the car. No meter, no surge, no waiting on the curb. Late-model luxury sedans, full-size SUVs, executive Sprinter vans, and charter coaches, across the five boroughs and the tri-state area, 24 hours a day.
-            </p>
+            <div className="lg:col-span-6">
+              <p className="text-sm sm:text-base text-zinc-600 leading-relaxed pt-2">
+                A 5 am run to JFK, a <Link to="/manhattan-limo-service" className="text-[#a21caf] hover:underline">Broadway night out</Link>, a wedding, a private ride to the Hamptons &mdash; you tell us the trip, we assign the right vehicle and chauffeur, and we agree on the price before anyone gets in the car. No meter, no surge, no waiting on the curb. Late-model luxury sedans, full-size SUVs, executive Sprinter vans, and charter coaches, across the five boroughs and the tri-state area, 24 hours a day.
+              </p>
+            </div>
           </div>
         </div>
+      </section>
 
-        {/* Callout 1: Professional Limousine Service with Photo Collage */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          {/* Left: Image with Inset */}
-          <div className="lg:col-span-6 relative">
-            <div className="relative rounded-2xl overflow-hidden shadow-lg aspect-[16/10]">
+      {/* 8B. Why NYC Premier Limo: Collage & Professional Limousine Service */}
+      <section className="py-20 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Left: Image Collage with Gold Badge and Inset */}
+          <div className="lg:col-span-6 relative pr-3 pb-6 sm:pr-8 sm:pb-8">
+            {/* Main Sunset Fleet Lineup Image */}
+            <div className="relative rounded-[28px] overflow-hidden shadow-xl aspect-[4/3] sm:aspect-[16/12]">
               <img
-                src="https://nycpremierlimo.com/wp-content/uploads/2026/08/professional-limousine-service-fleet-lineup-nyc-1024x576.webp"
-                alt="Professional Limousine Service"
+                src="https://nycpremierlimo.com/wp-content/uploads/2026/08/professional-limousine-service-fleet-lineup-nyc.webp"
+                alt="Professional Limousine Service Fleet Lineup"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute top-4 left-4 bg-[#e09900] text-black text-xs font-bold px-3 py-1 rounded-md">
-                Every chauffeur, every ride
+            </div>
+
+            {/* Overlapping Gold Floating Badge (Top Left) */}
+            <div className="absolute -top-4 -left-3 sm:-top-5 sm:-left-5 bg-[#e09900] text-black rounded-2xl shadow-xl px-5 py-3.5 sm:py-4 flex items-center gap-3.5 z-20">
+              <svg 
+                className="w-7 h-7 sm:w-8 sm:h-8 text-black shrink-0 fill-current" 
+                viewBox="0 0 576 512" 
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M528 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm0 400H48V80h480v352zM208 256c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm-89.6 128h179.2c12.4 0 22.4-8.6 22.4-19.2v-19.2c0-31.8-30.1-57.6-67.2-57.6-10.8 0-18.7 8-44.8 8-26.9 0-33.4-8-44.8-8-37.1 0-67.2 25.8-67.2 57.6v19.2c0 10.6 10 19.2 22.4 19.2zM360 320h112c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8H360c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8zm0-64h112c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8H360c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8zm0-64h112c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8H360c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8z" />
+              </svg>
+              <div>
+                <h4 className="font-bold text-sm sm:text-[15px] text-black leading-tight">
+                  Licensed &amp; Insured
+                </h4>
+                <p className="text-xs text-black/85 font-medium leading-tight mt-0.5">
+                  Every chauffeur, every ride
+                </p>
               </div>
             </div>
-            {/* Small Inset Photo */}
-            <div className="absolute -bottom-6 right-4 w-40 sm:w-48 rounded-xl overflow-hidden border-4 border-white shadow-2xl">
+
+            {/* Overlapping Inset Passenger Photo (Bottom Right) */}
+            <div className="absolute -bottom-5 -right-2 sm:-bottom-7 sm:-right-4 w-[210px] sm:w-[260px] h-[145px] sm:h-[180px] rounded-2xl overflow-hidden border-[5px] sm:border-[6px] border-white shadow-2xl z-20">
               <img
-                src="https://nycpremierlimo.com/wp-content/uploads/2026/08/alt-corporate-car-service-chauffeur-door.webp"
-                alt="Chauffeur Service Door"
-                className="w-full h-auto object-cover"
+                src="https://nycpremierlimo.com/wp-content/uploads/2026/08/point-to-point-car-service-soho-passenger-pickup-1024x683.webp"
+                alt="SoHo Passenger Pickup"
+                className="w-full h-full object-cover"
               />
             </div>
           </div>
 
-          {/* Right: Content */}
-          <div className="lg:col-span-6 space-y-4 pl-0 lg:pl-4">
-            <div className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#e09900]">
-              RELIABILITY AT SCALE
+          {/* Right: Content & Checklist */}
+          <div className="lg:col-span-6 space-y-4 pl-0 lg:pl-6">
+            <div className="text-[12px] font-bold uppercase tracking-[0.14em] text-[#e09900] mb-2">
+              &mdash; WHY NYC PREMIER LIMO
             </div>
-            <h3 className="font-serif text-3xl font-bold text-[#1D1D1B]">
-              Professional Limousine Service
+            <h3 className="font-serif text-3xl sm:text-4xl lg:text-[44px] font-bold text-black leading-[1.15]">
+              Professional Limousine<br />
+              Service
             </h3>
-            <p className="text-[14px] text-[#6D685F] leading-relaxed">
+            <p className="text-sm sm:text-[15px] text-zinc-600 leading-relaxed max-w-lg mb-8">
               We hold the car when the meeting runs over, and we know which entrances work at 8am. Book once and we handle everything between the first pickup and the last drop.
             </p>
 
-            <div className="grid grid-cols-2 gap-3 pt-2 text-[13px] text-[#1D1D1B] font-medium">
-              <div className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-[#e09900]" />
-                <span>Licensed Professional Chauffeurs</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-[#e09900]" />
-                <span>24/7 trip Support</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-[#e09900]" />
-                <span>Dedicated account manager</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-[#e09900]" />
-                <span>Tri-state Reach</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-[#e09900]" />
-                <span>Clear, Flat-rate Options</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-[#e09900]" />
-                <span>Discretion at top</span>
-              </div>
+            {/* 2-Column Checklist */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5 pt-3">
+              {[
+                { title: "Licensed Professional Chauffeurs", col: 1 },
+                { title: "Tri-state Reach", col: 2 },
+                { title: "24/7 trip Support", col: 1 },
+                { title: "Clear, Flat-rate Options", col: 2 },
+                { title: "Dedicated account manager", col: 1 },
+                { title: "Discretion at top", col: 2 }
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <div className="w-6 h-6 rounded-full bg-[#fde68a]/70 flex items-center justify-center shrink-0">
+                    <Check className="w-3.5 h-3.5 text-[#b45309] stroke-[3]" />
+                  </div>
+                  <span className="text-xs sm:text-[13px] font-bold text-black">
+                    {item.title}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
