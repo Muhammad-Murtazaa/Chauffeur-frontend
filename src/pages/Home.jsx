@@ -82,71 +82,88 @@ export default function Home() {
       {/* =========================================================================
           1. HERO SECTION (Dark / Luxury City Street Background)
       ========================================================================= */}
-      <section className="relative min-h-[620px] lg:min-h-[680px] flex items-center justify-center text-center px-4 sm:px-6 pt-20 pb-28 bg-[#0B1219] overflow-hidden">
+      <section className="relative min-h-[560px] lg:min-h-[620px] flex items-center justify-center text-center px-4 sm:px-6 pt-16 pb-20 bg-black overflow-hidden">
         {/* Background photo */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url('https://nycpremierlimo.com/wp-content/uploads/2026/08/hero-nyc-limousine-service-chauffeur-manhattan-1-1536x864.webp')` }}
         />
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/65 backdrop-brightness-75" />
+        <div className="absolute inset-0 bg-black/60 backdrop-brightness-90" />
 
-        <div className="relative z-10 max-w-4xl mx-auto space-y-6">
-          {/* Eyebrow with gold divider */}
-          <div className="flex items-center justify-center gap-3">
-            <span className="w-10 h-[1px] bg-[#e09900]" />
-            <span className="text-[12px] uppercase font-bold tracking-[0.14em] text-[#e09900]">
-              CHAUFFEUR SERVICE NYC
-            </span>
-            <span className="w-10 h-[1px] bg-[#e09900]" />
+        <div className="relative z-10 max-w-4xl mx-auto space-y-5">
+          {/* Eyebrow */}
+          <div className="flex items-center justify-center gap-2 text-xs sm:text-[13px] font-medium tracking-wide text-[#e09900]">
+            <span>&mdash;</span>
+            <span>Serving NYC &amp; the Tri-State Area</span>
           </div>
 
           {/* Heading */}
-          <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#e09900] leading-[1.08]">
-            Luxury Limo & Chauffeur Service in NYC
+          <h1 className="font-serif text-3xl sm:text-5xl lg:text-[62px] font-bold tracking-tight leading-[1.12] max-w-4xl mx-auto">
+            <span className="text-white">Luxury Limo </span>
+            <span className="text-[#e09900]">&amp; Chauffeur Service in</span>
+            <span className="block text-[#e09900] mt-1">NYC</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-sm sm:text-base text-white/90 max-w-2xl mx-auto font-medium leading-[1.8em]">
+          <p className="text-sm sm:text-[15px] text-zinc-200/90 max-w-3xl mx-auto font-normal leading-relaxed">
             Chauffeured airport transfers, corporate car service, hourly hire and point-to-point rides across New York, New Jersey and Connecticut — flat rates confirmed before you travel, 24/7 dispatch, no surge pricing.
           </p>
 
-          {/* Gold Button */}
-          <div className="pt-2">
+          {/* Two Buttons: Call & Get A Quote */}
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-3">
+            <a
+              href="tel:+13478889797"
+              className="bg-[#e09900] hover:bg-[#c98600] text-black font-semibold text-sm px-7 py-3 rounded-full transition-colors shadow-sm"
+            >
+              Call (347) 888-9797
+            </a>
             <Link
               to="/reservations"
-              className="inline-block bg-[#e09900] hover:bg-[#c88800] text-black font-bold text-[15px] px-9 py-3.5 rounded-full transition duration-200 shadow-xl"
+              className="border border-white text-white hover:bg-white hover:text-black font-medium text-sm px-7 py-3 rounded-full transition-colors flex items-center gap-2"
             >
-              Get A Quote
+              <span>Get A Quote</span>
+              <span className="text-base leading-none">&rarr;</span>
             </Link>
           </div>
         </div>
       </section>
 
       {/* =========================================================================
-          2. STATS / TRUST STRIP (Crisp White Bar with Dividers)
+          2. STATS / TRUST STRIP (Crisp Full-Width White Bar with Vertical Dividers)
       ========================================================================= */}
-      <section className="relative z-20 max-w-6xl mx-auto -mt-10 px-4">
-        <div className="bg-white rounded-2xl border border-black/10 shadow-xl py-6 px-6 sm:px-8 grid grid-cols-2 md:grid-cols-5 gap-6 text-left">
-          {[
-            { num: "01", title: "Flight Tracking", desc: "We watch your flight and adjust pickup" },
-            { num: "02", title: "All-Inclusive Pricing", desc: "Tolls and gratuity included" },
-            { num: "03", title: "Meet & Greet", desc: "In-terminal pickup on request" },
-            { num: "04", title: "Tri-State Coverage", desc: "New York, New Jersey, Connecticut" },
-            { num: "05", title: "5 Star Rated", desc: "Service trusted by riders" }
-          ].map((stat, i) => (
-            <div key={i} className={`space-y-1 ${i === 4 ? 'col-span-2 md:col-span-1' : ''} ${i > 0 ? 'md:border-l md:border-neutral-200 md:pl-5' : ''}`}>
-              <div className="text-[12px] font-bold text-[#e09900] tracking-wider font-sans">
-                {stat.num}
+      <section className="w-full bg-white border-b border-black/5 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-6">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-y-6">
+            {[
+              { num: "01", title: "Flight Tracking", desc: "We watch your flight and adjust pickup" },
+              { num: "02", title: "All-Inclusive Pricing", desc: "Tolls and gratuity included" },
+              { num: "03", title: "Meet & Greet", desc: "In-terminal pickup on request" },
+              { num: "04", title: "Tri-State Coverage", desc: "New York, New Jersey, Connecticut" },
+              { num: "05", title: "5 Star Rated", desc: "Service trusted by riders" }
+            ].map((stat, i) => (
+              <div 
+                key={i} 
+                className={`flex items-start gap-3 px-3 sm:px-5 ${
+                  i === 4 ? 'col-span-2 md:col-span-1' : ''
+                } ${
+                  i > 0 ? 'md:border-l md:border-zinc-200' : ''
+                }`}
+              >
+                <span className="font-serif font-bold text-[#e09900] text-sm pt-0.5 shrink-0">
+                  {stat.num}
+                </span>
+                <div className="space-y-0.5 min-w-0">
+                  <h4 className="font-bold text-[13px] sm:text-[14px] text-zinc-900 tracking-tight leading-tight whitespace-nowrap">
+                    {stat.title}
+                  </h4>
+                  <p className="text-[11px] sm:text-[12px] text-zinc-500 leading-snug">
+                    {stat.desc}
+                  </p>
+                </div>
               </div>
-              <h4 className="text-[14px] font-bold text-[#1D1D1B] leading-snug">
-                {stat.title}
-              </h4>
-              <p className="text-[12px] text-[#6D685F] leading-snug">
-                {stat.desc}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 

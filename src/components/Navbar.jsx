@@ -25,47 +25,10 @@ export default function Navbar() {
   }, [location]);
 
   return (
-    <header className="sticky top-0 z-40 w-full transition-all duration-300">
-      {/* Top Notification Bar */}
-      <div className="bg-[#060A0E] text-xs text-neutral-300 border-b border-white/5 py-2 px-4 sm:px-8">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="flex items-center space-x-6 text-[11px] sm:text-xs">
-            <span className="flex items-center gap-1.5 text-gold">
-              <Sparkles className="w-3.5 h-3.5" />
-              NYC's Premier Luxury Fleet & Chauffeur Dispatch
-            </span>
-            <span className="hidden sm:inline-flex items-center gap-1 text-neutral-400">
-              <Clock className="w-3 h-3 text-gold" />
-              24/7 Live Flight Tracking & Dispatch
-            </span>
-          </div>
-          <div className="flex items-center space-x-4">
-            <a 
-              href="mailto:info@nycpremierlimo.com"
-              className="hover:text-gold transition text-[11px] sm:text-xs hidden md:inline"
-            >
-              info@nycpremierlimo.com
-            </a>
-            <a
-              href="tel:+13478889797"
-              className="flex items-center gap-1.5 text-gold font-bold hover:text-gold-hover transition"
-            >
-              <Phone className="w-3 h-3" />
-              <span>(347) 888-9797</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
+    <header className="sticky top-0 z-50 w-full bg-black border-b border-white/10 transition-all duration-300">
       {/* Main Navigation Bar */}
-      <nav
-        className={`w-full transition-all duration-300 ${
-          scrolled 
-            ? 'bg-[#0B1219]/95 backdrop-blur-md shadow-2xl py-3 border-b border-white/10' 
-            : 'bg-[#0B1219] py-4 border-b border-white/5'
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <nav className="w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 shrink-0 group">
             <img
@@ -288,17 +251,16 @@ export default function Navbar() {
           </div>
 
           {/* Action CTAs */}
-          <div className="hidden lg:flex items-center space-x-3">
+          <div className="hidden lg:flex items-center space-x-5">
             <a
               href="tel:+13478889797"
-              className="flex items-center gap-2 border border-gold/40 text-white hover:border-gold hover:text-gold px-4 py-2.5 rounded-full text-xs font-bold transition"
+              className="text-white hover:text-gold text-sm font-semibold transition-colors duration-200"
             >
-              <Phone className="w-3.5 h-3.5 text-gold" />
-              <span>(347) 888-9797</span>
+              (347) 888-9797
             </a>
             <Link
               to="/reservations"
-              className="bg-gold hover:bg-gold-hover text-black px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition shadow-lg shadow-gold/25"
+              className="bg-[#e09900] hover:bg-[#c98600] text-black px-6 py-2.5 rounded-full text-sm font-bold tracking-normal transition-colors duration-200"
             >
               Instant Quote
             </Link>
