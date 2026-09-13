@@ -353,114 +353,115 @@ export default function Home() {
       {/* =========================================================================
           5. FLEET SECTION: "Our Luxury Fleet — Sedans, SUVs & Sprinter Limousines"
       ========================================================================= */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+      <section className="py-20 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <div className="flex items-center justify-center gap-3">
-            <span className="w-8 h-[1px] bg-[#e09900]" />
-            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#e09900]">
-              THE FLEET
-            </span>
-            <span className="w-8 h-[1px] bg-[#e09900]" />
+          <div className="text-[12px] font-bold uppercase tracking-[0.14em] text-[#e09900]">
+            &mdash; OUR FLEET
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1D1D1B] leading-tight">
-            Our Luxury Fleet — Sedans, SUVs & Sprinter Limousines
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-[44px] font-bold text-black leading-tight">
+            Our Luxury Fleet &mdash; Sedans, SUVs &amp; Sprinter Limousines
           </h2>
-          <p className="text-[15px] text-[#6D685F] leading-relaxed">
-            From executive sedans to 55-passenger coaches, our luxury fleet is matched to your party size, luggage, and occasion — every vehicle detailed and chauffeur-driven.
+          <p className="text-sm sm:text-[15px] text-zinc-600 leading-relaxed max-w-2xl mx-auto">
+            From executive sedans to 55-passenger coaches, our luxury fleet is matched to your party size, luggage, and occasion &mdash; every vehicle detailed and chauffeur-driven.
           </p>
         </div>
 
         {/* 2x2 Grid of 4 White Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
           {[
             {
-              categoryBadge: "SEDAN",
-              classTag: "Executive class",
+              badge: "Executive class",
               title: "Premium Sedan",
               passengers: "3 Passengers",
               luggage: "3 Luggage",
-              service: "Professionally chauffeured",
               image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/Premium-Sedan.webp"
             },
             {
-              categoryBadge: "SUV",
-              classTag: "First class",
+              badge: "First class",
               title: "Premium SUV",
               passengers: "6 Passengers",
               luggage: "6 Luggage",
-              service: "Professionally chauffeured",
               image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/Premium-SUV.webp"
             },
             {
-              categoryBadge: "SPRINTER",
-              classTag: "Group class",
+              badge: "Group class",
               title: "Sprinter Van",
               passengers: "14 Passengers",
               luggage: "14 Luggage",
-              service: "Professionally chauffeured",
               image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/Sprinter-Van.webp"
             },
             {
-              categoryBadge: "BUS",
-              classTag: "Group class",
+              badge: "Group class",
               title: "Charter Bus",
               passengers: "55 Passengers",
               luggage: "55 Luggage",
-              service: "Professionally chauffeured",
               image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/Charter-Bus.webp"
             }
           ].map((veh, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl border border-neutral-200/80 overflow-hidden shadow-sm hover:shadow-lg transition duration-300 flex flex-col justify-between"
+              className="bg-white border border-zinc-200/90 overflow-hidden shadow-sm hover:shadow-md transition duration-300 flex flex-col justify-between"
             >
               <div>
-                {/* Photo with category badge */}
-                <div className="relative aspect-[16/10] bg-neutral-100 flex items-center justify-center p-4">
+                {/* Photo with top-left black class badge */}
+                <div className="relative w-full h-[270px] sm:h-[310px] overflow-hidden bg-neutral-100">
                   <img
                     src={veh.image}
                     alt={veh.title}
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out"
                   />
-                  <div className="absolute top-4 left-4 bg-[#1D1D1B] text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                    {veh.categoryBadge}
+                  <div className="absolute top-4 left-4 bg-black text-white text-xs font-bold px-3.5 py-1.5 tracking-wide">
+                    {veh.badge}
                   </div>
                 </div>
 
                 {/* Card Content */}
-                <div className="p-6 sm:p-8 space-y-3 text-left">
-                  <div className="text-[12px] font-bold text-[#6D685F] uppercase tracking-wider">
-                    {veh.classTag}
-                  </div>
-                  <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#1D1D1B]">
+                <div className="p-7 sm:p-8 lg:p-9 text-left">
+                  <h3 className="font-serif text-3xl sm:text-[34px] font-bold text-black leading-tight mb-6 sm:mb-8">
                     {veh.title}
                   </h3>
 
-                  {/* Specs */}
-                  <div className="grid grid-cols-2 gap-2 pt-2 text-[13px] text-[#46423B] font-medium border-t border-neutral-100">
-                    <div>{veh.passengers}</div>
-                    <div>{veh.luggage}</div>
-                    <div className="col-span-2 text-[#6D685F]">{veh.service}</div>
+                  {/* Thin Divider Line */}
+                  <div className="w-full h-[1px] bg-zinc-200 mb-6 sm:mb-8" />
+
+                  {/* Specs Row */}
+                  <div className="flex items-start justify-between gap-4 mb-8 sm:mb-10">
+                    <div>
+                      <p className="font-bold text-sm sm:text-base text-black">
+                        {veh.passengers}
+                      </p>
+                      <p className="text-xs sm:text-sm text-zinc-500 mt-1">
+                        {veh.luggage}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="font-bold text-sm sm:text-base text-black">
+                        Professionally chauffeured
+                      </p>
+                      <p className="text-xs sm:text-sm text-zinc-500 mt-1">
+                        Request this vehicle class
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Bottom Action Links with Gold Underline */}
+                  <div className="flex items-center justify-between pt-2">
+                    <Link
+                      to="/reservations"
+                      className="inline-block text-sm sm:text-base font-medium text-black border-b-2 border-[#e09900] pb-0.5 hover:text-[#e09900] transition-colors"
+                    >
+                      Book now
+                    </Link>
+                    <Link
+                      to="/fleet"
+                      className="inline-block text-sm sm:text-base font-medium text-black border-b-2 border-[#e09900] pb-0.5 hover:text-[#e09900] transition-colors"
+                    >
+                      View the Full Fleet
+                    </Link>
                   </div>
                 </div>
-              </div>
-
-              {/* Bottom Card Actions */}
-              <div className="p-6 sm:p-8 pt-0 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 border-t border-neutral-100 mt-2">
-                <Link
-                  to="/reservations"
-                  className="bg-[#e09900] hover:bg-[#c88800] text-black font-bold text-xs px-6 py-3 rounded-full text-center transition"
-                >
-                  Book now
-                </Link>
-                <Link
-                  to="/fleet"
-                  className="text-xs font-bold text-[#1D1D1B] hover:text-[#e09900] text-center transition py-2"
-                >
-                  View the Full Fleet →
-                </Link>
               </div>
             </div>
           ))}
