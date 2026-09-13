@@ -137,29 +137,195 @@ export default function Fleet() {
         </div>
       </div>
 
-      {/* Filter Tabs & Vehicle Grid */}
-      <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Category Filters */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
-          {categories.map(cat => (
-            <button
-              key={cat.id}
-              onClick={() => setSelectedCategory(cat.id)}
-              className={`px-5 py-2.5 rounded-full text-xs font-bold transition ${
-                selectedCategory === cat.id
-                  ? 'bg-gold text-black shadow-lg shadow-gold/25'
-                  : 'bg-[#101923] text-neutral-300 hover:text-white hover:bg-white/10 border border-white/5'
-              }`}
-            >
-              {cat.label}
-            </button>
-          ))}
+      {/* =========================================================================
+          3. OUR FLEET: "A vehicle matched to the moment"
+      ========================================================================= */}
+      <section className="py-20 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 lg:mb-14">
+          <div>
+            <div className="text-[12px] font-bold uppercase tracking-[0.14em] text-[#e09900] mb-3">
+              &mdash; OUR FLEET
+            </div>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-[44px] font-bold text-black leading-[1.12]">
+              A vehicle matched to the<br />
+              moment
+            </h2>
+          </div>
+          <p className="text-sm sm:text-[15px] text-zinc-600 leading-relaxed max-w-md lg:pb-1">
+            Passenger limits assume standard seating. Share oversized luggage, mobility needs, child-seat requests, or special equipment before your vehicle is confirmed.
+          </p>
         </div>
 
-        {/* Vehicles Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredVehicles.map(vehicle => (
-            <VehicleCard key={vehicle.id} vehicle={vehicle} />
+        {/* 3-Column Vehicle Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {[
+            {
+              id: "business-sedan",
+              name: "Business Sedan",
+              passengers: "3 Passengers",
+              luggage: "3 Luggage",
+              image: "https://nycpremierlimo.com/wp-content/uploads/2026/09/Premium-sedan-768x512.png"
+            },
+            {
+              id: "premium-sedan",
+              name: "Premium Sedan",
+              passengers: "2 Passengers",
+              luggage: "2 Luggage",
+              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-premium-sedan-mercedes-s-class-nyc-768x512.webp"
+            },
+            {
+              id: "midsize-suv",
+              name: "Midsize SUV",
+              passengers: "4 Passengers",
+              luggage: "4 Luggage",
+              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-midsize-suv-cadillac-xt6-nyc-768x512.png"
+            },
+            {
+              id: "business-suv",
+              name: "Business SUV",
+              passengers: "6 Passengers",
+              luggage: "6 Luggage",
+              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-business-suv-chevrolet-tahoe-nyc-768x512.png"
+            },
+            {
+              id: "premium-suv",
+              name: "Premium SUV",
+              passengers: "6 Passengers",
+              luggage: "6 Luggage",
+              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-premium-suv-cadillac-escalade-nyc-768x512.png"
+            },
+            {
+              id: "stretch-limo",
+              name: "Stretch Limo",
+              passengers: "8 Passengers",
+              luggage: "2 Luggage",
+              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-stretch-limo-lincoln-town-car-nyc-768x612.png"
+            },
+            {
+              id: "transit-van",
+              name: "Transit Van",
+              passengers: "10 Passengers",
+              luggage: "10 Luggage",
+              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-executive-van-mercedes-sprinter-nyc-768x559.png"
+            },
+            {
+              id: "jet-sprinter",
+              name: "Jet Sprinter",
+              passengers: "10 Passengers",
+              luggage: "10 Luggage",
+              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-jet-sprinter-executive-van-nyc-768x512.png"
+            },
+            {
+              id: "sprinter-van",
+              name: "Sprinter Van",
+              passengers: "14 Passengers",
+              luggage: "14 Luggage",
+              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-sprinter-van-mercedes-benz-nyc-1-768x612.png"
+            },
+            {
+              id: "sprinter-limo",
+              name: "Sprinter Limo",
+              passengers: "14 Passengers",
+              luggage: "14 Luggage",
+              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-sprinter-limo-party-van-nyc-768x512.png"
+            },
+            {
+              id: "suv-limo",
+              name: "SUV Limo",
+              passengers: "16 Passengers",
+              luggage: "16 Luggage",
+              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-suv-limo-lincoln-navigator-nyc-768x512.png"
+            },
+            {
+              id: "party-van",
+              name: "Party Van",
+              passengers: "18 Passengers",
+              luggage: "18 Luggage",
+              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-party-van-ford-transit-nyc-768x512.png"
+            },
+            {
+              id: "mini-bus",
+              name: "Mini Bus",
+              passengers: "25 Passengers",
+              luggage: "25 Luggage",
+              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-mini-bus-nyc-group-shuttle-768x612.png"
+            },
+            {
+              id: "coach-bus",
+              name: "Coach Bus",
+              passengers: "35 Passengers",
+              luggage: "35 Luggage",
+              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-coach-bus-nyc-group-transport-768x512.png"
+            },
+            {
+              id: "charter-bus",
+              name: "Charter Bus",
+              passengers: "55 Passengers",
+              luggage: "55 Luggage",
+              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-charter-bus-motorcoach-nyc-768x612.png"
+            }
+          ].map((veh) => (
+            <div
+              key={veh.id}
+              className="bg-white border border-zinc-200/90 overflow-hidden shadow-sm hover:shadow-md transition duration-300 flex flex-col justify-between text-left"
+            >
+              <div>
+                {/* Photo */}
+                <div className="relative w-full h-[220px] sm:h-[250px] overflow-hidden bg-neutral-100">
+                  <img
+                    src={veh.image}
+                    alt={veh.name}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out"
+                    loading="lazy"
+                  />
+                </div>
+
+                {/* Card Content */}
+                <div className="p-6 sm:p-7">
+                  <h3 className="font-serif text-2xl sm:text-[26px] font-bold text-black leading-tight mb-4">
+                    {veh.name}
+                  </h3>
+
+                  {/* Thin Divider Line */}
+                  <div className="w-full h-[1px] bg-zinc-200 mb-5" />
+
+                  {/* Specs Row */}
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#e09900]/15 flex items-center justify-center shrink-0">
+                        <svg className="w-4 h-4 text-[#e09900] fill-current" viewBox="0 0 24 24">
+                          <path d="M12 2a4 4 0 0 0-4 4v1a4 4 0 0 0 8 0V6a4 4 0 0 0-4-4zm-7 18c0-3.3 3.1-6 7-6s7 2.7 7 6v1H5v-1z" />
+                        </svg>
+                      </div>
+                      <span className="text-xs sm:text-[13px] font-bold text-black whitespace-nowrap">
+                        {veh.passengers}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#e09900]/15 flex items-center justify-center shrink-0">
+                        <svg className="w-4 h-4 text-[#e09900] fill-current" viewBox="0 0 24 24">
+                          <path d="M19 6h-3V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2zm-9-2h4v2h-4V4zm9 16H5V8h14v12z" />
+                        </svg>
+                      </div>
+                      <span className="text-xs sm:text-[13px] font-bold text-black whitespace-nowrap">
+                        {veh.luggage}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Bottom Action Link with Gold Underline */}
+                  <div className="pt-6 mt-auto text-left">
+                    <Link
+                      to="/reservations"
+                      className="inline-block text-xs sm:text-sm font-semibold text-black border-b-2 border-[#e09900] pb-0.5 hover:text-[#e09900] transition-colors"
+                    >
+                      Book now
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </section>
