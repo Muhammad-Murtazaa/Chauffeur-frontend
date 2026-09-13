@@ -330,6 +330,140 @@ export default function Fleet() {
         </div>
       </section>
 
+      {/* =========================================================================
+          4. VEHICLE SELECTION GUIDE: "Compare the fleet at a glance."
+      ========================================================================= */}
+      <section className="py-20 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-zinc-200/80">
+        {/* Section Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 lg:mb-14">
+          <div>
+            <div className="text-[12px] font-bold uppercase tracking-[0.14em] text-[#e09900] mb-3">
+              &mdash; VEHICLE SELECTION GUIDE
+            </div>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-[44px] font-bold text-black leading-[1.12]">
+              Compare the fleet at a<br />
+              glance.
+            </h2>
+          </div>
+          <p className="text-sm sm:text-[15px] text-zinc-600 leading-relaxed max-w-md lg:pb-1">
+            Passenger limits assume standard seating. Share oversized luggage, mobility needs, child-seat requests, or special equipment before your vehicle is confirmed.
+          </p>
+        </div>
+
+        {/* Comparison Table */}
+        <div className="overflow-x-auto bg-white border border-zinc-300 shadow-sm">
+          <table className="w-full border-collapse text-left text-xs sm:text-[13px]">
+            <thead>
+              <tr className="border-b border-zinc-300 bg-white">
+                <th className="border-r border-zinc-300 p-4 sm:p-5 font-bold text-black text-center whitespace-nowrap w-[20%]">
+                  Vehicle
+                </th>
+                <th className="border-r border-zinc-300 p-4 sm:p-5 font-bold text-black text-center whitespace-nowrap w-[30%]">
+                  Models
+                </th>
+                <th className="p-4 sm:p-5 font-bold text-black text-center w-[50%]">
+                  Best for
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                {
+                  vehicle: "Business Sedan",
+                  models: "Cadillac XTS, Lincoln Continental or similar",
+                  bestFor: "Solo travellers and pairs. The everyday choice for airport transfers, meetings and point-to-point rides across Manhattan."
+                },
+                {
+                  vehicle: "Premium Sedan",
+                  models: "Mercedes-Benz S-Class, E-Class or similar",
+                  bestFor: "Client pickups and executive arrivals where the car itself is part of the impression. Common for corporate travel and VIP airport meet-and-greets."
+                },
+                {
+                  vehicle: "Midsize SUV",
+                  models: "Cadillac XT5, XT6 or similar",
+                  bestFor: "Couples and small families who need more luggage room than a sedan, and anyone travelling in winter weather."
+                },
+                {
+                  vehicle: "Business SUV",
+                  models: "Chevrolet Suburban, GMC Yukon or similar",
+                  bestFor: "Family airport runs with full-size cases, and small corporate groups moving together between meetings."
+                },
+                {
+                  vehicle: "Premium SUV",
+                  models: "Cadillac Escalade, Lincoln Navigator or similar",
+                  bestFor: "Executive road shows, VIP arrivals and wedding party transportation where space and presence both matter."
+                },
+                {
+                  vehicle: "Executive Van",
+                  models: "Ford Transit, Mercedes-Benz Sprinter or similar",
+                  bestFor: "Conference delegations, project teams and extended families travelling with luggage for everyone."
+                },
+                {
+                  vehicle: "Sprinter Van",
+                  models: "Mercedes-Benz Sprinter passenger van",
+                  bestFor: "Larger groups where luggage space is the deciding factor — sports teams, tour groups and multi-family airport transfers."
+                },
+                {
+                  vehicle: "C.E.O. Van",
+                  models: "Mercedes-Benz Sprinter, executive interior",
+                  bestFor: "Executive groups who need to talk or work privately between stops. Popular for roadshows and private-aviation transfers."
+                },
+                {
+                  vehicle: "Limo Sprinter",
+                  models: "Mercedes-Benz Sprinter, limousine interior",
+                  bestFor: "Nights out for mid-size groups. Bachelor and bachelorette parties, birthday celebrations and winery tours."
+                },
+                {
+                  vehicle: "Party Van",
+                  models: "Mercedes-Benz Sprinter, celebration interior",
+                  bestFor: "Celebrations that move between several venues. Sweet 16s, birthday nights out and group city experiences."
+                },
+                {
+                  vehicle: "Stretch Limo",
+                  models: "Lincoln Continental, Lincoln MKT or similar",
+                  bestFor: "Occasions where the arrival is part of the event — weddings, proms and anniversary evenings."
+                },
+                {
+                  vehicle: "SUV Limo",
+                  models: "Hummer H2, Cadillac Escalade, Range Rover or similar",
+                  bestFor: "Statement arrivals for larger celebration groups. Prom parties, milestone birthdays and bachelorette nights."
+                },
+                {
+                  vehicle: "Mini Bus",
+                  models: "Ford E-450 Shuttle, Chevrolet 4500 or similar",
+                  bestFor: "Corporate shuttles, wedding guest transport between ceremony and reception, and full-day vineyard tours."
+                },
+                {
+                  vehicle: "Mini Coach Bus",
+                  models: "Grech Motors GM33, Freightliner M2 or similar",
+                  bestFor: "Conference shuttles, large wedding guest transfers and family reunions travelling as one group."
+                },
+                {
+                  vehicle: "Charter Bus",
+                  models: "MCI J4500, Van Hool CX45, Prevost H3-45 or similar",
+                  bestFor: "Large corporate events, convention shuttles and long-distance city-to-city group travel across the tri-state area."
+                }
+              ].map((row, idx) => (
+                <tr 
+                  key={idx} 
+                  className="border-b border-zinc-300 last:border-b-0 hover:bg-zinc-50/75 transition-colors"
+                >
+                  <td className="border-r border-zinc-300 p-4 sm:p-5 font-medium text-black leading-snug">
+                    {row.vehicle}
+                  </td>
+                  <td className="border-r border-zinc-300 p-4 sm:p-5 text-zinc-700 leading-relaxed">
+                    {row.models}
+                  </td>
+                  <td className="p-4 sm:p-5 text-zinc-600 leading-relaxed">
+                    {row.bestFor}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
       {/* Fleet Standards & Amenities Section */}
       <section className="py-20 bg-[#080E15] border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
