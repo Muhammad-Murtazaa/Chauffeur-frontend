@@ -1,7 +1,7 @@
 import React from 'react';
 import PageHero from '../components/PageHero';
 
-export default function PrivacyPolicy() {
+export default function LegalPrivacy() {
   return (
     <div className="bg-[#060B10] text-white">
       <PageHero

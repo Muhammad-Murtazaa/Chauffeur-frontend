@@ -31,7 +31,7 @@ import Reservations from './pages/Reservations';
 import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
 import TermsConditions from './pages/TermsConditions';
-import PrivacyPolicy from './pages/PrivacyPolicy';
+import LegalPrivacy from './pages/LegalPrivacy';
 import CancellationRefund from './pages/CancellationRefund';
 import PaymentPolicy from './pages/PaymentPolicy';
 
@@ -78,7 +78,7 @@ export default function App() {
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/terms-conditions" element={<TermsConditions />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/privacy-policy" element={<LegalPrivacy />} />
             <Route path="/cancellation-and-refund" element={<CancellationRefund />} />
             <Route path="/payment-policy" element={<PaymentPolicy />} />
             {/* Fallback to Home */}
