@@ -246,32 +246,25 @@ export default function Home() {
       {/* =========================================================================
           4. SERVICES SECTION: "NYC Chauffeur Service — Six Ways We Move You"
       ========================================================================= */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+      <section className="py-20 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="mb-10">
-          <div className="flex items-center gap-2 mb-2">
-            <span className="w-6 h-[1px] bg-[#e09900]" />
-            <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#e09900]">
-              SERVICES
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-end">
-            <div className="md:col-span-7">
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1D1D1B] leading-tight">
-                NYC Chauffeur Service — Six Ways We Move You
-              </h2>
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
+          <div>
+            <div className="text-[12px] font-bold uppercase tracking-[0.14em] text-[#e09900] mb-3">
+              &mdash; WHAT WE DO
             </div>
-            <div className="md:col-span-5">
-              <p className="text-[15px] text-[#6D685F] leading-relaxed">
-                One standard of service across every trip — from the airport curb to the boardroom door to the big night out.
-              </p>
-            </div>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-[44px] font-bold text-black leading-[1.15]">
+              NYC Chauffeur Service<br />
+              &mdash; Six Ways We Move You
+            </h2>
           </div>
+          <p className="text-sm sm:text-[15px] text-zinc-600 leading-relaxed max-w-sm lg:pb-1">
+            One standard of service across every trip &mdash; from the airport curb to the boardroom door to the big night out.
+          </p>
         </div>
 
         {/* 2x3 Photographic Card Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
           {[
             {
               num: "01",
@@ -311,46 +304,48 @@ export default function Home() {
             {
               num: "06",
               title: "Special Occasions",
-              desc: "Weddings, proms, anniversaries and milestones — arrivals worth remembering.",
+              desc: "Weddings, proms, anniversaries and milestones — arrivals worth remembering",
               link: "/special-occasions",
               image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/special-occasion-limo-service-red-carpet-arrival.webp"
             }
           ].map((item, idx) => (
-            <div 
+            <Link 
               key={idx}
-              className="group relative h-[360px] rounded-2xl overflow-hidden shadow-md flex flex-col justify-end p-6 transition-all duration-300 hover:shadow-2xl"
+              to={item.link}
+              className="group relative h-[430px] sm:h-[450px] overflow-hidden flex flex-col justify-between p-6 sm:p-7 transition-all duration-300 shadow-md hover:shadow-2xl"
             >
               {/* Background Image */}
               <img
                 src={item.image}
                 alt={item.title}
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               />
               {/* Dark gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-black/25" />
 
-              {/* Card Content Overlay */}
-              <div className="relative z-10 text-white space-y-2">
-                <span className="text-[12px] font-bold text-[#e09900]">
+              {/* Top: Gold Number */}
+              <div className="relative z-10">
+                <span className="font-serif font-bold text-base sm:text-lg text-[#e09900] tracking-wide">
                   {item.num}
                 </span>
-                <h3 className="font-serif text-2xl font-bold text-white leading-snug">
+              </div>
+
+              {/* Bottom: Title, Description, and Link */}
+              <div className="relative z-10 text-white space-y-2.5">
+                <h3 className="font-serif text-2xl font-bold text-white leading-tight">
                   {item.title}
                 </h3>
-                <p className="text-[12px] text-white/80 leading-relaxed line-clamp-2">
+                <p className="text-[13px] text-zinc-200 leading-relaxed">
                   {item.desc}
                 </p>
-                <div className="pt-2">
-                  <Link
-                    to={item.link}
-                    className="inline-flex items-center gap-1 text-[13px] font-bold text-[#e09900] group-hover:text-white transition"
-                  >
+                <div className="pt-1">
+                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#e09900] group-hover:text-white transition-colors">
                     <span>Explore service</span>
-                    <ArrowUpRight className="w-4 h-4" />
-                  </Link>
+                    <span className="text-sm leading-none">&nearr;</span>
+                  </span>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
