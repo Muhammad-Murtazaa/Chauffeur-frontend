@@ -971,32 +971,40 @@ export default function Home() {
       </section>
 
       {/* =========================================================================
-          11. PRE-FOOTER CTA (Dark Rounded Box with Gold Button)
+          11. PRE-FOOTER CTA (Dark Rounded Card with Gold Glow & Pill Buttons)
       ========================================================================= */}
-      <section className="px-4 sm:px-6 lg:px-8 pb-16 max-w-6xl mx-auto">
-        <div className="bg-[#11161D] rounded-3xl p-8 sm:p-12 border border-[#e09900]/30 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 text-left">
-          <div className="space-y-3 max-w-xl">
-            <div className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#e09900]">
-              START YOUR TRIP
+      <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-20 max-w-6xl mx-auto">
+        <div className="relative overflow-hidden bg-[#111215] rounded-[32px] sm:rounded-[40px] p-8 sm:p-12 lg:p-14 border border-white/10 shadow-2xl flex flex-col lg:flex-row lg:items-center justify-between gap-8 text-left">
+          {/* Ambient warm gold glow in top-right */}
+          <div className="pointer-events-none absolute -top-24 -right-24 w-96 h-96 bg-[#e09900]/15 rounded-full blur-3xl" />
+
+          {/* Left Content */}
+          <div className="relative z-10 space-y-4 max-w-2xl">
+            <div className="flex items-center gap-2.5">
+              <span className="w-6 h-[1.5px] bg-[#e09900]" />
+              <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#e09900]">
+                READY TO RIDE
+              </span>
             </div>
-            <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight">
+            <h3 className="font-serif text-3xl sm:text-4xl lg:text-[42px] font-bold text-white leading-[1.15] tracking-tight">
               Book your next trip with NYC Premier Limo.
             </h3>
-            <p className="text-[14px] text-white/70 leading-relaxed">
-              Request a quote online or speak to dispatch directly. Quotes are free, the price is fixed before you book, and someone answers the phone 24 hours a day — including holidays.
+            <p className="text-[13.5px] sm:text-[14px] text-zinc-400 leading-relaxed font-normal">
+              Request a personalized quote online or speak directly with the team about airport, corporate, hourly, point-to-point, city-to-city, or special event transportation.
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-4 shrink-0">
+          {/* Right Buttons */}
+          <div className="relative z-10 flex flex-wrap sm:flex-nowrap items-center gap-3.5 shrink-0">
             <a
               href="tel:+13478889797"
-              className="bg-[#e09900] hover:bg-[#c88800] text-black font-bold text-xs px-7 py-3.5 rounded-full transition shadow-lg"
+              className="bg-[#e09900] hover:bg-[#c88800] text-black font-bold text-xs sm:text-[13px] px-8 py-3 rounded-full transition-all shadow-md active:scale-95 text-center min-w-[120px]"
             >
               Call Now
             </a>
             <Link
               to="/reservations"
-              className="border border-white/20 hover:border-[#e09900] text-white hover:text-[#e09900] font-bold text-xs px-7 py-3.5 rounded-full transition"
+              className="bg-transparent border border-white/70 hover:border-white text-white hover:bg-white/5 font-bold text-xs sm:text-[13px] px-8 py-3 rounded-full transition-all active:scale-95 text-center min-w-[130px]"
             >
               Instant Quote
             </Link>
