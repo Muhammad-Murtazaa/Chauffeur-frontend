@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Phone, ChevronDown, Menu, X, Shield, Clock, MapPin, Car, Sparkles } from 'lucide-react';
+import { Phone, ChevronDown, ChevronRight, Menu, X, Shield, Clock, MapPin, Car, Sparkles } from 'lucide-react';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const [activeSubmenu, setActiveSubmenu] = useState(null); // 'airport' | 'occasions' | null
   const [areasDropdownOpen, setAreasDropdownOpen] = useState(false);
   const location = useLocation();
 
@@ -21,6 +22,7 @@ export default function Navbar() {
   useEffect(() => {
     setMobileMenuOpen(false);
     setServicesDropdownOpen(false);
+    setActiveSubmenu(null);
     setAreasDropdownOpen(false);
   }, [location]);
 
@@ -68,15 +70,18 @@ export default function Navbar() {
               Fleet
             </Link>
 
-            {/* Services Mega Dropdown */}
+            {/* Services Dropdown with Sub-flyout */}
             <div
               className="relative"
               onMouseEnter={() => setServicesDropdownOpen(true)}
-              onMouseLeave={() => setServicesDropdownOpen(false)}
+              onMouseLeave={() => {
+                setServicesDropdownOpen(false);
+                setActiveSubmenu(null);
+              }}
             >
               <Link
                 to="/services"
-                className={`px-3 py-2 text-sm font-semibold rounded-md flex items-center gap-1 transition ${
+                className={`px-3 py-2 text-sm font-semibold rounded-md flex items-center gap-1.5 transition-colors ${
                   location.pathname.includes('/services') || 
                   location.pathname.includes('airport') || 
                   location.pathname.includes('hourly') ||
@@ -88,77 +93,160 @@ export default function Navbar() {
                   location.pathname.includes('prom') ||
                   location.pathname.includes('winery') ||
                   location.pathname.includes('occasions')
-                    ? 'text-gold'
-                    : 'text-neutral-200 hover:text-gold'
+                    ? 'text-[#e09900]'
+                    : 'text-white hover:text-[#e09900]'
                 }`}
               >
-                Services
-                <ChevronDown className="w-4 h-4 opacity-80" />
+                <span>Services</span>
+                <ChevronDown className="w-3.5 h-3.5 transition-transform duration-200" />
               </Link>
 
               {servicesDropdownOpen && (
-                <div className="absolute top-full left-0 w-80 bg-[#101923] border border-gold/30 rounded-xl shadow-2xl py-3 px-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                  <div className="px-3 py-1.5 text-[11px] font-bold uppercase text-gold tracking-wider border-b border-white/10 mb-1">
-                    Chauffeured Services
-                  </div>
-                  <Link
-                    to="/airport-car-service"
-                    className="block px-3 py-2 text-xs font-semibold text-neutral-200 hover:bg-gold/15 hover:text-gold rounded-lg transition"
-                  >
-                    Airport Car Service (JFK, LGA, EWR)
-                  </Link>
-                  <Link
-                    to="/hourly-car-service"
-                    className="block px-3 py-2 text-xs font-semibold text-neutral-200 hover:bg-gold/15 hover:text-gold rounded-lg transition"
-                  >
-                    Hourly Chauffeur Service
-                  </Link>
-                  <Link
-                    to="/corporate-limo-service"
-                    className="block px-3 py-2 text-xs font-semibold text-neutral-200 hover:bg-gold/15 hover:text-gold rounded-lg transition"
-                  >
-                    Corporate & Executive Travel
-                  </Link>
-                  <Link
-                    to="/point-to-point-limo-service"
-                    className="block px-3 py-2 text-xs font-semibold text-neutral-200 hover:bg-gold/15 hover:text-gold rounded-lg transition"
-                  >
-                    Point to Point Direct Rides
-                  </Link>
-                  <Link
-                    to="/city-to-city-rides"
-                    className="block px-3 py-2 text-xs font-semibold text-neutral-200 hover:bg-gold/15 hover:text-gold rounded-lg transition"
-                  >
-                    City to City Rides (Hamptons, DC, Boston)
-                  </Link>
+                <div 
+                  className="absolute top-full left-0 pt-1 z-50 animate-in fade-in duration-150"
+                  onMouseEnter={() => setServicesDropdownOpen(true)}
+                >
+                  <div className="w-60 bg-black border border-[#e09900] rounded-md shadow-2xl py-1 relative">
+                    {/* 1. Airport Car Service (has sub-menu) */}
+                    <div
+                      className="relative"
+                      onMouseEnter={() => setActiveSubmenu('airport')}
+                    >
+                      <Link
+                        to="/airport-car-service"
+                        className={`flex items-center justify-between w-full px-4 py-3 text-[13.5px] font-bold transition-colors ${
+                          activeSubmenu === 'airport' || location.pathname === '/airport-car-service'
+                            ? 'bg-[#e09900] text-black'
+                            : 'text-white hover:bg-[#e09900] hover:text-black'
+                        }`}
+                      >
+                        <span>Airport Car Service</span>
+                        <ChevronRight className="w-4 h-4 stroke-[2.5]" />
+                      </Link>
 
-                  <div className="px-3 pt-2.5 pb-1 text-[11px] font-bold uppercase text-gold tracking-wider border-t border-white/10 mt-1 mb-1">
-                    Special Occasions
+                      {/* Airport Submenu Flyout */}
+                      {activeSubmenu === 'airport' && (
+                        <div 
+                          className="absolute top-0 left-full pl-1 z-50 animate-in fade-in duration-150"
+                          onMouseEnter={() => setActiveSubmenu('airport')}
+                        >
+                          <div className="w-64 bg-black border border-[#e09900] rounded-md shadow-2xl py-1">
+                            <Link
+                              to="/jfk-airport-limo-service"
+                              className="block px-4 py-3 text-[13.5px] font-bold text-white hover:bg-[#e09900] hover:text-black transition-colors"
+                            >
+                              JFK Airport Limo Service
+                            </Link>
+                            <Link
+                              to="/lga-airport-limo-service"
+                              className="block px-4 py-3 text-[13.5px] font-bold text-white hover:bg-[#e09900] hover:text-black transition-colors"
+                            >
+                              LGA Airport Limo Service
+                            </Link>
+                            <Link
+                              to="/ewr-airport-limo-service"
+                              className="block px-4 py-3 text-[13.5px] font-bold text-white hover:bg-[#e09900] hover:text-black transition-colors"
+                            >
+                              EWR Airport Limo Service
+                            </Link>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* 2. Hourly Car Service */}
+                    <div onMouseEnter={() => setActiveSubmenu(null)}>
+                      <Link
+                        to="/hourly-car-service"
+                        className="block px-4 py-3 text-[13.5px] font-bold text-white hover:bg-[#e09900] hover:text-black transition-colors"
+                      >
+                        Hourly Car Service
+                      </Link>
+                    </div>
+
+                    {/* 3. Corporate Limo Service */}
+                    <div onMouseEnter={() => setActiveSubmenu(null)}>
+                      <Link
+                        to="/corporate-limo-service"
+                        className="block px-4 py-3 text-[13.5px] font-bold text-white hover:bg-[#e09900] hover:text-black transition-colors"
+                      >
+                        Corporate Limo Service
+                      </Link>
+                    </div>
+
+                    {/* 4. Point to Point Limo Service */}
+                    <div onMouseEnter={() => setActiveSubmenu(null)}>
+                      <Link
+                        to="/point-to-point-limo-service"
+                        className="block px-4 py-3 text-[13.5px] font-bold text-white hover:bg-[#e09900] hover:text-black transition-colors"
+                      >
+                        Point to Point Limo Service
+                      </Link>
+                    </div>
+
+                    {/* 5. City To City Rides */}
+                    <div onMouseEnter={() => setActiveSubmenu(null)}>
+                      <Link
+                        to="/city-to-city-rides"
+                        className="block px-4 py-3 text-[13.5px] font-bold text-white hover:bg-[#e09900] hover:text-black transition-colors"
+                      >
+                        City To City Rides
+                      </Link>
+                    </div>
+
+                    {/* 6. Special Occasions (has sub-menu) */}
+                    <div
+                      className="relative"
+                      onMouseEnter={() => setActiveSubmenu('occasions')}
+                    >
+                      <Link
+                        to="/special-occasions"
+                        className={`flex items-center justify-between w-full px-4 py-3 text-[13.5px] font-bold transition-colors ${
+                          activeSubmenu === 'occasions' || location.pathname === '/special-occasions'
+                            ? 'bg-[#e09900] text-black'
+                            : 'text-white hover:bg-[#e09900] hover:text-black'
+                        }`}
+                      >
+                        <span>Special Occasions</span>
+                        <ChevronRight className="w-4 h-4 stroke-[2.5]" />
+                      </Link>
+
+                      {/* Special Occasions Submenu Flyout */}
+                      {activeSubmenu === 'occasions' && (
+                        <div 
+                          className="absolute bottom-0 left-full pl-1 z-50 animate-in fade-in duration-150"
+                          onMouseEnter={() => setActiveSubmenu('occasions')}
+                        >
+                          <div className="w-64 bg-black border border-[#e09900] rounded-md shadow-2xl py-1">
+                            <Link
+                              to="/wedding-limo-service"
+                              className="block px-4 py-3 text-[13.5px] font-bold text-white hover:bg-[#e09900] hover:text-black transition-colors"
+                            >
+                              Wedding Limo Service
+                            </Link>
+                            <Link
+                              to="/birthday-limo-service"
+                              className="block px-4 py-3 text-[13.5px] font-bold text-white hover:bg-[#e09900] hover:text-black transition-colors"
+                            >
+                              Birthdays Limo Service
+                            </Link>
+                            <Link
+                              to="/prom-limousine-service"
+                              className="block px-4 py-3 text-[13.5px] font-bold text-white hover:bg-[#e09900] hover:text-black transition-colors"
+                            >
+                              Prom Limousine Service
+                            </Link>
+                            <Link
+                              to="/winery-tour-limo-service"
+                              className="block px-4 py-3 text-[13.5px] font-bold text-white hover:bg-[#e09900] hover:text-black transition-colors"
+                            >
+                              Winery Tour Limo Service
+                            </Link>
+                          </div>
+                        </div>
+                      )}
+                    </div>
                   </div>
-                  <Link
-                    to="/wedding-limo-service"
-                    className="block px-3 py-1.5 text-xs text-neutral-300 hover:bg-gold/15 hover:text-gold rounded-lg transition"
-                  >
-                    Wedding Limousine Service
-                  </Link>
-                  <Link
-                    to="/prom-limousine-service"
-                    className="block px-3 py-1.5 text-xs text-neutral-300 hover:bg-gold/15 hover:text-gold rounded-lg transition"
-                  >
-                    Prom Limousine Service
-                  </Link>
-                  <Link
-                    to="/birthday-limo-service"
-                    className="block px-3 py-1.5 text-xs text-neutral-300 hover:bg-gold/15 hover:text-gold rounded-lg transition"
-                  >
-                    Birthday & Milestone Celebrations
-                  </Link>
-                  <Link
-                    to="/winery-tour-limo-service"
-                    className="block px-3 py-1.5 text-xs text-neutral-300 hover:bg-gold/15 hover:text-gold rounded-lg transition"
-                  >
-                    Long Island Winery Tours
-                  </Link>
                 </div>
               )}
             </div>
@@ -171,62 +259,64 @@ export default function Navbar() {
             >
               <Link
                 to="/areas-we-serve"
-                className={`px-3 py-2 text-sm font-semibold rounded-md flex items-center gap-1 transition ${
+                className={`px-3 py-2 text-sm font-semibold rounded-md flex items-center gap-1.5 transition-colors ${
                   location.pathname.includes('/areas-we-serve') || 
                   location.pathname.includes('manhattan') || 
                   location.pathname.includes('brooklyn') ||
                   location.pathname.includes('queens') ||
                   location.pathname.includes('bronx') ||
                   location.pathname.includes('staten-island')
-                    ? 'text-gold'
-                    : 'text-neutral-200 hover:text-gold'
+                    ? 'text-[#e09900]'
+                    : 'text-white hover:text-[#e09900]'
                 }`}
               >
-                Areas We Serve
-                <ChevronDown className="w-4 h-4 opacity-80" />
+                <span>Areas We Serve</span>
+                <ChevronDown className="w-3.5 h-3.5 transition-transform duration-200" />
               </Link>
 
               {areasDropdownOpen && (
-                <div className="absolute top-full left-0 w-64 bg-[#101923] border border-gold/30 rounded-xl shadow-2xl py-3 px-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                  <div className="px-3 py-1 text-[11px] font-bold uppercase text-gold tracking-wider border-b border-white/10 mb-1">
-                    5 NYC Boroughs & Beyond
+                <div 
+                  className="absolute top-full left-0 pt-1 z-50 animate-in fade-in duration-150"
+                  onMouseEnter={() => setAreasDropdownOpen(true)}
+                >
+                  <div className="w-60 bg-black border border-[#e09900] rounded-md shadow-2xl py-1">
+                    <Link
+                      to="/manhattan-limo-service"
+                      className="block px-4 py-3 text-[13.5px] font-bold text-white hover:bg-[#e09900] hover:text-black transition-colors"
+                    >
+                      Manhattan
+                    </Link>
+                    <Link
+                      to="/brooklyn-limo-service"
+                      className="block px-4 py-3 text-[13.5px] font-bold text-white hover:bg-[#e09900] hover:text-black transition-colors"
+                    >
+                      Brooklyn
+                    </Link>
+                    <Link
+                      to="/queens-limo-service"
+                      className="block px-4 py-3 text-[13.5px] font-bold text-white hover:bg-[#e09900] hover:text-black transition-colors"
+                    >
+                      Queens (JFK / LGA)
+                    </Link>
+                    <Link
+                      to="/the-bronx-limo-service"
+                      className="block px-4 py-3 text-[13.5px] font-bold text-white hover:bg-[#e09900] hover:text-black transition-colors"
+                    >
+                      The Bronx
+                    </Link>
+                    <Link
+                      to="/staten-island-limo"
+                      className="block px-4 py-3 text-[13.5px] font-bold text-white hover:bg-[#e09900] hover:text-black transition-colors"
+                    >
+                      Staten Island
+                    </Link>
+                    <Link
+                      to="/areas-we-serve"
+                      className="block px-4 py-3 text-[13.5px] font-bold text-[#e09900] hover:bg-[#e09900] hover:text-black border-t border-[#e09900]/30 transition-colors"
+                    >
+                      View All Tri-State Areas →
+                    </Link>
                   </div>
-                  <Link
-                    to="/manhattan-limo-service"
-                    className="block px-3 py-2 text-xs font-semibold text-neutral-200 hover:bg-gold/15 hover:text-gold rounded-lg transition"
-                  >
-                    Manhattan
-                  </Link>
-                  <Link
-                    to="/brooklyn-limo-service"
-                    className="block px-3 py-2 text-xs font-semibold text-neutral-200 hover:bg-gold/15 hover:text-gold rounded-lg transition"
-                  >
-                    Brooklyn
-                  </Link>
-                  <Link
-                    to="/queens-limo-service"
-                    className="block px-3 py-2 text-xs font-semibold text-neutral-200 hover:bg-gold/15 hover:text-gold rounded-lg transition"
-                  >
-                    Queens (JFK / LGA)
-                  </Link>
-                  <Link
-                    to="/the-bronx-limo-service"
-                    className="block px-3 py-2 text-xs font-semibold text-neutral-200 hover:bg-gold/15 hover:text-gold rounded-lg transition"
-                  >
-                    The Bronx
-                  </Link>
-                  <Link
-                    to="/staten-island-limo"
-                    className="block px-3 py-2 text-xs font-semibold text-neutral-200 hover:bg-gold/15 hover:text-gold rounded-lg transition"
-                  >
-                    Staten Island
-                  </Link>
-                  <Link
-                    to="/areas-we-serve"
-                    className="block px-3 py-2 text-xs font-semibold text-gold hover:bg-gold/15 rounded-lg border-t border-white/10 mt-1 transition"
-                  >
-                    View All Tri-State Areas →
-                  </Link>
                 </div>
               )}
             </div>
