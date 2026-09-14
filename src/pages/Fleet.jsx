@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import VehicleCard from '../components/VehicleCard';
 import { fleetData } from '../data/fleetData';
-import { Clock, Star, CheckCircle2 } from 'lucide-react';
+import { Clock, Star, CheckCircle2, Plus } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Fleet() {
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [openFaq, setOpenFaq] = useState(0);
 
   const categories = [
     { id: 'all', label: 'All Fleet Vehicles' },
@@ -14,6 +15,29 @@ export default function Fleet() {
     { id: 'sprinters', label: 'Sprinter & Transit Vans' },
     { id: 'limos', label: 'Stretch Limos' },
     { id: 'buses', label: 'Minibuses & Coaches' },
+  ];
+
+  const fleetFaqs = [
+    {
+      q: "How do I make a reservation?",
+      a: "Book online through our real-time portal, call us directly, or message the team. Support is available 24/7 to confirm your car."
+    },
+    {
+      q: "What areas do you serve?",
+      a: "All five boroughs of NYC and the wider tri-state area (NY, NJ, CT), plus JFK, LaGuardia, Newark and Teterboro airports."
+    },
+    {
+      q: "What vehicles are in your fleet?",
+      a: "Executive sedans, luxury SUVs, premium vans and larger group vehicles — matched to your passenger count and luggage."
+    },
+    {
+      q: "Are your prices flat or hourly?",
+      a: "Both. Flat rates apply to airport and point-to-point transfers; hourly charters suit multi-stop and corporate travel. The quote is what you pay."
+    },
+    {
+      q: "Can I book for weddings or special events?",
+      a: "Yes. We arrange transportation for weddings, proms, anniversaries and other occasions, with vehicles to match the day."
+    }
   ];
 
   const filteredVehicles = selectedCategory === 'all'
@@ -527,7 +551,75 @@ export default function Fleet() {
       </section>
 
       {/* =========================================================================
-          5. PRE-FOOTER CTA (Dark Rounded Card with Gold Glow & Pill Buttons)
+          5. FAQ SECTION: "Frequently asked questions"
+      ========================================================================= */}
+      <section className="py-20 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+        <div className="mb-10">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="w-6 h-[1.5px] bg-[#e09900]" />
+            <span className="text-[12px] font-bold uppercase tracking-[0.14em] text-[#e09900]">
+              FREQUENTLY ASKED QUESTIONS
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-end">
+            <div className="md:col-span-7">
+              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1D1D1B] leading-tight">
+                Choose your vehicle with confidence.
+              </h2>
+            </div>
+            <div className="md:col-span-5">
+              <p className="text-[14px] text-[#6D685F] leading-relaxed">
+                Exact pricing, vehicle availability, pickup instructions, and trip requirements are confirmed directly with NYC Premier Limo.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Accordion list with smooth slide transition */}
+        <div className="divide-y divide-neutral-200 border-y border-neutral-200">
+          {fleetFaqs.map((faq, idx) => {
+            const isOpen = openFaq === idx;
+            return (
+              <div key={idx} className="py-2 text-left">
+                <button
+                  type="button"
+                  onClick={() => setOpenFaq(isOpen ? -1 : idx)}
+                  className="w-full flex items-center justify-between text-left gap-4 py-4 group cursor-pointer select-none transition-colors"
+                  aria-expanded={isOpen}
+                >
+                  <span className="font-serif text-lg sm:text-xl font-bold text-[#1D1D1B] group-hover:text-[#e09900] transition-colors duration-200">
+                    {faq.q}
+                  </span>
+                  <span className="w-8 h-8 rounded-full bg-black/5 group-hover:bg-[#e09900]/10 flex items-center justify-center text-[#6D685F] group-hover:text-[#e09900] transition-colors duration-200 shrink-0">
+                    <Plus
+                      className={`w-4 h-4 transition-transform duration-350 ease-in-out ${
+                        isOpen ? 'rotate-45 text-[#e09900]' : 'rotate-0'
+                      }`}
+                    />
+                  </span>
+                </button>
+
+                {/* Smooth Expand/Collapse Grid Container */}
+                <div
+                  className={`grid transition-all duration-300 ease-in-out ${
+                    isOpen ? 'grid-rows-[1fr] opacity-100 pb-4' : 'grid-rows-[0fr] opacity-0 pb-0'
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <p className="text-[14px] sm:text-[15px] text-[#6D685F] leading-relaxed pr-8">
+                      {faq.a}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* =========================================================================
+          6. PRE-FOOTER CTA (Dark Rounded Card with Gold Glow & Pill Buttons)
       ========================================================================= */}
       <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-20 max-w-6xl mx-auto">
         <div className="relative overflow-hidden bg-[#111215] rounded-[32px] sm:rounded-[40px] p-8 sm:p-12 lg:p-14 border border-white/10 shadow-2xl flex flex-col lg:flex-row lg:items-center justify-between gap-8 text-left">
