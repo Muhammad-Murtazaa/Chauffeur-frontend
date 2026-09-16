@@ -9,13 +9,13 @@ export default function EwrService() {
     <div className="bg-[#060B10] text-white">
       <PageHero
         badge="Newark Liberty International"
-        title="EWR Airport Limo Service"
+        title="EWR Airport Chauffeur Service"
         subtitle="Cross-Hudson executive car service to and from Newark Liberty Airport (Terminals A, B, C). Direct transfers connecting New Jersey, Manhattan, and Westchester."
         bgImage="https://nycpremierlimo.com/wp-content/uploads/2026/08/third-section-image.png"
         breadcrumbs={[
           { name: "Services", link: "/services" },
           { name: "Airport Car Service", link: "/airport-car-service" },
-          { name: "EWR Airport Limo" }
+          { name: "EWR Airport Chauffeur" }
         ]}
       />
 

@@ -9,7 +9,7 @@ export default function PointToPointService() {
     <div className="bg-[#060B10] text-white">
       <PageHero
         badge="Direct Transfers"
-        title="Point-to-Point Limo Service"
+        title="Point-to-Point Chauffeur Service"
         subtitle="One pickup, one destination, and one fixed all-inclusive rate confirmed before you depart. Direct rides between residences, offices, restaurants, and venues."
         bgImage="https://nycpremierlimo.com/wp-content/uploads/2026/08/point-to-point-car-service-soho-passenger-pickup-1024x683.webp"
         breadcrumbs={[
@@ -29,7 +29,7 @@ export default function PointToPointService() {
                 Direct Chauffeured Rides with Zero Surge
               </h2>
               <p className="text-sm sm:text-base text-neutral-300 mt-4 leading-relaxed">
-                App-based rideshares fluctuate wildly during rush hours, rainstorms, and events. With NYC Premier Limo's point-to-point transfer, the rate you are quoted is the exact rate you pay. Tolls, taxes, and driver gratuity are included upfront.
+                App-based rideshares fluctuate wildly during rush hours, rainstorms, and events. With NYC Premier Chauffeur's point-to-point transfer, the rate you are quoted is the exact rate you pay. Tolls, taxes, and driver gratuity are included upfront.
               </p>
             </div>
 

@@ -5,7 +5,7 @@ import { ChevronRight, Phone, CalendarCheck } from 'lucide-react';
 export default function PageHero({
   title,
   subtitle,
-  badge = "NYC Premier Limo",
+  badge = "NYC Premier Chauffeur",
   bgImage = "https://nycpremierlimo.com/wp-content/uploads/2026/09/fleet-page-chauffeur-service-nyc-hero.webp",
   breadcrumbs = []
 }) {

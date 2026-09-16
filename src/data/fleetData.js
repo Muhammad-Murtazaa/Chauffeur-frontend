@@ -96,7 +96,7 @@ export const fleetData = [
   },
   {
     id: "stretch-limo",
-    name: "Stretch Limousine",
+    name: "Executive Stretch",
     model: "Lincoln MKT / Town Car Stretch",
     category: "limos",
     tagline: "Classic Elegance & Celebration",
@@ -110,7 +110,7 @@ export const fleetData = [
       "Bluetooth Surround Sound System",
       "Full Perimeter J-Seating"
     ],
-    description: "The timeless American limousine experience. Designed for weddings, proms, milestone birthdays, and red-carpet galas across New York.",
+    description: "The timeless luxury private vehicle experience. Designed for weddings, milestone celebrations, and red-carpet galas across New York.",
     rateEstimate: "From $165 / hr"
   },
   {
@@ -134,8 +134,8 @@ export const fleetData = [
   },
   {
     id: "sprinter-limo",
-    name: "Sprinter Limo Party Van",
-    model: "Mercedes-Benz Limo Coach",
+    name: "Sprinter VIP Party Van",
+    model: "Mercedes-Benz Executive Coach",
     category: "sprinters",
     tagline: "Celebration on the Move",
     passengers: 14,

@@ -22,7 +22,7 @@ export default function Home() {
     {
       name: "Michelle Diefenderfer",
       avatar: "https://lh3.googleusercontent.com/a-/ALV-UjWuZ1tm8my5pp-P6QcMSMSMIxE-VTaQvmy7x93NVRLn_GUxkE38=w64-h64-c-rp-mo-br100",
-      text: "NYC Premier Limo provided great rates, quick responses, and were on top of everything for our group with short notice. I'd definitely use them again in future!"
+      text: "NYC Premier Chauffeur provided great rates, quick responses, and were on top of everything for our group with short notice. I'd definitely use them again in future!"
     },
     {
       name: "Tina Belanger",
@@ -32,7 +32,7 @@ export default function Home() {
     {
       name: "Shaina Godfrey",
       avatar: "https://lh3.googleusercontent.com/a-/ALV-UjWuZ1tm8my5pp-P6QcMSMSMIxE-VTaQvmy7x93NVRLn_GUxkE38=w64-h64-c-rp-mo-br100",
-      text: "I would definitely recommend NYC Premier Limo to my family and friends as well as use their services again. It was easy to book the service. If I had any questions, customer service was always available to provide answers. My driver, Mrs. Khan was very understanding and stayed in contact with me to ensure a successful pick up and drop off."
+      text: "I would definitely recommend NYC Premier Chauffeur to my family and friends as well as use their services again. It was easy to book the service. If I had any questions, customer service was always available to provide answers. My driver, Mrs. Khan was very understanding and stayed in contact with me to ensure a successful pick up and drop off."
     },
     {
       name: "Brandy Famous",
@@ -42,7 +42,7 @@ export default function Home() {
     {
       name: "Grant Patterson",
       avatar: "https://lh3.googleusercontent.com/a-/ALV-UjWuZ1tm8my5pp-P6QcMSMSMIxE-VTaQvmy7x93NVRLn_GUxkE38=w64-h64-c-rp-mo-br100",
-      text: "NYC Premier Limousines provided top-quality transportation. Comfortable ride, punctual service, and overall great value."
+      text: "NYC Premier Chauffeur provided top-quality transportation. Comfortable ride, punctual service, and overall great value."
     }
   ];
 
@@ -99,10 +99,12 @@ export default function Home() {
           </div>
 
           {/* Heading */}
-          <h1 className="font-serif text-3xl sm:text-5xl lg:text-[62px] font-bold tracking-tight leading-[1.12] max-w-4xl mx-auto">
-            <span className="text-white">Luxury Limo </span>
-            <span className="text-[#e09900]">&amp; Chauffeur Service in</span>
-            <span className="block text-[#e09900] mt-1">NYC</span>
+          <h1 className="font-serif text-3xl sm:text-5xl lg:text-[56px] xl:text-[60px] font-bold tracking-tight leading-[1.15] max-w-5xl mx-auto">
+            <span className="block">
+              <span className="text-white">Luxury Car </span>
+              <span className="text-[#e09900]">&amp; Chauffeur Service</span>
+            </span>
+            <span className="block text-[#e09900] mt-1 sm:mt-2">in NYC</span>
           </h1>
 
           {/* Subtitle */}
@@ -712,7 +714,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 8B. Why NYC Premier Limo: Collage & Professional Limousine Service */}
+      {/* 8B. Why NYC Premier Limo: Collage & Professional Chauffeur Service */}
       <section className="py-20 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left: Image Collage with Gold Badge and Inset */}
@@ -721,7 +723,7 @@ export default function Home() {
             <div className="relative rounded-[28px] overflow-hidden shadow-xl aspect-[4/3] sm:aspect-[16/12]">
               <img
                 src="https://nycpremierlimo.com/wp-content/uploads/2026/08/professional-limousine-service-fleet-lineup-nyc.webp"
-                alt="Professional Limousine Service Fleet Lineup"
+                alt="Professional Chauffeur Service Fleet Lineup"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -758,10 +760,10 @@ export default function Home() {
           {/* Right: Content & Checklist */}
           <div className="lg:col-span-6 space-y-4 pl-0 lg:pl-6">
             <div className="text-[12px] font-bold uppercase tracking-[0.14em] text-[#e09900] mb-2">
-              &mdash; WHY NYC PREMIER LIMO
+              &mdash; WHY NYC PREMIER CHAUFFEUR
             </div>
             <h3 className="font-serif text-3xl sm:text-4xl lg:text-[44px] font-bold text-black leading-[1.15]">
-              Professional Limousine<br />
+              Professional Chauffeur<br />
               Service
             </h3>
             <p className="text-sm sm:text-[15px] text-zinc-600 leading-relaxed max-w-lg mb-8">
@@ -906,7 +908,7 @@ export default function Home() {
       </section>
 
       {/* =========================================================================
-          10. FAQ SECTION: "Limo Service NYC — Frequently Asked Questions"
+          10. FAQ SECTION: "Chauffeur Service NYC — Frequently Asked Questions"
       ========================================================================= */}
       <section className="py-20 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
         <div className="mb-10">
@@ -917,12 +919,12 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-end">
             <div className="md:col-span-7">
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1D1D1B] leading-tight">
-                Limo Service NYC &mdash; Frequently Asked Questions
+                Chauffeur Service NYC &mdash; Frequently Asked Questions
               </h2>
             </div>
             <div className="md:col-span-5">
               <p className="text-[14px] text-[#6D685F] leading-relaxed">
-                Confirm exact pricing, vehicle availability, pickup instructions, and trip requirements directly with NYC Premier Limo.
+                Confirm exact pricing, vehicle availability, pickup instructions, and trip requirements directly with NYC Premier Chauffeur.
               </p>
             </div>
           </div>
@@ -987,7 +989,7 @@ export default function Home() {
               </span>
             </div>
             <h3 className="font-serif text-3xl sm:text-4xl lg:text-[42px] font-bold text-white leading-[1.15] tracking-tight">
-              Book your next trip with NYC Premier Limo.
+              Book your next trip with NYC Premier Chauffeur.
             </h3>
             <p className="text-[13.5px] sm:text-[14px] text-zinc-400 leading-relaxed font-normal">
               Request a personalized quote online or speak directly with the team about airport, corporate, hourly, point-to-point, city-to-city, or special event transportation.

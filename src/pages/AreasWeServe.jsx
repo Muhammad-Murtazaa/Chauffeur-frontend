@@ -10,8 +10,8 @@ export default function AreasWeServe() {
     <div className="bg-[#060B10] text-white">
       <PageHero
         badge="Tri-State Coverage"
-        title="Limo Service in the 5 Boroughs & Tri-State"
-        subtitle="Private chauffeur and limousine service across New York City (Manhattan, Brooklyn, Queens, The Bronx, Staten Island), Long Island, Westchester, New Jersey, and Connecticut."
+        title="Chauffeur Service in the 5 Boroughs & Tri-State"
+        subtitle="Private chauffeur and luxury car service across New York City (Manhattan, Brooklyn, Queens, The Bronx, Staten Island), Long Island, Westchester, New Jersey, and Connecticut."
         bgImage="https://nycpremierlimo.com/wp-content/uploads/2026/08/manhattan-limo-times-square.webp"
         breadcrumbs={[{ name: "Areas We Serve" }]}
       />

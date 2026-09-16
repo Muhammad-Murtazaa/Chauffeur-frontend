@@ -8,13 +8,13 @@ import { Sparkles, ArrowRight, CheckCircle2 } from 'lucide-react';
 export default function SpecialOccasions() {
   const occasions = [
     {
-      title: "Wedding Limousine Service",
-      desc: "Impeccable bridal party transportation, classic stretch limos, luxury SUV motorcades, and guest hotel shuttle buses.",
+      title: "Wedding Chauffeur Service",
+      desc: "Impeccable bridal party transportation, luxury executive vehicles, luxury SUV motorcades, and guest hotel shuttle buses.",
       link: "/wedding-limo-service",
       image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/second-section-image-jfk-section-image.png"
     },
     {
-      title: "Prom Limousine Service",
+      title: "Prom Chauffeur Service",
       desc: "Safe, unforgettable high school prom transportation with licensed professional chauffeurs that parents trust completely.",
       link: "/prom-limousine-service",
       image: "https://nycpremierlimo.com/wp-content/uploads/2026/09/prom-limousine-nyc-photo-stop-waterfront.webp"
@@ -26,7 +26,7 @@ export default function SpecialOccasions() {
       image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-sprinter-limo-party-van-nyc.png"
     },
     {
-      title: "Winery Tour Limo Service",
+      title: "Winery Tour Chauffeur Service",
       desc: "Curated day trips to Long Island North Fork vineyards and Hudson Valley wineries with a dedicated chauffeur and wine storage.",
       link: "/winery-tour-limo-service",
       image: "https://nycpremierlimo.com/wp-content/uploads/2026/09/winery-tour-chauffeur-waiting-vineyard-terrace.webp"

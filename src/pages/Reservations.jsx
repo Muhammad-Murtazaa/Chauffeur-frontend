@@ -99,10 +99,10 @@ export default function Reservations() {
             <div className="mb-4 pb-3 border-b border-white/10 flex items-center justify-between">
               <div>
                 <h3 className="font-serif text-lg font-bold text-white">
-                  Official LimoAnywhere Booking Engine
+                  Official Reservation Booking Engine
                 </h3>
                 <p className="text-xs text-neutral-400">
-                  Live corporate scheduling system for NYC Premier Limo.
+                  Live corporate scheduling system for NYC Premier Chauffeur.
                 </p>
               </div>
               <a

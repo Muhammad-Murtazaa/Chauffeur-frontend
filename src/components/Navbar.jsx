@@ -34,8 +34,8 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 shrink-0 group">
             <img
-              src="https://nycpremierlimo.com/wp-content/uploads/2026/07/nyc-premier-limo-logo.png"
-              alt="NYC Premier Limo Logo"
+              src="/logo.png"
+              alt="NYC Premier Chauffeur Logo"
               className="h-10 sm:h-12 w-auto object-contain transition group-hover:brightness-110"
               onError={(e) => {
                 // Fallback to text brand if image blocked
@@ -45,7 +45,7 @@ export default function Navbar() {
             />
             <div className="hidden">
               <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-white">
-                NYC <span className="text-gold">PREMIER</span> LIMO
+                NYC <span className="text-gold">PREMIER</span> CHAUFFEUR
               </span>
             </div>
           </Link>
@@ -135,19 +135,19 @@ export default function Navbar() {
                               to="/jfk-airport-limo-service"
                               className="block px-4 py-3 text-[13.5px] font-bold text-white hover:bg-[#e09900] hover:text-black transition-colors"
                             >
-                              JFK Airport Limo Service
+                              JFK Airport Chauffeur Service
                             </Link>
                             <Link
                               to="/lga-airport-limo-service"
                               className="block px-4 py-3 text-[13.5px] font-bold text-white hover:bg-[#e09900] hover:text-black transition-colors"
                             >
-                              LGA Airport Limo Service
+                              LGA Airport Chauffeur Service
                             </Link>
                             <Link
                               to="/ewr-airport-limo-service"
                               className="block px-4 py-3 text-[13.5px] font-bold text-white hover:bg-[#e09900] hover:text-black transition-colors"
                             >
-                              EWR Airport Limo Service
+                              EWR Airport Chauffeur Service
                             </Link>
                           </div>
                         </div>
@@ -164,23 +164,23 @@ export default function Navbar() {
                       </Link>
                     </div>
 
-                    {/* 3. Corporate Limo Service */}
+                    {/* 3. Corporate Chauffeur Service */}
                     <div onMouseEnter={() => setActiveSubmenu(null)}>
                       <Link
                         to="/corporate-limo-service"
                         className="block px-4 py-3 text-[13.5px] font-bold text-white hover:bg-[#e09900] hover:text-black transition-colors"
                       >
-                        Corporate Limo Service
+                        Corporate Chauffeur Service
                       </Link>
                     </div>
 
-                    {/* 4. Point to Point Limo Service */}
+                    {/* 4. Point to Point Chauffeur Service */}
                     <div onMouseEnter={() => setActiveSubmenu(null)}>
                       <Link
                         to="/point-to-point-limo-service"
                         className="block px-4 py-3 text-[13.5px] font-bold text-white hover:bg-[#e09900] hover:text-black transition-colors"
                       >
-                        Point to Point Limo Service
+                        Point to Point Chauffeur Service
                       </Link>
                     </div>
 
@@ -222,25 +222,25 @@ export default function Navbar() {
                               to="/wedding-limo-service"
                               className="block px-4 py-3 text-[13.5px] font-bold text-white hover:bg-[#e09900] hover:text-black transition-colors"
                             >
-                              Wedding Limo Service
+                              Wedding Chauffeur Service
                             </Link>
                             <Link
                               to="/birthday-limo-service"
                               className="block px-4 py-3 text-[13.5px] font-bold text-white hover:bg-[#e09900] hover:text-black transition-colors"
                             >
-                              Birthdays Limo Service
+                              Birthdays Chauffeur Service
                             </Link>
                             <Link
                               to="/prom-limousine-service"
                               className="block px-4 py-3 text-[13.5px] font-bold text-white hover:bg-[#e09900] hover:text-black transition-colors"
                             >
-                              Prom Limousine Service
+                              Prom Chauffeur Service
                             </Link>
                             <Link
                               to="/winery-tour-limo-service"
                               className="block px-4 py-3 text-[13.5px] font-bold text-white hover:bg-[#e09900] hover:text-black transition-colors"
                             >
-                              Winery Tour Limo Service
+                              Winery Tour Chauffeur Service
                             </Link>
                           </div>
                         </div>
@@ -402,8 +402,8 @@ export default function Navbar() {
                 <Link to="/corporate-limo-service" className="block py-1.5 text-sm text-neutral-300 hover:text-gold">Corporate Transportation</Link>
                 <Link to="/point-to-point-limo-service" className="block py-1.5 text-sm text-neutral-300 hover:text-gold">Point to Point</Link>
                 <Link to="/city-to-city-rides" className="block py-1.5 text-sm text-neutral-300 hover:text-gold">City-to-City Long Distance</Link>
-                <Link to="/wedding-limo-service" className="block py-1.5 text-sm text-neutral-300 hover:text-gold">Wedding Limousine</Link>
-                <Link to="/prom-limousine-service" className="block py-1.5 text-sm text-neutral-300 hover:text-gold">Prom Limousine</Link>
+                <Link to="/wedding-limo-service" className="block py-1.5 text-sm text-neutral-300 hover:text-gold">Wedding Chauffeur</Link>
+                <Link to="/prom-limousine-service" className="block py-1.5 text-sm text-neutral-300 hover:text-gold">Prom Chauffeur</Link>
                 <Link to="/winery-tour-limo-service" className="block py-1.5 text-sm text-neutral-300 hover:text-gold">Winery Tours</Link>
               </div>
             </div>

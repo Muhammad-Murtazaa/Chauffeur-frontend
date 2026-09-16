@@ -269,7 +269,7 @@ export default function QuoteBookingWidget({ initialService = "one-way", compact
                   { id: 'premium-sedan', name: 'Premium Sedan', sub: 'Mercedes S-Class', pax: 3, bags: 3 },
                   { id: 'premium-suv', name: 'Premium SUV', sub: 'Cadillac Escalade', pax: 6, bags: 6 },
                   { id: 'jet-sprinter', name: 'Jet Sprinter VIP', sub: 'VIP Maybach Style', pax: 10, bags: 10 },
-                  { id: 'stretch-limo', name: 'Stretch Limousine', sub: 'Lincoln Town Car', pax: 8, bags: 5 }
+                  { id: 'stretch-limo', name: 'Executive Stretch', sub: 'Lincoln Town Car', pax: 8, bags: 5 }
                 ].map(veh => (
                   <button
                     key={veh.id}

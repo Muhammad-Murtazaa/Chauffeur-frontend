@@ -5,7 +5,7 @@ export const reviewsData = [
     verified: true,
     rating: 5,
     date: "Recent Customer",
-    text: "NYC Premier Limo provided great rates, quick responses, and were on top of everything for our group with short notice. I'd definitely use them again in the future!"
+    text: "NYC Premier Chauffeur provided great rates, quick responses, and were on top of everything for our group with short notice. I'd definitely use them again in the future!"
   },
   {
     author: "Tina Belanger",
@@ -21,7 +21,7 @@ export const reviewsData = [
     verified: true,
     rating: 5,
     date: "Recent Customer",
-    text: "I would definitely recommend NYC Premier Limo to my family and friends as well as use their services again. It was easy to book the service. If I had any questions, customer service was always available to provide answers. My driver was very understanding and stayed in contact with me."
+    text: "I would definitely recommend NYC Premier Chauffeur to my family and friends as well as use their services again. It was easy to book the service. If I had any questions, customer service was always available to provide answers. My driver was very understanding and stayed in contact with me."
   },
   {
     author: "Brandy Famous",
@@ -37,7 +37,7 @@ export const reviewsData = [
     verified: true,
     rating: 5,
     date: "Recent Customer",
-    text: "NYC Premier Limousines provided top-quality transportation. Comfortable ride, punctual service, and overall great value."
+    text: "NYC Premier Chauffeur provided top-quality transportation. Comfortable ride, punctual service, and overall great value."
   },
   {
     author: "Joshua Ross",
@@ -45,7 +45,7 @@ export const reviewsData = [
     verified: true,
     rating: 5,
     date: "Recent Customer",
-    text: "Booked NYC Premier Limo Car Service for a special event and everything was perfect. Highly reliable and very classy service."
+    text: "Booked NYC Premier Chauffeur Service for a special event and everything was perfect. Highly reliable and very classy service."
   },
   {
     author: "Erin Murphy",
@@ -53,7 +53,7 @@ export const reviewsData = [
     verified: true,
     rating: 5,
     date: "Recent Customer",
-    text: "Used NYC Premier Limo for an airport transfer—very smooth ride, professional driver, and great communication throughout."
+    text: "Used NYC Premier Chauffeur for an airport transfer—very smooth ride, professional driver, and great communication throughout."
   },
   {
     author: "Joseph Clark",
@@ -61,7 +61,7 @@ export const reviewsData = [
     verified: true,
     rating: 5,
     date: "Recent Customer",
-    text: "I always choose this NYC Premier limo company because they deliver exactly what they promise—luxury, comfort and neat and clean cars."
+    text: "I always choose this NYC Premier chauffeur company because they deliver exactly what they promise—luxury, comfort and neat and clean cars."
   },
   {
     author: "Alexis Norton",
@@ -69,7 +69,7 @@ export const reviewsData = [
     verified: true,
     rating: 5,
     date: "Recent Customer",
-    text: "This NYC limo service is worth every penny. The driver was very professional and the neat and clean cars made the journey perfect."
+    text: "This NYC chauffeur service is worth every penny. The driver was very professional and the neat and clean cars made the journey perfect."
   },
   {
     author: "Marcus Simmons",

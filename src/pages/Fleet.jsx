@@ -13,7 +13,7 @@ export default function Fleet() {
     { id: 'sedans', label: 'Executive Sedans' },
     { id: 'suvs', label: 'Luxury SUVs' },
     { id: 'sprinters', label: 'Sprinter & Transit Vans' },
-    { id: 'limos', label: 'Stretch Limos' },
+    { id: 'limos', label: 'Executive Stretch' },
     { id: 'buses', label: 'Minibuses & Coaches' },
   ];
 
@@ -68,7 +68,7 @@ export default function Fleet() {
 
           {/* Eyebrow */}
           <div className="text-[12px] sm:text-[13px] font-semibold uppercase tracking-[0.14em] text-[#e09900]">
-            &mdash; NYC Premier Limo fleet
+            &mdash; NYC Premier Chauffeur fleet
           </div>
 
           {/* Main Heading */}
@@ -221,7 +221,7 @@ export default function Fleet() {
             },
             {
               id: "stretch-limo",
-              name: "Stretch Limo",
+              name: "Executive Stretch",
               passengers: "8 Passengers",
               luggage: "2 Luggage",
               image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-stretch-limo-lincoln-town-car-nyc-768x612.png"
@@ -249,14 +249,14 @@ export default function Fleet() {
             },
             {
               id: "sprinter-limo",
-              name: "Sprinter Limo",
+              name: "Sprinter VIP Lounge",
               passengers: "14 Passengers",
               luggage: "14 Luggage",
               image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-sprinter-limo-party-van-nyc-768x512.png"
             },
             {
               id: "suv-limo",
-              name: "SUV Limo",
+              name: "Executive Extended SUV",
               passengers: "16 Passengers",
               luggage: "16 Luggage",
               image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-suv-limo-lincoln-navigator-nyc-768x512.png"
@@ -433,8 +433,8 @@ export default function Fleet() {
                   bestFor: "Executive groups who need to talk or work privately between stops. Popular for roadshows and private-aviation transfers."
                 },
                 {
-                  vehicle: "Limo Sprinter",
-                  models: "Mercedes-Benz Sprinter, limousine interior",
+                  vehicle: "Sprinter VIP Lounge",
+                  models: "Mercedes-Benz Sprinter, luxury lounge interior",
                   bestFor: "Nights out for mid-size groups. Bachelor and bachelorette parties, birthday celebrations and winery tours."
                 },
                 {
@@ -443,14 +443,14 @@ export default function Fleet() {
                   bestFor: "Celebrations that move between several venues. Sweet 16s, birthday nights out and group city experiences."
                 },
                 {
-                  vehicle: "Stretch Limo",
+                  vehicle: "Executive Stretch",
                   models: "Lincoln Continental, Lincoln MKT or similar",
-                  bestFor: "Occasions where the arrival is part of the event — weddings, proms and anniversary evenings."
+                  bestFor: "Occasions where the arrival is part of the event — weddings, celebrations and anniversary evenings."
                 },
                 {
-                  vehicle: "SUV Limo",
-                  models: "Hummer H2, Cadillac Escalade, Range Rover or similar",
-                  bestFor: "Statement arrivals for larger celebration groups. Prom parties, milestone birthdays and bachelorette nights."
+                  vehicle: "Executive Extended SUV",
+                  models: "Cadillac Escalade ESV, Lincoln Navigator L or similar",
+                  bestFor: "Statement arrivals for larger celebration groups. Prom parties, milestone birthdays and special events."
                 },
                 {
                   vehicle: "Mini Bus",
@@ -570,7 +570,7 @@ export default function Fleet() {
             </div>
             <div className="md:col-span-5">
               <p className="text-[14px] text-[#6D685F] leading-relaxed">
-                Exact pricing, vehicle availability, pickup instructions, and trip requirements are confirmed directly with NYC Premier Limo.
+                Exact pricing, vehicle availability, pickup instructions, and trip requirements are confirmed directly with NYC Premier Chauffeur.
               </p>
             </div>
           </div>
@@ -635,7 +635,7 @@ export default function Fleet() {
               </span>
             </div>
             <h3 className="font-serif text-3xl sm:text-4xl lg:text-[42px] font-bold text-white leading-[1.15] tracking-tight">
-              Book your next trip with NYC Premier Limo.
+              Book your next trip with NYC Premier Chauffeur.
             </h3>
             <p className="text-[13.5px] sm:text-[14px] text-zinc-400 leading-relaxed font-normal">
               Request a personalized quote online or speak directly with the team about airport, corporate, hourly, point-to-point, city-to-city, or special event transportation.

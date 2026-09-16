@@ -9,13 +9,13 @@ export default function BirthdayService() {
     <div className="bg-[#060B10] text-white">
       <PageHero
         badge="Celebrate in Style"
-        title="Birthday & Milestone Limousine Service"
-        subtitle="Celebrate milestone birthdays, sweet 16s, quinces, bachelor & bachelorette parties, and anniversaries with NYC Premier Limo."
+        title="Birthday & Milestone Chauffeur Service"
+        subtitle="Celebrate milestone birthdays, sweet 16s, quinces, bachelor & bachelorette parties, and anniversaries with NYC Premier Chauffeur."
         bgImage="https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-sprinter-limo-party-van-nyc.png"
         breadcrumbs={[
           { name: "Services", link: "/services" },
           { name: "Special Occasions", link: "/special-occasions" },
-          { name: "Birthday Limo Service" }
+          { name: "Birthday Chauffeur Service" }
         ]}
       />
 

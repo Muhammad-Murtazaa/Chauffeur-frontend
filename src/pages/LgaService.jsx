@@ -9,13 +9,13 @@ export default function LgaService() {
     <div className="bg-[#060B10] text-white">
       <PageHero
         badge="LaGuardia Airport"
-        title="LGA Airport Limo Service"
+        title="LGA Airport Chauffeur Service"
         subtitle="The fastest, most comfortable executive transfer between LaGuardia Airport (Terminals A, B, C) and Manhattan, Westchester, or Connecticut."
         bgImage="https://nycpremierlimo.com/wp-content/uploads/2026/08/second-section-image.png"
         breadcrumbs={[
           { name: "Services", link: "/services" },
           { name: "Airport Car Service", link: "/airport-car-service" },
-          { name: "LGA Airport Limo" }
+          { name: "LGA Airport Chauffeur" }
         ]}
       />
 

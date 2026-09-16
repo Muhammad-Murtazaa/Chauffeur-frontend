@@ -1,6 +1,6 @@
 export const faqData = [
   {
-    question: "How do I book a ride with NYC Premier Limo?",
+    question: "How do I book a ride with NYC Premier Chauffeur?",
     answer: "You can book directly online through our real-time Instant Quote & Reservation portal, call our dispatch desk at (347) 888-9797, or email info@nycpremierlimo.com. Our dispatch and customer support teams operate 24 hours a day, 7 days a week to confirm your reservation."
   },
   {
@@ -9,7 +9,7 @@ export const faqData = [
   },
   {
     question: "What vehicle types are available in your fleet?",
-    answer: "Our modern luxury fleet consists of Business & Premium Executive Sedans (Mercedes S-Class, BMW 7 Series, Lincoln), Executive SUVs (Cadillac Escalade, Chevy Suburban), Custom Lincoln Stretch Limousines, Mercedes-Benz VIP Jet Sprinters, 14-Passenger Transit Vans, and full-size 28 to 55-passenger Charter Coaches."
+    answer: "Our modern luxury fleet consists of Business & Premium Executive Sedans (Mercedes S-Class, BMW 7 Series, Lincoln), Executive SUVs (Cadillac Escalade, Chevy Suburban), Custom Executive Stretch Vehicles, Mercedes-Benz VIP Jet Sprinters, 14-Passenger Transit Vans, and full-size 28 to 55-passenger Charter Coaches."
   },
   {
     question: "Do you offer flat rates or hourly pricing?",

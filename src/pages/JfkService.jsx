@@ -10,13 +10,13 @@ export default function JfkService() {
     <div className="bg-[#060B10] text-white">
       <PageHero
         badge="JFK International Airport"
-        title="JFK Airport Limo Service"
+        title="JFK Airport Chauffeur Service"
         subtitle="Private luxury chauffeur transfers to and from John F. Kennedy International Airport (Queens, NY). Live radar tracking across Terminals 1, 4, 5, 7, and 8."
         bgImage="https://nycpremierlimo.com/wp-content/uploads/2026/08/jfk-airport-limo-service-terminal-pickup-hero.webp"
         breadcrumbs={[
           { name: "Services", link: "/services" },
           { name: "Airport Car Service", link: "/airport-car-service" },
-          { name: "JFK Airport Limo" }
+          { name: "JFK Airport Chauffeur" }
         ]}
       />
 
@@ -31,7 +31,7 @@ export default function JfkService() {
                 Seamless International & Domestic JFK Transfers
               </h2>
               <p className="text-sm sm:text-base text-neutral-300 mt-4 leading-relaxed">
-                JFK is the busiest international gateway in North America. Navigating customs, baggage claim, and airport exit traffic requires precision. Our dispatch monitors incoming transatlantic and domestic flights in real time. We stage your vehicle in the airport limo holding area so your chauffeur arrives at the pickup curb within minutes of you clearing customs.
+                JFK is the busiest international gateway in North America. Navigating customs, baggage claim, and airport exit traffic requires precision. Our dispatch monitors incoming transatlantic and domestic flights in real time. We stage your vehicle in the airport staging area so your chauffeur arrives at the pickup curb within minutes of you clearing customs.
               </p>
             </div>
 

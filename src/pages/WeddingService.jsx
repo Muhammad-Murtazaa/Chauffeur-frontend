@@ -10,13 +10,13 @@ export default function WeddingService() {
     <div className="bg-[#060B10] text-white">
       <PageHero
         badge="Wedding Transportation"
-        title="Wedding Limo & Bridal Party Service"
-        subtitle="Unforgettable arrivals on your special day. White-glove wedding limousines, bridal party Sprinters, and seamless guest shuttle buses across New York City and Long Island."
+        title="Wedding Chauffeur & Bridal Party Service"
+        subtitle="Unforgettable arrivals on your special day. White-glove wedding luxury vehicles, bridal party Sprinters, and seamless guest shuttle buses across New York City and Long Island."
         bgImage="https://nycpremierlimo.com/wp-content/uploads/2026/08/second-section-image-jfk-section-image.png"
         breadcrumbs={[
           { name: "Services", link: "/services" },
           { name: "Special Occasions", link: "/special-occasions" },
-          { name: "Wedding Limo Service" }
+          { name: "Wedding Chauffeur Service" }
         ]}
       />
 

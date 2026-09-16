@@ -9,13 +9,13 @@ export default function WineryService() {
     <div className="bg-[#060B10] text-white">
       <PageHero
         badge="Wine Country Escapes"
-        title="Winery Tour Limo Service"
+        title="Winery Tour Chauffeur Service"
         subtitle="Curated private wine tours to Long Island's North Fork and Hudson Valley vineyards. Sit back, sample world-class wines, and leave the driving to us."
         bgImage="https://nycpremierlimo.com/wp-content/uploads/2026/09/winery-tour-chauffeur-waiting-vineyard-terrace.webp"
         breadcrumbs={[
           { name: "Services", link: "/services" },
           { name: "Special Occasions", link: "/special-occasions" },
-          { name: "Winery Tour Limo Service" }
+          { name: "Winery Tour Chauffeur Service" }
         ]}
       />
 

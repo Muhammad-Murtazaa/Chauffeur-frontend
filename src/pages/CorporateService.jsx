@@ -10,12 +10,12 @@ export default function CorporateService() {
     <div className="bg-[#060B10] text-white">
       <PageHero
         badge="Corporate Travel"
-        title="Corporate Limousine & Executive Transportation"
+        title="Corporate Chauffeur & Executive Transportation"
         subtitle="Discreet, punctual, and reliable travel for C-suite executives, visiting clients, board roadshows, and corporate conventions across NYC and the Tri-State."
         bgImage="https://nycpremierlimo.com/wp-content/uploads/2026/08/Corporate-Limo.jpg"
         breadcrumbs={[
           { name: "Services", link: "/services" },
-          { name: "Corporate Limo Service" }
+          { name: "Corporate Chauffeur Service" }
         ]}
       />
 
@@ -30,7 +30,7 @@ export default function CorporateService() {
                 Designed for Companies Where Timing is Everything
               </h2>
               <p className="text-sm sm:text-base text-neutral-300 mt-4 leading-relaxed">
-                In the financial and corporate capitals of Manhattan, a late ride can compromise an acquisition or disrupt a critical investor meeting. NYC Premier Limo delivers rigorous corporate reliability with professional chauffeurs under strict Non-Disclosure Agreements, immaculate late-model vehicles, and seamless corporate billing accounts.
+                In the financial and corporate capitals of Manhattan, a late ride can compromise an acquisition or disrupt a critical investor meeting. NYC Premier Chauffeur delivers rigorous corporate reliability with professional chauffeurs under strict Non-Disclosure Agreements, immaculate late-model vehicles, and seamless corporate billing accounts.
               </p>
             </div>
 

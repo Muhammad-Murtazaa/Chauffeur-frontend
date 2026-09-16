@@ -38,7 +38,7 @@ export default function AirportService() {
     <div className="bg-[#060B10] text-white">
       <PageHero
         badge="Airport Transfers"
-        title="NYC Airport Car & Limousine Service"
+        title="NYC Airport Car & Chauffeur Service"
         subtitle="Private transfers to JFK, LaGuardia, Newark Liberty, and regional private FBOs. Live flight radar tracking, curbside or inside meet & greet, and flat all-inclusive rates."
         bgImage="https://nycpremierlimo.com/wp-content/uploads/2026/08/jfk-airport-limo-service-terminal-pickup-hero.webp"
         breadcrumbs={[
@@ -59,7 +59,7 @@ export default function AirportService() {
                 Never Wait on an Airport Curb Again
               </h2>
               <p className="text-sm sm:text-base text-neutral-300 mt-4 leading-relaxed">
-                Navigating New York airports can be exhausting after a long flight. With NYC Premier Limo, your chauffeur tracks your incoming flight directly via FAA radar. If you arrive early or get delayed on the tarmac, your scheduled pickup adjusts automatically with zero penalties.
+                Navigating New York airports can be exhausting after a long flight. With NYC Premier Chauffeur, your chauffeur tracks your incoming flight directly via FAA radar. If you arrive early or get delayed on the tarmac, your scheduled pickup adjusts automatically with zero penalties.
               </p>
             </div>
 

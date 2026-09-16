@@ -17,7 +17,7 @@ export default function TermsConditions() {
         <div className="p-6 rounded-2xl bg-[#0E1722] border border-white/10 space-y-2">
           <div className="text-xs font-bold uppercase tracking-wider text-gold">Policy Notice</div>
           <p className="text-xs text-neutral-400">
-            By reserving, engaging, or utilizing services provided by NYC Premier Limo ("Company", "we", "our"), the passenger and booking entity ("Client", "you") acknowledge and agree to the contractual terms outlined below.
+            By reserving, engaging, or utilizing services provided by NYC Premier Chauffeur ("Company", "we", "our"), the passenger and booking entity ("Client", "you") acknowledge and agree to the contractual terms outlined below.
           </p>
         </div>
 

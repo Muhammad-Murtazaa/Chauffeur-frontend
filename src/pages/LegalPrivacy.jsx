@@ -7,7 +7,7 @@ export default function LegalPrivacy() {
       <PageHero
         badge="Data Protection"
         title="Privacy Policy"
-        subtitle="How NYC Premier Limo collects, utilizes, safeguards, and respects your personal travel information."
+        subtitle="How NYC Premier Chauffeur collects, utilizes, safeguards, and respects your personal travel information."
         bgImage="https://nycpremierlimo.com/wp-content/uploads/2026/08/corporate-travel.jpg"
         breadcrumbs={[{ name: "Privacy Policy" }]}
       />

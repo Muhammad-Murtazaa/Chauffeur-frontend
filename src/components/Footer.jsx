@@ -10,8 +10,8 @@ export default function Footer() {
           <div className="md:col-span-4 space-y-5">
             <Link to="/" className="inline-block">
               <img
-                src="https://nycpremierlimo.com/wp-content/uploads/2026/07/nyc-premier-limo-logo.png"
-                alt="NYC Premier Limo"
+                src="/logo.png"
+                alt="NYC Premier Chauffeur"
                 className="h-12 sm:h-14 w-auto object-contain"
                 onError={(e) => {
                   e.target.style.display = 'none';
@@ -19,7 +19,7 @@ export default function Footer() {
                 }}
               />
               <span className="hidden font-serif text-xl font-bold text-white tracking-wide">
-                NYC <span className="text-[#e09900]">PREMIER</span> LIMO
+                NYC <span className="text-[#e09900]">PREMIER</span> CHAUFFEUR
               </span>
             </Link>
 
@@ -49,9 +49,9 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-[13.5px] text-zinc-300">
               <li><Link to="/areas-we-serve" className="hover:text-[#e09900] transition-colors">Areas We Serve</Link></li>
-              <li><Link to="/jfk-airport-limo-service" className="hover:text-[#e09900] transition-colors">JFK Limo Service</Link></li>
-              <li><Link to="/ewr-airport-limo-service" className="hover:text-[#e09900] transition-colors">EWR Limo Service</Link></li>
-              <li><Link to="/lga-airport-limo-service" className="hover:text-[#e09900] transition-colors">LGA Limo Service</Link></li>
+              <li><Link to="/jfk-airport-limo-service" className="hover:text-[#e09900] transition-colors">JFK Chauffeur Service</Link></li>
+              <li><Link to="/ewr-airport-limo-service" className="hover:text-[#e09900] transition-colors">EWR Chauffeur Service</Link></li>
+              <li><Link to="/lga-airport-limo-service" className="hover:text-[#e09900] transition-colors">LGA Chauffeur Service</Link></li>
               <li><Link to="/reservations" className="hover:text-[#e09900] transition-colors">Reservation</Link></li>
             </ul>
           </div>
@@ -81,7 +81,7 @@ export default function Footer() {
 
         {/* Bottom copyright */}
         <div className="pt-7 text-center text-[12.5px] text-zinc-500 font-normal">
-          &copy; 2026 NYC Premier Limo. All rights reserved.
+          &copy; 2026 NYC Premier Chauffeur. All rights reserved.
         </div>
       </div>
     </footer>

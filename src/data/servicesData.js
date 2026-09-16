@@ -7,11 +7,11 @@ export const servicesData = [
     number: "01",
     heroImage: "https://nycpremierlimo.com/wp-content/uploads/2026/08/jfk-airport-limo-service-terminal-pickup-hero.webp",
     subServices: [
-      { name: "JFK Airport Limo", link: "/jfk-airport-limo-service", airport: "John F. Kennedy International" },
-      { name: "LGA Airport Limo", link: "/lga-airport-limo-service", airport: "LaGuardia Airport" },
-      { name: "EWR Airport Limo", link: "/ewr-airport-limo-service", airport: "Newark Liberty International" },
-      { name: "TEB Airport Limo", link: "/airport-car-service", airport: "Teterboro Executive Airport" },
-      { name: "HPN Airport Limo", link: "/airport-car-service", airport: "Westchester County Airport" }
+      { name: "JFK Airport Chauffeur", link: "/jfk-airport-limo-service", airport: "John F. Kennedy International" },
+      { name: "LGA Airport Chauffeur", link: "/lga-airport-limo-service", airport: "LaGuardia Airport" },
+      { name: "EWR Airport Chauffeur", link: "/ewr-airport-limo-service", airport: "Newark Liberty International" },
+      { name: "TEB Airport Chauffeur", link: "/airport-car-service", airport: "Teterboro Executive Airport" },
+      { name: "HPN Airport Chauffeur", link: "/airport-car-service", airport: "Westchester County Airport" }
     ],
     features: [
       "Live Flight Radar Tracking & Auto-Adjusted Pickups",
@@ -94,13 +94,13 @@ export const servicesData = [
     number: "06",
     heroImage: "https://nycpremierlimo.com/wp-content/uploads/2026/09/winery-tour-chauffeur-waiting-vineyard-terrace.webp",
     subServices: [
-      { name: "Wedding Limo Service", link: "/wedding-limo-service" },
-      { name: "Prom Limousine Service", link: "/prom-limousine-service" },
-      { name: "Birthday Limo Service", link: "/birthday-limo-service" },
-      { name: "Winery Tour Limo Service", link: "/winery-tour-limo-service" }
+      { name: "Wedding Chauffeur Service", link: "/wedding-limo-service" },
+      { name: "Prom Chauffeur Service", link: "/prom-limousine-service" },
+      { name: "Birthday Chauffeur Service", link: "/birthday-limo-service" },
+      { name: "Winery Tour Chauffeur Service", link: "/winery-tour-limo-service" }
     ],
     features: [
-      "Stunning Stretch Limousines & VIP Party Sprinters",
+      "VIP Luxury Sprinters & Executive Fleet",
       "Red Carpet Service & Complimentary Toast Glassware",
       "Photogenic NYC Waterfront & Iconic Landmark Photo Stops",
       "Punctual Multi-Vehicle Wedding Shuttle Logistics",
