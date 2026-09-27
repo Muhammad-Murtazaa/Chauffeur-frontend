@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ChevronRight, Phone, CalendarCheck } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
 
 export default function PageHero({
   title,
@@ -9,6 +10,9 @@ export default function PageHero({
   bgImage = "https://nycpremierlimo.com/wp-content/uploads/2026/09/fleet-page-chauffeur-service-nyc-hero.webp",
   breadcrumbs = []
 }) {
+  const navigate = useNavigate();
+  const { promptInstantQuote } = useAuth();
+
   return (
     <section className="relative min-h-[420px] sm:min-h-[480px] flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Background Image with Dark Luxury Gradients */}
@@ -60,13 +64,14 @@ export default function PageHero({
 
         {/* CTAs */}
         <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
-          <Link
-            to="/reservations"
+          <button
+            type="button"
+            onClick={() => promptInstantQuote(navigate, '/reservations')}
             className="bg-gold hover:bg-gold-hover text-black px-7 py-3.5 rounded-full font-bold text-sm tracking-wide transition shadow-xl shadow-gold/25 flex items-center gap-2"
           >
             <CalendarCheck className="w-4 h-4" />
             <span>Instant Quote & Book</span>
-          </Link>
+          </button>
 
           <a
             href="tel:+13478889797"

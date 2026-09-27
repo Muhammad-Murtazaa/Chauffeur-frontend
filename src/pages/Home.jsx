@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import { 
   Phone, 
   ChevronRight, 
@@ -12,6 +13,8 @@ import {
 } from 'lucide-react';
 
 export default function Home() {
+  const navigate = useNavigate();
+  const { promptInstantQuote } = useAuth();
   // Reviews carousel state
   const [reviewIdx, setReviewIdx] = useState(0);
 
@@ -1004,12 +1007,13 @@ export default function Home() {
             >
               Call Now
             </a>
-            <Link
-              to="/reservations"
+            <button
+              type="button"
+              onClick={() => promptInstantQuote(navigate, '/reservations')}
               className="bg-transparent border border-white/70 hover:border-white text-white hover:bg-white/5 font-bold text-xs sm:text-[13px] px-8 py-3 rounded-full transition-all active:scale-95 text-center min-w-[130px]"
             >
               Instant Quote
-            </Link>
+            </button>
           </div>
         </div>
       </section>

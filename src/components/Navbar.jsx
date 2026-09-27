@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Phone, ChevronDown, ChevronRight, Menu, X, Shield, Clock, MapPin, Car, Sparkles } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Phone, ChevronDown, ChevronRight, Menu, X, Shield, Clock, MapPin, Car, Sparkles, User, LogOut } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
 
 export default function Navbar() {
+  const navigate = useNavigate();
+  const { user, isAuthenticated, logout, promptInstantQuote, openAuthModal } = useAuth();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState(null); // 'airport' | 'occasions' | null
   const [areasDropdownOpen, setAreasDropdownOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -338,22 +342,99 @@ export default function Navbar() {
             >
               Contact Us
             </Link>
+
+            <Link
+              to="/drivers"
+              className={`px-3 py-2 text-sm font-semibold rounded-md transition ${
+                location.pathname === '/drivers' || location.pathname === '/drive-with-us'
+                  ? 'text-[#e09900]'
+                  : 'text-neutral-200 hover:text-[#e09900]'
+              }`}
+            >
+              Drive With Us
+            </Link>
           </div>
 
           {/* Action CTAs */}
-          <div className="hidden lg:flex items-center space-x-5">
+          <div className="hidden lg:flex items-center space-x-4">
             <a
               href="tel:+13478889797"
               className="text-white hover:text-gold text-sm font-semibold transition-colors duration-200"
             >
               (347) 888-9797
             </a>
-            <Link
-              to="/reservations"
-              className="bg-[#e09900] hover:bg-[#c98600] text-black px-6 py-2.5 rounded-full text-sm font-bold tracking-normal transition-colors duration-200"
+
+            {/* Customer / VIP User Auth Button */}
+            {isAuthenticated ? (
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => setUserMenuOpen(!userMenuOpen)}
+                  className="flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/10 hover:bg-white/15 border border-white/15 text-xs font-bold text-white transition"
+                >
+                  <div className="w-5 h-5 rounded-full bg-[#e09900] text-black flex items-center justify-center text-[11px] font-bold">
+                    {user?.firstName?.[0] || 'U'}
+                  </div>
+                  <span>{user?.firstName || 'VIP Client'}</span>
+                  <ChevronDown className="w-3.5 h-3.5 text-neutral-400" />
+                </button>
+
+                {userMenuOpen && (
+                  <div
+                    className="absolute right-0 mt-2 w-52 bg-[#0E1722] border border-white/15 rounded-2xl p-2 shadow-2xl space-y-1 z-50 animate-in fade-in"
+                    onClick={() => setUserMenuOpen(false)}
+                  >
+                    <div className="px-3 py-2 border-b border-white/10 text-xs">
+                      <div className="font-bold text-white truncate">
+                        {user?.firstName} {user?.lastName}
+                      </div>
+                      <div className="text-[10px] text-neutral-400 truncate">{user?.email}</div>
+                    </div>
+
+                    {user?.role === 'DRIVER' && (
+                      <Link
+                        to="/driver/dashboard"
+                        className="block px-3 py-2 rounded-xl text-xs font-semibold text-[#e09900] hover:bg-white/5"
+                      >
+                        Chauffeur Portal →
+                      </Link>
+                    )}
+
+                    <Link
+                      to="/reservations"
+                      className="block px-3 py-2 rounded-xl text-xs font-semibold text-neutral-200 hover:text-white hover:bg-white/5"
+                    >
+                      Instant Quote & Book
+                    </Link>
+
+                    <button
+                      type="button"
+                      onClick={logout}
+                      className="w-full text-left px-3 py-2 rounded-xl text-xs font-semibold text-rose-400 hover:bg-rose-500/10 flex items-center gap-2"
+                    >
+                      <LogOut className="w-3.5 h-3.5" />
+                      <span>Sign Out</span>
+                    </button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <button
+                type="button"
+                onClick={() => openAuthModal({ defaultTab: 'signin' })}
+                className="text-neutral-300 hover:text-white text-xs font-bold px-3 py-2 rounded-full border border-white/10 hover:bg-white/5 transition"
+              >
+                Sign In
+              </button>
+            )}
+
+            <button
+              type="button"
+              onClick={() => promptInstantQuote(navigate, '/reservations')}
+              className="bg-[#e09900] hover:bg-[#c98600] text-black px-6 py-2.5 rounded-full text-sm font-bold tracking-normal transition shadow-lg shadow-[#e09900]/20"
             >
               Instant Quote
-            </Link>
+            </button>
           </div>
 
           {/* Mobile menu button */}
@@ -378,6 +459,47 @@ export default function Navbar() {
         {/* Mobile Slide-Out Drawer */}
         {mobileMenuOpen && (
           <div className="lg:hidden bg-[#0D151F] border-b border-white/10 px-4 pt-3 pb-6 space-y-3 max-h-[85vh] overflow-y-auto">
+            {/* User status in mobile drawer */}
+            {isAuthenticated ? (
+              <div className="p-3 bg-white/5 rounded-2xl border border-white/10 flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-full bg-[#e09900] text-black font-bold flex items-center justify-center text-xs">
+                    {user?.firstName?.[0] || 'U'}
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold text-white">
+                      {user?.firstName} {user?.lastName}
+                    </div>
+                    <div className="text-[10px] text-neutral-400">{user?.email}</div>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    logout();
+                    setMobileMenuOpen(false);
+                  }}
+                  className="text-xs text-rose-400 hover:underline"
+                >
+                  Sign Out
+                </button>
+              </div>
+            ) : (
+              <div className="p-3 bg-white/5 rounded-2xl border border-white/10 flex items-center justify-between">
+                <span className="text-xs text-neutral-300">VIP Client Account</span>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    openAuthModal({ defaultTab: 'signin' });
+                  }}
+                  className="px-3 py-1 rounded-full bg-[#e09900] text-black font-bold text-xs"
+                >
+                  Sign In / Register
+                </button>
+              </div>
+            )}
+
             <Link
               to="/"
               className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/5"
@@ -435,14 +557,24 @@ export default function Navbar() {
             >
               Contact Us
             </Link>
+            <Link
+              to="/drivers"
+              className="block px-3 py-2 rounded-md text-base font-medium text-[#e09900] bg-[#e09900]/10 border border-[#e09900]/20 hover:bg-[#e09900]/20"
+            >
+              Drive With Us (Chauffeur Portal)
+            </Link>
 
             <div className="pt-2 flex flex-col gap-2">
-              <Link
-                to="/reservations"
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  promptInstantQuote(navigate, '/reservations');
+                }}
                 className="w-full bg-gold text-black text-center py-3 rounded-xl font-bold text-sm shadow-md"
               >
                 Instant Quote & Book
-              </Link>
+              </button>
               <a
                 href="tel:+13478889797"
                 className="w-full bg-white/10 text-white text-center py-3 rounded-xl font-bold text-sm border border-white/20 flex items-center justify-center gap-2"
