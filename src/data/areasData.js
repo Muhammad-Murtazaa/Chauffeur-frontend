@@ -52,5 +52,23 @@ export const areasData = [
     image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/City-To-City-Rides-1024x683.jpg",
     description: "Our reach extends beyond the five boroughs to Nassau and Suffolk County (including the Hamptons and Montauk), Bergen & Essex County NJ, and Fairfield County CT.",
     highlights: ["The Hamptons & Montauk Escapes", "Greenwich & Stamford Corporate Travel", "Westchester & White Plains Executive Hubs", "Jersey Shore & Atlantic City", "North Fork Long Island Wine Country"]
+  },
+  {
+    id: "washington-dc",
+    name: "Washington, D.C.",
+    slug: "/washington-dc-limo-service",
+    tagline: "Capitol Hill, Embassy Row & DCA / Dulles (IAD)",
+    image: "https://images.unsplash.com/photo-1501466044931-62695aada8e9?auto=format&fit=crop&w=1000&q=80",
+    description: "Executive and diplomatic chauffeur service across the District, Northern Virginia, and Maryland. Connecting government headquarters, embassies, airports (DCA, IAD, BWI), and direct city-to-city rides to NYC.",
+    highlights: ["Capitol Hill & Congressional Offices", "The White House & Pennsylvania Ave", "DCA & Dulles (IAD) Airport Transfers", "Georgetown & Embassy Row", "NYC to D.C. Intercity Direct Rides"]
+  },
+  {
+    id: "barcelona",
+    name: "Barcelona, Spain",
+    slug: "/barcelona-limo-service",
+    tagline: "Eixample, Passeig de Gràcia & BCN Airport",
+    image: "https://images.unsplash.com/photo-1583422409516-2895a77efded?auto=format&fit=crop&w=1000&q=80",
+    description: "Private luxury chauffeur transportation in Barcelona and across Catalonia. From BCN Airport and Port de Barcelona cruise terminals to MWC summits and Mediterranean tours in Costa Brava and Sitges.",
+    highlights: ["Josep Tarradellas BCN Airport Transfers", "Port de Barcelona Cruise Ship Pickups", "Passeig de Gràcia & Gothic Quarter", "Fira de Barcelona & MWC Conventions", "Costa Brava & Sitges Day Charters"]
   }
 ];

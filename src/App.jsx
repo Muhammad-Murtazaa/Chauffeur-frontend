@@ -27,6 +27,8 @@ import BrooklynService from './pages/BrooklynService';
 import QueensService from './pages/QueensService';
 import BronxService from './pages/BronxService';
 import StatenIslandService from './pages/StatenIslandService';
+import WashingtonDcService from './pages/WashingtonDcService';
+import BarcelonaService from './pages/BarcelonaService';
 import Reservations from './pages/Reservations';
 import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
@@ -117,6 +119,10 @@ export default function App() {
           <Route path="/queens-limo-service" element={<QueensService />} />
           <Route path="/the-bronx-limo-service" element={<BronxService />} />
           <Route path="/staten-island-limo" element={<StatenIslandService />} />
+          <Route path="/washington-dc-limo-service" element={<WashingtonDcService />} />
+          <Route path="/washington-dc-car-service" element={<WashingtonDcService />} />
+          <Route path="/barcelona-limo-service" element={<BarcelonaService />} />
+          <Route path="/barcelona-car-service" element={<BarcelonaService />} />
           <Route path="/reservations" element={<Reservations />} />
           <Route path="/reservation" element={<Reservations />} />
           <Route path="/about-us" element={<AboutUs />} />

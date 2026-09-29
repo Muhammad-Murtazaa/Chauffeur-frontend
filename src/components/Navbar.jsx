@@ -269,7 +269,9 @@ export default function Navbar() {
                   location.pathname.includes('brooklyn') ||
                   location.pathname.includes('queens') ||
                   location.pathname.includes('bronx') ||
-                  location.pathname.includes('staten-island')
+                  location.pathname.includes('staten-island') ||
+                  location.pathname.includes('washington-dc') ||
+                  location.pathname.includes('barcelona')
                     ? 'text-[#e09900]'
                     : 'text-white hover:text-[#e09900]'
                 }`}
@@ -315,10 +317,22 @@ export default function Navbar() {
                       Staten Island
                     </Link>
                     <Link
+                      to="/washington-dc-limo-service"
+                      className="block px-4 py-3 text-[13.5px] font-bold text-white hover:bg-[#e09900] hover:text-black transition-colors"
+                    >
+                      Washington, D.C.
+                    </Link>
+                    <Link
+                      to="/barcelona-limo-service"
+                      className="block px-4 py-3 text-[13.5px] font-bold text-white hover:bg-[#e09900] hover:text-black transition-colors"
+                    >
+                      Barcelona, Spain
+                    </Link>
+                    <Link
                       to="/areas-we-serve"
                       className="block px-4 py-3 text-[13.5px] font-bold text-[#e09900] hover:bg-[#e09900] hover:text-black border-t border-[#e09900]/30 transition-colors"
                     >
-                      View All Tri-State Areas →
+                      View All Regions →
                     </Link>
                   </div>
                 </div>
@@ -541,6 +555,8 @@ export default function Navbar() {
                 <Link to="/queens-limo-service" className="block py-1 text-sm text-neutral-300 hover:text-gold">Queens</Link>
                 <Link to="/the-bronx-limo-service" className="block py-1 text-sm text-neutral-300 hover:text-gold">The Bronx</Link>
                 <Link to="/staten-island-limo" className="block py-1 text-sm text-neutral-300 hover:text-gold">Staten Island</Link>
+                <Link to="/washington-dc-limo-service" className="block py-1 text-sm text-neutral-300 hover:text-gold">Washington, D.C.</Link>
+                <Link to="/barcelona-limo-service" className="block py-1 text-sm text-neutral-300 hover:text-gold">Barcelona, Spain</Link>
                 <Link to="/areas-we-serve" className="block py-1 text-sm text-gold">All Areas & Regions →</Link>
               </div>
             </div>
