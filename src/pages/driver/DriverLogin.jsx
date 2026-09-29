@@ -223,6 +223,22 @@ export default function DriverLogin() {
                   </>
                 )}
               </button>
+
+              <div className="pt-3 text-center">
+                <p className="text-xs text-neutral-400">
+                  New chauffeur applicant?{' '}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setAuthMode('register');
+                      setErrorMsg('');
+                    }}
+                    className="text-[#e09900] font-semibold hover:underline"
+                  >
+                    Register here
+                  </button>
+                </p>
+              </div>
             </form>
           ) : (
             /* REGISTRATION FORM */
@@ -340,6 +356,22 @@ export default function DriverLogin() {
                   </>
                 )}
               </button>
+
+              <div className="pt-3 text-center">
+                <p className="text-xs text-neutral-400">
+                  Already registered as a chauffeur?{' '}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setAuthMode('login');
+                      setErrorMsg('');
+                    }}
+                    className="text-[#e09900] font-semibold hover:underline"
+                  >
+                    Sign In here
+                  </button>
+                </p>
+              </div>
             </form>
           )}
 

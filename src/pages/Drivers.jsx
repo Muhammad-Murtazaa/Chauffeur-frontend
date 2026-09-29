@@ -15,6 +15,7 @@ import {
   ArrowRight,
   ShieldCheck,
   Sparkles,
+  LogIn,
 } from 'lucide-react';
 
 export default function Drivers() {
@@ -101,17 +102,30 @@ export default function Drivers() {
       <section className="py-16 sm:py-20 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-[#0E1722] border border-white/10 rounded-3xl p-6 sm:p-10 shadow-2xl backdrop-blur-xl">
           
-          <div className="border-b border-white/10 pb-6 mb-8 text-center sm:text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#e09900]/15 text-[#e09900] border border-[#e09900]/30 text-xs font-bold uppercase tracking-wider mb-2">
-              <ShieldCheck className="w-3.5 h-3.5" />
-              <span>Executive Driver Application</span>
+          <div className="border-b border-white/10 pb-6 mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div className="text-center sm:text-left">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#e09900]/15 text-[#e09900] border border-[#e09900]/30 text-xs font-bold uppercase tracking-wider mb-2">
+                <ShieldCheck className="w-3.5 h-3.5" />
+                <span>Executive Driver Application</span>
+              </div>
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white">
+                Create Your Driver Account
+              </h2>
+              <p className="text-xs sm:text-sm text-neutral-400 mt-1">
+                Please enter your legal personal details and professional driving background.
+              </p>
             </div>
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white">
-              Create Your Driver Account
-            </h2>
-            <p className="text-xs sm:text-sm text-neutral-400 mt-1">
-              Please enter your legal personal details and professional driving background.
-            </p>
+            <div className="flex flex-col items-center sm:items-end justify-center shrink-0">
+              <span className="text-xs text-neutral-400 mb-1.5">Already registered?</span>
+              <Link
+                to="/driver/login"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/15 hover:border-[#e09900]/50 text-[#e09900] hover:text-[#f5b324] text-xs font-bold transition shadow-sm"
+              >
+                <LogIn className="w-3.5 h-3.5" />
+                <span>Driver Sign In</span>
+                <ArrowRight className="w-3.5 h-3.5 text-neutral-400" />
+              </Link>
+            </div>
           </div>
 
           {/* Feedback Alerts */}
@@ -345,6 +359,20 @@ export default function Drivers() {
                   </>
                 )}
               </button>
+            </div>
+
+            {/* Redirect to Driver Sign In */}
+            <div className="pt-4 border-t border-white/10 text-center">
+              <p className="text-xs sm:text-sm text-neutral-400">
+                Already registered as an executive chauffeur?{' '}
+                <Link
+                  to="/driver/login"
+                  className="text-[#e09900] hover:text-[#f5b324] font-semibold transition hover:underline inline-flex items-center gap-1 ml-1"
+                >
+                  <span>Sign In to Driver Portal</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </p>
             </div>
           </form>
         </div>
