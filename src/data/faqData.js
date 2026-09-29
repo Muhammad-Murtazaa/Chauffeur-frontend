@@ -9,7 +9,7 @@ export const faqData = [
   },
   {
     question: "What vehicle types are available in your fleet?",
-    answer: "Our modern luxury fleet consists of Business & Premium Executive Sedans (Mercedes S-Class, BMW 7 Series, Lincoln), Executive SUVs (Cadillac Escalade, Chevy Suburban), Custom Executive Stretch Vehicles, Mercedes-Benz VIP Jet Sprinters, 14-Passenger Transit Vans, and full-size 28 to 55-passenger Charter Coaches."
+    answer: "Our modern luxury fleet consists of Business & Premium Executive Sedans (Mercedes S-Class, BMW 7 Series, Lincoln), Executive SUVs (Cadillac Escalade, Chevy Suburban), Custom Executive Stretch Vehicles, and Mercedes-Benz VIP Jet Sprinters."
   },
   {
     question: "Do you offer flat rates or hourly pricing?",
@@ -25,6 +25,6 @@ export const faqData = [
   },
   {
     question: "What is your cancellation and refund policy?",
-    answer: "Standard sedan and SUV bookings can be cancelled with a full refund up to 24 hours before your scheduled pickup time. Group vehicles (Sprinters, Stretch Limousines, Charter Buses) typically require 48 to 72 hours advance notice. Full policy details can be viewed on our Cancellation & Refund page."
+    answer: "Standard sedan and SUV bookings can be cancelled with a full refund up to 24 hours before your scheduled pickup time. Specialty vehicles (Sprinters, Stretch Limousines) typically require 48 to 72 hours advance notice. Full policy details can be viewed on our Cancellation & Refund page."
   }
 ];

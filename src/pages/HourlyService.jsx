@@ -294,12 +294,12 @@ export default function HourlyService() {
               bookingParam: "suv"
             },
             {
-              badge: "Group class",
-              title: "Sprinter Van",
+              badge: "VIP Group class",
+              title: "Executive Sprinter VIP",
               image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/Sprinter-Van-1024x683.webp",
               passengers: "14 Passengers",
               luggage: "14 Luggage",
-              bookingParam: "van"
+              bookingParam: "sprinter"
             }
           ].map((vehicle, idx) => (
             <div
@@ -413,7 +413,7 @@ export default function HourlyService() {
             },
             {
               q: "Is there a minimum number of hours?",
-              a: "Yes. Sedan, SUV and Vans 3 Hours Minimum. Party Van and Specialty Vehicles 4 Hour Minimum. We confirm the exact minimum for your date and vehicle before you book."
+              a: "Yes. Sedan and SUV 3 Hours Minimum. Specialty Vehicles 4 Hour Minimum. We confirm the exact minimum for your date and vehicle before you book."
             },
             {
               q: "Can I add stops or change the plan during the day?",

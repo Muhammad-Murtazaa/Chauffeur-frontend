@@ -750,7 +750,7 @@ export default function DriverOnboarding() {
                     <option value="LUXURY">LUXURY (e.g. S-Class, 7-Series)</option>
                     <option value="EXECUTIVE">EXECUTIVE (e.g. E-Class)</option>
                     <option value="SUV">SUV (e.g. Escalade, Navigator)</option>
-                    <option value="VAN">VAN / SPRINTER</option>
+                    <option value="VAN">SPRINTER / EXECUTIVE</option>
                   </select>
                 </div>
                 <div>

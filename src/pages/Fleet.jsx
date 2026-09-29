@@ -12,9 +12,8 @@ export default function Fleet() {
     { id: 'all', label: 'All Fleet Vehicles' },
     { id: 'sedans', label: 'Executive Sedans' },
     { id: 'suvs', label: 'Luxury SUVs' },
-    { id: 'sprinters', label: 'Sprinter & Transit Vans' },
+    { id: 'sprinters', label: 'Executive Sprinters' },
     { id: 'limos', label: 'Executive Stretch' },
-    { id: 'buses', label: 'Minibuses & Coaches' },
   ];
 
   const fleetFaqs = [
@@ -28,7 +27,7 @@ export default function Fleet() {
     },
     {
       q: "What vehicles are in your fleet?",
-      a: "Executive sedans, luxury SUVs, premium vans and larger group vehicles — matched to your passenger count and luggage."
+      a: "Executive sedans, luxury SUVs, and executive specialty vehicles — matched to your passenger count and luggage."
     },
     {
       q: "Are your prices flat or hourly?",
@@ -79,7 +78,7 @@ export default function Fleet() {
 
           {/* Subtitle */}
           <p className="text-sm sm:text-[15px] text-zinc-200/90 max-w-3xl mx-auto font-normal leading-relaxed">
-            Explore professionally chauffeured vehicle categories for private rides, executive travel, family transportation, airport luggage, and larger groups across New York and the tri-state area.
+            Explore professionally chauffeured vehicle categories for private rides, executive travel, family transportation, airport luggage, and celebration groups across New York and the tri-state area.
           </p>
 
           {/* Two Buttons: Call & Instant Quote */}
@@ -227,25 +226,11 @@ export default function Fleet() {
               image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-stretch-limo-lincoln-town-car-nyc-768x612.png"
             },
             {
-              id: "transit-van",
-              name: "Transit Van",
-              passengers: "10 Passengers",
-              luggage: "10 Luggage",
-              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-executive-van-mercedes-sprinter-nyc-768x559.png"
-            },
-            {
               id: "jet-sprinter",
-              name: "Jet Sprinter",
+              name: "Jet Sprinter VIP",
               passengers: "10 Passengers",
               luggage: "10 Luggage",
               image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-jet-sprinter-executive-van-nyc-768x512.png"
-            },
-            {
-              id: "sprinter-van",
-              name: "Sprinter Van",
-              passengers: "14 Passengers",
-              luggage: "14 Luggage",
-              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-sprinter-van-mercedes-benz-nyc-1-768x612.png"
             },
             {
               id: "sprinter-limo",
@@ -260,34 +245,6 @@ export default function Fleet() {
               passengers: "16 Passengers",
               luggage: "16 Luggage",
               image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-suv-limo-lincoln-navigator-nyc-768x512.png"
-            },
-            {
-              id: "party-van",
-              name: "Party Van",
-              passengers: "18 Passengers",
-              luggage: "18 Luggage",
-              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-party-van-ford-transit-nyc-768x512.png"
-            },
-            {
-              id: "mini-bus",
-              name: "Mini Bus",
-              passengers: "25 Passengers",
-              luggage: "25 Luggage",
-              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-mini-bus-nyc-group-shuttle-768x612.png"
-            },
-            {
-              id: "coach-bus",
-              name: "Coach Bus",
-              passengers: "35 Passengers",
-              luggage: "35 Luggage",
-              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-coach-bus-nyc-group-transport-768x512.png"
-            },
-            {
-              id: "charter-bus",
-              name: "Charter Bus",
-              passengers: "55 Passengers",
-              luggage: "55 Luggage",
-              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-charter-bus-motorcoach-nyc-768x612.png"
             }
           ].map((veh) => (
             <div
@@ -418,29 +375,14 @@ export default function Fleet() {
                   bestFor: "Executive road shows, VIP arrivals and wedding party transportation where space and presence both matter."
                 },
                 {
-                  vehicle: "Executive Van",
-                  models: "Ford Transit, Mercedes-Benz Sprinter or similar",
-                  bestFor: "Conference delegations, project teams and extended families travelling with luggage for everyone."
-                },
-                {
-                  vehicle: "Sprinter Van",
-                  models: "Mercedes-Benz Sprinter passenger van",
-                  bestFor: "Larger groups where luggage space is the deciding factor — sports teams, tour groups and multi-family airport transfers."
-                },
-                {
-                  vehicle: "C.E.O. Van",
-                  models: "Mercedes-Benz Sprinter, executive interior",
+                  vehicle: "Jet Sprinter VIP",
+                  models: "Mercedes-Benz Sprinter Executive",
                   bestFor: "Executive groups who need to talk or work privately between stops. Popular for roadshows and private-aviation transfers."
                 },
                 {
                   vehicle: "Sprinter VIP Lounge",
                   models: "Mercedes-Benz Sprinter, luxury lounge interior",
-                  bestFor: "Nights out for mid-size groups. Bachelor and bachelorette parties, birthday celebrations and winery tours."
-                },
-                {
-                  vehicle: "Party Van",
-                  models: "Mercedes-Benz Sprinter, celebration interior",
-                  bestFor: "Celebrations that move between several venues. Sweet 16s, birthday nights out and group city experiences."
+                  bestFor: "Nights out for celebration groups. Bachelor and bachelorette parties, birthday celebrations and winery tours."
                 },
                 {
                   vehicle: "Executive Stretch",
@@ -450,22 +392,7 @@ export default function Fleet() {
                 {
                   vehicle: "Executive Extended SUV",
                   models: "Cadillac Escalade ESV, Lincoln Navigator L or similar",
-                  bestFor: "Statement arrivals for larger celebration groups. Prom parties, milestone birthdays and special events."
-                },
-                {
-                  vehicle: "Mini Bus",
-                  models: "Ford E-450 Shuttle, Chevrolet 4500 or similar",
-                  bestFor: "Corporate shuttles, wedding guest transport between ceremony and reception, and full-day vineyard tours."
-                },
-                {
-                  vehicle: "Mini Coach Bus",
-                  models: "Grech Motors GM33, Freightliner M2 or similar",
-                  bestFor: "Conference shuttles, large wedding guest transfers and family reunions travelling as one group."
-                },
-                {
-                  vehicle: "Charter Bus",
-                  models: "MCI J4500, Van Hool CX45, Prevost H3-45 or similar",
-                  bestFor: "Large corporate events, convention shuttles and long-distance city-to-city group travel across the tri-state area."
+                  bestFor: "Statement arrivals for celebration groups. Prom parties, milestone birthdays and special events."
                 }
               ].map((row, idx) => (
                 <tr 

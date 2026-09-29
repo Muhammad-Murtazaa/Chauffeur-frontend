@@ -33,7 +33,7 @@ export default function ContactUs() {
     },
     {
       q: 'Can you handle groups and extra luggage?',
-      a: "Yes, subject to availability. Share every passenger and bag count and we'll recommend the right luxury SUV, executive van, Mercedes Sprinter or private coach."
+      a: "Yes, subject to availability. Share every passenger and bag count and we'll recommend the right luxury SUV or Mercedes Sprinter."
     }
   ];
 

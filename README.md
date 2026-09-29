@@ -10,7 +10,7 @@ Built with **React 18**, **Vite 6**, **Tailwind CSS**, **React Router v6**, and 
 
 1. **Full Page & Route Mirroring**:
    - **Home (`/`)**: Hero section, trust badges (Flight Tracking, All-Inclusive, Meet & Greet, Tri-State, 5 Star), Trustindex / Google 5-star reviews carousel, Services grid, Fleet showcase, Airport transfers spotlight (JFK, LGA, EWR), Corporate travel, Areas served grid, 3-step booking guide, FAQ accordion, Call to action.
-   - **Fleet (`/fleet`)**: Categorized luxury vehicle lineup (Sedans, SUVs, Sprinter Vans, Stretch Limos, Motorcoaches) with passenger/luggage capacities, specs, and instant reservation triggers.
+   - **Fleet (`/fleet`)**: Categorized luxury vehicle lineup (Sedans, SUVs, Executive Sprinters, Stretch Limos) with passenger/luggage capacities, specs, and instant reservation triggers.
    - **Services Hub (`/services`) & Detail Pages**:
      - Airport Car Service (`/airport-car-service`)
      - JFK Airport Limo Service (`/jfk-airport-limo-service`)
@@ -98,7 +98,7 @@ new-chauffer/
 │   │   ├── PageHero.jsx         # Reusable luxury hero banner with breadcrumbs
 │   │   └── QuickStatsStrip.jsx  # 5-item highlight strip (Flight tracking, Flat rates, etc.)
 │   ├── data/
-│   │   ├── fleetData.js         # Detailed specs for 10+ vehicles (Sedans, SUVs, Sprinters, Buses)
+│   │   ├── fleetData.js         # Detailed specs for luxury vehicles (Sedans, SUVs, Sprinters, Stretch Limos)
 │   │   ├── servicesData.js      # Comprehensive descriptions of all chauffeured services
 │   │   ├── reviewsData.js       # Real Google verified reviews from customers
 │   │   ├── faqData.js           # Full FAQ questions & answers

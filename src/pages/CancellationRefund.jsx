@@ -8,7 +8,7 @@ export default function CancellationRefund() {
       <PageHero
         badge="Cancellation Policy"
         title="Cancellation & Refund Policy"
-        subtitle="Clear, fair, and transparent cancellation terms for sedans, executive SUVs, Sprinters, and group charter buses."
+        subtitle="Clear, fair, and transparent cancellation terms for sedans, executive SUVs, Sprinters, and stretch limousines."
         bgImage="https://nycpremierlimo.com/wp-content/uploads/2026/08/corporate-travel.jpg"
         breadcrumbs={[{ name: "Cancellation & Refund" }]}
       />
@@ -31,19 +31,12 @@ export default function CancellationRefund() {
         <div className="space-y-4">
           <h2 className="font-serif text-2xl font-bold text-white">2. Mercedes Sprinters & Stretch Limousines</h2>
           <p>
-            Due to high demand and specialized vehicle preparation, Sprinter vans and stretch limousines require cancellation at least <strong>48 hours prior</strong> to the scheduled charter time for a full deposit refund. Cancellations made between 24 and 48 hours will forfeit the 50% deposit; cancellations under 24 hours are billed in full.
+            Due to high demand and specialized vehicle preparation, Sprinters and stretch limousines require cancellation at least <strong>48 hours prior</strong> to the scheduled charter time for a full deposit refund. Cancellations made between 24 and 48 hours will forfeit the 50% deposit; cancellations under 24 hours are billed in full.
           </p>
         </div>
 
         <div className="space-y-4">
-          <h2 className="font-serif text-2xl font-bold text-white">3. Mini Buses & 55-Passenger Motorcoaches</h2>
-          <p>
-            Large group coach bookings require at least <strong>7 days advance notice</strong> for cancellation without penalty. Cancellations within 7 days are subject to deposit retention according to the charter contract terms.
-          </p>
-        </div>
-
-        <div className="space-y-4">
-          <h2 className="font-serif text-2xl font-bold text-white">4. Flight Delays & Airline Cancellations</h2>
+          <h2 className="font-serif text-2xl font-bold text-white">3. Flight Delays & Airline Cancellations</h2>
           <p>
             If your commercial airline cancels your incoming flight into JFK, LGA, or EWR, or if severe weather prompts FAA ground stops, you will NOT be charged a cancellation fee provided you alert our dispatch team as soon as the airline cancels your itinerary.
           </p>

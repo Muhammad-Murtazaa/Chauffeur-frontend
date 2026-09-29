@@ -9,7 +9,7 @@ export default function SpecialOccasions() {
   const occasions = [
     {
       title: "Wedding Chauffeur Service",
-      desc: "Impeccable bridal party transportation, luxury executive vehicles, luxury SUV motorcades, and guest hotel shuttle buses.",
+      desc: "Impeccable bridal party transportation, luxury executive vehicles, luxury SUV motorcades, and guest hotel transfers.",
       link: "/wedding-limo-service",
       image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/second-section-image-jfk-section-image.png"
     },
@@ -38,7 +38,7 @@ export default function SpecialOccasions() {
       <PageHero
         badge="Celebrate in Luxury"
         title="Special Occasions & Milestone Events"
-        subtitle="Make your arrivals memorable. Classic stretch limousines, VIP party sprinters, and luxury coaches for weddings, proms, anniversaries, and private tours."
+        subtitle="Make your arrivals memorable. Classic stretch limousines, VIP party sprinters, and luxury vehicles for weddings, proms, anniversaries, and private tours."
         bgImage="https://nycpremierlimo.com/wp-content/uploads/2026/09/winery-tour-chauffeur-waiting-vineyard-terrace.webp"
         breadcrumbs={[
           { name: "Services", link: "/services" },
@@ -99,7 +99,7 @@ export default function SpecialOccasions() {
             Custom Event Transportation Planning
           </h2>
           <p className="text-sm text-neutral-300 leading-relaxed">
-            Planning a multi-car wedding motorcade or large convention shuttle? Speak directly with our events dispatch manager to design a customized itinerary with vehicle staging and dedicated on-site dispatchers.
+            Planning a multi-car wedding motorcade or large convention transfers? Speak directly with our events dispatch manager to design a customized itinerary with vehicle staging and dedicated on-site dispatchers.
           </p>
           <a
             href="tel:+13478889797"

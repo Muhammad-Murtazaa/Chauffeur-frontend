@@ -11,7 +11,7 @@ export default function WeddingService() {
       <PageHero
         badge="Wedding Transportation"
         title="Wedding Chauffeur & Bridal Party Service"
-        subtitle="Unforgettable arrivals on your special day. White-glove wedding luxury vehicles, bridal party Sprinters, and seamless guest shuttle buses across New York City and Long Island."
+        subtitle="Unforgettable arrivals on your special day. White-glove wedding luxury vehicles, bridal party Sprinters, and seamless guest transfers across New York City and Long Island."
         bgImage="https://nycpremierlimo.com/wp-content/uploads/2026/08/second-section-image-jfk-section-image.png"
         breadcrumbs={[
           { name: "Services", link: "/services" },
@@ -39,7 +39,7 @@ export default function WeddingService() {
               {[
                 { title: "Red Carpet Rollout", desc: "VIP red carpet service upon arrival at your ceremony and venue." },
                 { title: "Complimentary Champagne Toast", desc: "Chilled flutes and ice bucket ready for the newly married couple." },
-                { title: "Bridal Party Sprinter Coaches", desc: "Spacious enough for ballgowns without wrinkling bridal dresses." },
+                { title: "Bridal Party Sprinters", desc: "Spacious enough for ballgowns without wrinkling bridal dresses." },
                 { title: "Hotel Guest Shuttles", desc: "Scheduled continuous loops between guest hotels and reception venues." },
                 { title: "Waterfront & Central Park Photo Stops", desc: "Chauffeur coordinates with your photographer for scenic backdrop shoots." },
                 { title: "Getaway Car Service", desc: "Late-night luxury sedan departure for the bride and groom after reception." }

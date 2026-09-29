@@ -226,17 +226,17 @@ export default function BronxService() {
             },
             {
               number: "03",
-              title: "Premium Sprinter Van",
+              title: "Executive Sprinter",
               capacity: "UP TO 14 PASSENGERS",
               desc: "Built for corporate groups, wedding parties, and airport runs where the luggage count is genuinely serious. Standing-height cabin, individual leather seating, and plenty of space for stress-free group transport.",
               image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-sprinter-van-mercedes-benz-nyc-3.webp"
             },
             {
               number: "04",
-              title: "Executive Coach",
-              capacity: "UP TO 30 PASSENGERS",
-              desc: "For conference shuttles, wedding guest transport, and large group movements between Bronx venues, hotels, and airports. Booked in advance with a routing plan agreed beforehand.",
-              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-charter-bus-motorcoach-nyc-1.webp"
+              title: "Executive Stretch Limousine",
+              capacity: "UP TO 8 PASSENGERS",
+              desc: "For celebratory arrivals, milestone events, and executive group transfers between Bronx venues, hotels, and airports. Booked in advance with a routing plan agreed beforehand.",
+              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-stretch-limo-lincoln-town-car-nyc-768x612.png"
             }
           ].map((vehicle, idx) => (
             <div
@@ -388,7 +388,7 @@ export default function BronxService() {
             },
             {
               q: "Which vehicles are available in The Bronx?",
-              a: "The fleet includes executive sedans, luxury SUVs, premium vans, and executive buses. The confirmed vehicle category depends on availability and the passenger and luggage requirements."
+              a: "The fleet includes executive sedans, luxury SUVs, and executive specialty vehicles. The confirmed vehicle category depends on availability and the passenger and luggage requirements."
             },
             {
               q: "Can the ride include several stops?",
@@ -404,7 +404,7 @@ export default function BronxService() {
             },
             {
               q: "How far in advance should I book Bronx car service?",
-              a: "Twenty-four hours is comfortable for a standard sedan or SUV transfer. Book further ahead for early-morning airport runs, Yankee Stadium event nights, and bookings involving a Sprinter van or mini coach. Same-day requests are often possible by calling dispatch directly."
+              a: "Twenty-four hours is comfortable for a standard sedan or SUV transfer. Book further ahead for early-morning airport runs, Yankee Stadium event nights, and bookings involving a Sprinter or specialty vehicle. Same-day requests are often possible by calling dispatch directly."
             },
             {
               q: "What happens if my flight into New York is delayed?",

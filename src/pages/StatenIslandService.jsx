@@ -226,17 +226,17 @@ export default function StatenIslandService() {
             },
             {
               number: "03",
-              title: "Premium Sprinter Van",
+              title: "Executive Sprinter",
               capacity: "UP TO 14 PASSENGERS",
               desc: "Built for corporate groups, wedding parties, and airport runs where the luggage count is genuinely serious. Standing-height cabin, individual seating, and generous space that makes group bridge crossings comfortable.",
               image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-sprinter-van-mercedes-benz-nyc-3.webp"
             },
             {
               number: "04",
-              title: "Executive Coach",
-              capacity: "UP TO 30 PASSENGERS",
-              desc: "For conference shuttles, wedding guest transport, and large group movements between Staten Island venues, hotels, and airports. Booked in advance with a routing plan agreed beforehand.",
-              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-charter-bus-motorcoach-nyc-1.webp"
+              title: "Executive Stretch Limousine",
+              capacity: "UP TO 8 PASSENGERS",
+              desc: "For celebratory arrivals, wedding guest transport, and executive group movements between Staten Island venues, hotels, and airports. Booked in advance with a routing plan agreed beforehand.",
+              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-stretch-limo-lincoln-town-car-nyc-768x612.png"
             }
           ].map((vehicle, idx) => (
             <div
@@ -388,7 +388,7 @@ export default function StatenIslandService() {
             },
             {
               q: "Which vehicles are available in Staten Island?",
-              a: "The fleet includes executive sedans, luxury SUVs, premium vans, and executive buses. The confirmed vehicle category depends on availability and the passenger and luggage requirements."
+              a: "The fleet includes executive sedans, luxury SUVs, and executive specialty vehicles. The confirmed vehicle category depends on availability and the passenger and luggage requirements."
             },
             {
               q: "Can the ride include several stops?",

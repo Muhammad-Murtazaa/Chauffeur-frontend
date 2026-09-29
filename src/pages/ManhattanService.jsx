@@ -231,19 +231,19 @@ export default function ManhattanService() {
             },
             {
               number: "03",
-              title: "Premium Sprinter Van",
+              title: "Executive Sprinter VIP",
               capacity: "up to 14 passengers",
               desc: "Designed for corporate groups, wedding parties, and airport transfers requiring generous passenger and luggage space.",
               image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/manhattan-fleet-sprinter-van.webp",
-              bookingParam: "van"
+              bookingParam: "sprinter"
             },
             {
               number: "04",
-              title: "Executive Coach",
-              capacity: "up to 30 passengers",
-              desc: "Ideal for conferences, events, and large-group transportation between Manhattan hotels, venues, and airports.",
-              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/manhattan-fleet-executive-coach.webp",
-              bookingParam: "coach"
+              title: "Executive Stretch Limousine",
+              capacity: "up to 8 passengers",
+              desc: "Ideal for luxury events, milestone galas, and VIP transportation between Manhattan hotels, venues, and airports.",
+              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-stretch-limo-lincoln-town-car-nyc-768x612.png",
+              bookingParam: "stretch"
             }
           ].map((vehicle, idx) => (
             <div

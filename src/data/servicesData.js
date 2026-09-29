@@ -103,9 +103,9 @@ export const servicesData = [
       "VIP Luxury Sprinters & Executive Fleet",
       "Red Carpet Service & Complimentary Toast Glassware",
       "Photogenic NYC Waterfront & Iconic Landmark Photo Stops",
-      "Punctual Multi-Vehicle Wedding Shuttle Logistics",
+      "Punctual Multi-Vehicle Wedding Guest Transfer Logistics",
       "Safety-First Chauffeur Oversight for Prom Groups"
     ],
-    details: "Memorable events deserve exceptional transportation. Whether coordinating wedding party shuttles between churches and reception halls or organizing a North Fork Long Island winery tour with friends, our team ensures every passenger arrives in style and comfort."
+    details: "Memorable events deserve exceptional transportation. Whether coordinating wedding party transfers between churches and reception halls or organizing a North Fork Long Island winery tour with friends, our team ensures every passenger arrives in style and comfort."
   }
 ];

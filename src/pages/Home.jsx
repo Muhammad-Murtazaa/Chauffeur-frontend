@@ -30,7 +30,7 @@ export default function Home() {
     {
       name: "Tina Belanger",
       avatar: "https://lh3.googleusercontent.com/a-/ALV-UjVOkDzcfXCZk7RgPsjP3BrNc9MCKfFliz8PbnbG1MzQxfNVf28=w64-h64-c-rp-mo-br100",
-      text: "Our driver was timely and drove us safely to our destination. Our driver was very nice and professional. The van was beautiful as well. Highly recommend."
+      text: "Our driver was timely and drove us safely to our destination. Our driver was very nice and professional. The vehicle was beautiful as well. Highly recommend."
     },
     {
       name: "Shaina Godfrey",
@@ -60,7 +60,7 @@ export default function Home() {
     },
     {
       q: "What vehicles are in your fleet?",
-      a: "Executive sedans, luxury SUVs, premium vans and larger group vehicles — matched to your passenger count and luggage."
+      a: "Executive sedans, luxury SUVs, and executive specialty vehicles — matched to your passenger count and luggage."
     },
     {
       q: "Are your prices flat or hourly?",
@@ -369,7 +369,7 @@ export default function Home() {
             Our Luxury Fleet &mdash; Sedans, SUVs &amp; Sprinter Limousines
           </h2>
           <p className="text-sm sm:text-[15px] text-zinc-600 leading-relaxed max-w-2xl mx-auto">
-            From executive sedans to 55-passenger coaches, our luxury fleet is matched to your party size, luggage, and occasion &mdash; every vehicle detailed and chauffeur-driven.
+            From executive sedans to luxury SUVs and specialty vehicles, our luxury fleet is matched to your party size, luggage, and occasion &mdash; every vehicle detailed and chauffeur-driven.
           </p>
         </div>
 
@@ -391,18 +391,18 @@ export default function Home() {
               image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/Premium-SUV.webp"
             },
             {
-              badge: "Group class",
-              title: "Sprinter Van",
+              badge: "VIP Group class",
+              title: "Executive Sprinter VIP",
               passengers: "14 Passengers",
               luggage: "14 Luggage",
               image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/Sprinter-Van.webp"
             },
             {
-              badge: "Group class",
-              title: "Charter Bus",
-              passengers: "55 Passengers",
-              luggage: "55 Luggage",
-              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/Charter-Bus.webp"
+              badge: "Luxury class",
+              title: "Executive Stretch",
+              passengers: "8 Passengers",
+              luggage: "5 Luggage",
+              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-stretch-limo-lincoln-town-car-nyc-768x612.png"
             }
           ].map((veh, idx) => (
             <div
@@ -710,7 +710,7 @@ export default function Home() {
             </div>
             <div className="lg:col-span-6">
               <p className="text-sm sm:text-base text-zinc-600 leading-relaxed pt-2">
-                A 5 am run to JFK, a <Link to="/manhattan-limo-service" className="text-[#a21caf] hover:underline">Broadway night out</Link>, a wedding, a private ride to the Hamptons &mdash; you tell us the trip, we assign the right vehicle and chauffeur, and we agree on the price before anyone gets in the car. No meter, no surge, no waiting on the curb. Late-model luxury sedans, full-size SUVs, executive Sprinter vans, and charter coaches, across the five boroughs and the tri-state area, 24 hours a day.
+                A 5 am run to JFK, a <Link to="/manhattan-limo-service" className="text-[#a21caf] hover:underline">Broadway night out</Link>, a wedding, a private ride to the Hamptons &mdash; you tell us the trip, we assign the right vehicle and chauffeur, and we agree on the price before anyone gets in the car. No meter, no surge, no waiting on the curb. Late-model luxury sedans, full-size SUVs, and executive Sprinters, across the five boroughs and the tri-state area, 24 hours a day.
               </p>
             </div>
           </div>

@@ -134,8 +134,8 @@ export const fleetData = [
   },
   {
     id: "sprinter-limo",
-    name: "Sprinter VIP Party Van",
-    model: "Mercedes-Benz Executive Coach",
+    name: "Sprinter VIP Lounge",
+    model: "Mercedes-Benz Executive Edition",
     category: "sprinters",
     tagline: "Celebration on the Move",
     passengers: 14,
@@ -148,64 +148,7 @@ export const fleetData = [
       "Dual Ice Bins, Cup Holders & Bar Service Area",
       "Large Tinted Privacy Windows"
     ],
-    description: "The top choice for bachelor/bachelorette parties, Hamptons weekend departures, winery tours, and prom groups looking for standing room and celebration.",
+    description: "The top choice for bachelor/bachelorette parties, Hamptons weekend departures, winery tours, and celebration groups looking for standing room and luxury.",
     rateEstimate: "From $210 / hr"
-  },
-  {
-    id: "transit-van",
-    name: "Executive Transit Van",
-    model: "Mercedes-Benz Sprinter / Ford Transit High Roof",
-    category: "sprinters",
-    tagline: "Comfortable Group Shuttle",
-    passengers: 14,
-    luggage: 14,
-    image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-sprinter-van-mercedes-benz-nyc-1.png",
-    features: [
-      "Forward-Facing Ergonomic High-Back Seats",
-      "Dedicated Luggage Compartment in Rear",
-      "Center Aisle Walk-Through Configuration",
-      "Overhead Reading Lights & High-Output HVAC",
-      "Automatic Retractable Entry Step"
-    ],
-    description: "Clean, professional group transfer solution for corporate teams, airport flight crews, and event guest shuttling with voluminous luggage space.",
-    rateEstimate: "From $175 / hr"
-  },
-  {
-    id: "mini-bus",
-    name: "Luxury Mini Bus",
-    model: "Freightliner / Grech Executive Shuttle",
-    category: "buses",
-    tagline: "Mid-Size Corporate & Event Mobility",
-    passengers: 28,
-    luggage: 28,
-    image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-mini-bus-nyc-group-shuttle.png",
-    features: [
-      "Panoramic Viewing Windows",
-      "Leatherette Reclining Seats with Armrests",
-      "Overhead Parcel Storage Racks + Rear Trunk",
-      "PA System with Chauffeur Microphone",
-      "Individual Air Vents & USB Ports"
-    ],
-    description: "Designed for corporate conferences, university transfers, wedding guest shuttles between hotels and venues, and day-long regional excursions.",
-    rateEstimate: "From $260 / hr"
-  },
-  {
-    id: "charter-bus",
-    name: "Charter Motorcoach",
-    model: "Van Hool / Prevost 55-Passenger Coach",
-    category: "buses",
-    tagline: "Full-Capacity Long-Distance Tour Bus",
-    passengers: 55,
-    luggage: 55,
-    image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-charter-bus-motorcoach-nyc.png",
-    features: [
-      "Onboard Restroom with Flush Toilet",
-      "Massive Under-Floor Luggage Bays",
-      "Overhead Video Monitors & PA System",
-      "High-Back Reclining Seats with Footrests",
-      "Wi-Fi & Individual AC Controls"
-    ],
-    description: "Large group transportation across the United States. Ideal for major corporate conventions, sports teams, school trips, and private long-distance charters.",
-    rateEstimate: "From $350 / hr"
   }
 ];

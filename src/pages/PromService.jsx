@@ -9,8 +9,8 @@ export default function PromService() {
     <div className="bg-[#060B10] text-white">
       <PageHero
         badge="Prom Transportation"
-        title="Prom Chauffeur & Party Van Service"
-        subtitle="Unforgettable arrivals for high school juniors and seniors. Executive vehicles and Mercedes Sprinter party coaches with vetted chauffeurs parents trust."
+        title="Prom Chauffeur & Party Sprinter Service"
+        subtitle="Unforgettable arrivals for high school juniors and seniors. Executive vehicles and Mercedes Sprinters with vetted chauffeurs parents trust."
         bgImage="https://nycpremierlimo.com/wp-content/uploads/2026/09/prom-limousine-nyc-photo-stop-waterfront.webp"
         breadcrumbs={[
           { name: "Services", link: "/services" },

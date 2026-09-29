@@ -510,7 +510,7 @@ export default function Vehicle() {
                         <option value="LUXURY">LUXURY (S-Class, 7-Series)</option>
                         <option value="EXECUTIVE">EXECUTIVE (E-Class, 5-Series)</option>
                         <option value="SUV">SUV (Escalade, Navigator)</option>
-                        <option value="VAN">VAN / SPRINTER</option>
+                        <option value="VAN">SPRINTER / EXECUTIVE</option>
                       </select>
                     </div>
                   </div>
@@ -641,7 +641,7 @@ export default function Vehicle() {
                           <option value="LUXURY">LUXURY (e.g. S-Class, 7-Series)</option>
                           <option value="EXECUTIVE">EXECUTIVE (e.g. E-Class, 5-Series)</option>
                           <option value="SUV">SUV (e.g. Escalade, Navigator)</option>
-                          <option value="VAN">VAN / SPRINTER</option>
+                          <option value="VAN">SPRINTER / EXECUTIVE</option>
                         </select>
                       </div>
                     </div>

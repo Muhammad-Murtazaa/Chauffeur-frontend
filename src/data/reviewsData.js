@@ -13,7 +13,7 @@ export const reviewsData = [
     verified: true,
     rating: 5,
     date: "Recent Customer",
-    text: "Our driver was timely and drove us safely to our destination. Our driver was very nice and professional. The van was beautiful as well. Highly recommend."
+    text: "Our driver was timely and drove us safely to our destination. Our driver was very nice and professional. The vehicle was beautiful as well. Highly recommend."
   },
   {
     author: "Shaina Godfrey",

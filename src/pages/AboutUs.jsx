@@ -443,7 +443,7 @@ export default function AboutUs() {
                 Maintained fleet
               </h3>
               <p className="text-xs sm:text-[13px] text-zinc-300 leading-relaxed font-normal">
-                Executive sedans, luxury SUVs, premium vans, and executive buses support different passenger, luggage, business, airport, and event requirements.
+                Executive sedans, luxury SUVs, and executive vehicles support different passenger, luggage, business, airport, and event requirements.
               </p>
             </div>
           </div>
@@ -488,7 +488,7 @@ export default function AboutUs() {
             },
             {
               q: "What vehicles are in the fleet?",
-              a: "The current fleet categories include executive sedans, luxury SUVs, premium vans, and executive buses. Final vehicle category depends on availability and trip requirements."
+              a: "The current fleet categories include executive sedans, luxury SUVs, and executive specialty vehicles. Final vehicle category depends on availability and trip requirements."
             }
           ].map((faq, idx) => {
             const isOpen = openFaq === idx;

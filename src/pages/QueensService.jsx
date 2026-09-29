@@ -129,7 +129,7 @@ export default function QueensService() {
 
             {/* Description Paragraph */}
             <p className="text-sm sm:text-[15px] text-zinc-600 font-normal leading-relaxed">
-              Queens is the only borough with two major airports inside its own boundaries, and that changes how a ride has to be planned. A pickup in Astoria heading to LaGuardia is a ten-minute run on a clear morning and a forty-minute crawl once the Grand Central Parkway backs up; a Jamaica pickup to JFK depends entirely on whether the Van Wyck is moving. Our chauffeurs plan around those windows instead of discovering them on the day &mdash; covering homes, hotels, offices and venues from the Long Island City towers to Downtown Flushing, Bayside and the Rockaways.
+              Queens is the only borough with two major airports inside its own boundaries, and that changes how a ride has to be planned. A pickup in Astoria heading to LaGuardia is a ten-minute run on a clear morning and a forty-minute crawl once the Grand Central Parkway backs up; a Jamaica pickup to JFK depends entirely on whether the expressway is moving. Our chauffeurs plan around those windows instead of discovering them on the day &mdash; covering homes, hotels, offices and venues from the Long Island City towers to Downtown Flushing, Bayside and the Rockaways.
             </p>
 
             {/* 4 Feature Cards Grid */}
@@ -221,22 +221,22 @@ export default function QueensService() {
               number: "02",
               title: "Luxury SUV",
               capacity: "UP TO 6 PASSENGERS, 6 SUITCASES",
-              desc: "Our most-booked vehicle in Queens. Enough room for a family with full airport luggage, and high enough seating that Van Wyck traffic feels less like a tunnel. The right pick for group airport runs and Citi Field nights.",
+              desc: "Our most-booked vehicle in Queens. Enough room for a family with full airport luggage, and high enough seating that expressway traffic feels less like a tunnel. The right pick for group airport runs and Citi Field nights.",
               image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-premium-suv-cadillac-escalade-nyc-1.webp"
             },
             {
               number: "03",
-              title: "Premium Sprinter Van",
+              title: "Executive Sprinter",
               capacity: "UP TO 14 PASSENGERS",
               desc: "Built for corporate groups, wedding parties, and airport runs where the luggage count is genuinely serious. Standing-height cabin, individual seating, and space that conventional vehicles cannot match for practical travel.",
               image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-sprinter-van-mercedes-benz-nyc-3.webp"
             },
             {
               number: "04",
-              title: "Executive Coach",
-              capacity: "UP TO 30 PASSENGERS",
-              desc: "For conference shuttles, wedding guest transport, and large group movements between Queens venues, hotels, and airports. Booked in advance with a routing plan agreed beforehand.",
-              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-charter-bus-motorcoach-nyc-1.webp"
+              title: "Executive Stretch Limousine",
+              capacity: "UP TO 8 PASSENGERS",
+              desc: "For celebratory arrivals, wedding guest transport, and large group movements between Queens venues, hotels, and airports. Booked in advance with a routing plan agreed beforehand.",
+              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-stretch-limo-lincoln-town-car-nyc-768x612.png"
             }
           ].map((vehicle, idx) => (
             <div
@@ -388,7 +388,7 @@ export default function QueensService() {
             },
             {
               q: "Which vehicles are available in Queens?",
-              a: "The fleet includes executive sedans, luxury SUVs, premium vans, and executive buses. The confirmed vehicle category depends on availability and the passenger and luggage requirements."
+              a: "The fleet includes executive sedans, luxury SUVs, and executive specialty vehicles. The confirmed vehicle category depends on availability and the passenger and luggage requirements."
             },
             {
               q: "Can the ride include several stops?",

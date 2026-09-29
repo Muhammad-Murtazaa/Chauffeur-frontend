@@ -414,12 +414,12 @@ export default function CityToCityService() {
               bookingParam: "suv"
             },
             {
-              badge: "Group class",
-              title: "Sprinter Van",
+              badge: "VIP Group class",
+              title: "Executive Sprinter VIP",
               image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/Sprinter-Van-1024x683.webp",
               passengers: "14 Passengers",
               luggage: "14 Luggage",
-              bookingParam: "van"
+              bookingParam: "sprinter"
             }
           ].map((vehicle, idx) => (
             <div
