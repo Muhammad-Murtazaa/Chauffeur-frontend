@@ -121,16 +121,18 @@ export default function UpcomingBookings() {
               <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-white/10">
                 <div className="flex items-center gap-3">
                   <span className="font-mono text-sm font-bold text-[#e09900]">
-                    {ride.id}
+                    {ride.referenceNumber || ride.id}
                   </span>
                   <span
                     className={`px-3 py-1 rounded-full text-xs font-bold uppercase ${
-                      ride.status === 'ACCEPTED'
+                      ride.status === 'ACCEPTED' || ride.assignmentStatus === 'ACCEPTED'
                         ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
                         : 'bg-[#e09900]/20 text-[#e09900] border border-[#e09900]/30 animate-pulse'
                     }`}
                   >
-                    {ride.status === 'ACCEPTED' ? 'Confirmed & Accepted' : 'New Assignment Pending'}
+                    {ride.status === 'ACCEPTED' || ride.assignmentStatus === 'ACCEPTED'
+                      ? 'Confirmed & Accepted'
+                      : 'New Assignment Pending'}
                   </span>
                 </div>
 
@@ -138,12 +140,13 @@ export default function UpcomingBookings() {
                   <div className="text-neutral-400">
                     Scheduled:{' '}
                     <strong className="text-white">
-                      {ride.scheduledDate || 'Upcoming'} {ride.scheduledTime ? `• ${ride.scheduledTime}` : ''}
+                      {ride.scheduledDate || (ride.pickupAt ? new Date(ride.pickupAt).toLocaleDateString([], { month: 'short', day: 'numeric', year: 'numeric' }) : 'Upcoming')}{' '}
+                      {ride.scheduledTime || ride.time || (ride.pickupAt ? `• ${new Date(ride.pickupAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}` : '')}
                     </strong>
                   </div>
-                  {ride.fare && (
+                  {(ride.fare || ride.totalPrice) && (
                     <div className="text-base font-bold text-emerald-400 font-serif">
-                      {ride.fare}
+                      {ride.fare || `$${Number(ride.totalPrice).toFixed(2)}`}
                     </div>
                   )}
                 </div>
@@ -159,7 +162,7 @@ export default function UpcomingBookings() {
                       <span>PICKUP ADDRESS</span>
                     </div>
                     <p className="text-xs sm:text-sm font-semibold text-white pl-6">
-                      {ride.pickup}
+                      {ride.pickup || ride.pickupAddress || 'Pickup address'}
                     </p>
                   </div>
 
@@ -169,7 +172,7 @@ export default function UpcomingBookings() {
                       <span>DESTINATION</span>
                     </div>
                     <p className="text-xs sm:text-sm font-semibold text-white pl-6">
-                      {ride.dropoff}
+                      {ride.dropoff || ride.dropoffAddress || 'Dropoff location'}
                     </p>
                   </div>
 

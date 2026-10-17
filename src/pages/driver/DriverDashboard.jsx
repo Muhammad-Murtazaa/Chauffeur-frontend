@@ -317,37 +317,47 @@ export default function DriverDashboard() {
           </div>
         ) : (
           <div className="space-y-3">
-            {upcomingRides.map((ride, i) => (
-              <div
-                key={ride.id || i}
-                className="p-4 rounded-2xl bg-black/40 border border-white/5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
-              >
-                <div className="space-y-1">
-                  <div className="flex items-center gap-3">
-                    <span className="text-xs font-mono font-bold text-[#e09900]">{ride.id}</span>
-                    <span className="text-xs text-neutral-300 font-semibold">
-                      {ride.scheduledDate || ride.time || 'Upcoming'}
-                    </span>
-                    <span className="text-xs font-bold text-emerald-400">{ride.fare || '$0.00'}</span>
-                  </div>
-                  <div className="text-xs text-neutral-300">
-                    Passenger: <strong>{ride.passengerName || ride.passenger || 'VIP Guest'}</strong>
-                  </div>
-                  <div className="text-xs text-neutral-400 flex items-center gap-2">
-                    <span>{ride.pickup}</span>
-                    <span>→</span>
-                    <span>{ride.dropoff}</span>
-                  </div>
-                </div>
+            {upcomingRides.map((ride, i) => {
+              const displayFare = ride.fare || (ride.totalPrice ? `$${Number(ride.totalPrice).toFixed(2)}` : '$0.00');
+              const displayRef = ride.referenceNumber || ride.id || `Ride #${i + 1}`;
+              const displayPickup = ride.pickup || ride.pickupAddress || 'Pickup address';
+              const displayDropoff = ride.dropoff || ride.dropoffAddress || 'Dropoff destination';
+              const displayDate = ride.scheduledDate || (ride.pickupAt ? new Date(ride.pickupAt).toLocaleDateString([], { month: 'short', day: 'numeric' }) : null);
+              const displayTime = ride.scheduledTime || ride.time || (ride.pickupAt ? new Date(ride.pickupAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : null);
+              const bookingDetailId = ride.bookingId || ride.id;
 
-                <Link
-                  to={`/driver/bookings/${ride.id}`}
-                  className="px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-neutral-200 transition"
+              return (
+                <div
+                  key={ride.bookingId || ride.id || i}
+                  className="p-4 rounded-2xl bg-black/40 border border-white/5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 hover:border-white/10 transition"
                 >
-                  Booking Details
-                </Link>
-              </div>
-            ))}
+                  <div className="space-y-1 max-w-xl">
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs font-mono font-bold text-[#e09900]">{displayRef}</span>
+                      <span className="text-xs text-neutral-300 font-semibold">
+                        {displayDate ? `${displayDate}${displayTime ? ` • ${displayTime}` : ''}` : 'Upcoming'}
+                      </span>
+                      <span className="text-xs font-bold text-emerald-400 font-mono">{displayFare}</span>
+                    </div>
+                    <div className="text-xs text-neutral-300">
+                      Passenger: <strong>{ride.passengerName || ride.passenger || 'VIP Guest'}</strong>
+                    </div>
+                    <div className="text-xs text-neutral-400 flex items-center gap-2">
+                      <span className="truncate max-w-[220px]" title={displayPickup}>{displayPickup}</span>
+                      <span>→</span>
+                      <span className="truncate max-w-[220px]" title={displayDropoff}>{displayDropoff}</span>
+                    </div>
+                  </div>
+
+                  <Link
+                    to={`/driver/bookings/${bookingDetailId}`}
+                    className="px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-neutral-200 transition shrink-0"
+                  >
+                    Booking Details
+                  </Link>
+                </div>
+              );
+            })}
           </div>
         )}
       </div>
