@@ -14,7 +14,7 @@ export default function PageHero({
   const { promptInstantQuote } = useAuth();
 
   return (
-    <section className="relative min-h-[420px] sm:min-h-[480px] flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="relative min-h-[440px] sm:min-h-[500px] flex items-center justify-center pt-28 sm:pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Background Image with Dark Luxury Gradients */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-1000 scale-105"

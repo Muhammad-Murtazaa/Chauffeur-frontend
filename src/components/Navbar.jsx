@@ -31,7 +31,13 @@ export default function Navbar() {
   }, [location]);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-black border-b border-white/10 transition-all duration-300">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-500 ${
+        scrolled || mobileMenuOpen
+          ? 'bg-[#060B10]/95 backdrop-blur-md border-b border-white/10 shadow-2xl py-0'
+          : 'bg-gradient-to-b from-black/80 via-black/40 to-transparent border-b border-white/10 py-1'
+      }`}
+    >
       {/* Main Navigation Bar */}
       <nav className="w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">

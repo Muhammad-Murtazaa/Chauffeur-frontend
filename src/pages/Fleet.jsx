@@ -48,7 +48,7 @@ export default function Fleet() {
       {/* =========================================================================
           1. FLEET HERO SECTION
       ========================================================================= */}
-      <section className="relative min-h-[580px] lg:min-h-[640px] pt-16 pb-28 sm:pb-36 flex items-center justify-center text-center bg-black overflow-hidden">
+      <section className="relative min-h-[600px] lg:min-h-[660px] pt-28 sm:pt-36 pb-28 sm:pb-36 flex items-center justify-center text-center bg-black overflow-hidden">
         {/* Background photo */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"

@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { 
-  Phone, 
-  ChevronRight, 
-  ChevronLeft, 
-  Check, 
-  Star, 
-  Plus, 
-  Minus, 
-  ArrowUpRight 
+import {
+  Phone,
+  ChevronRight,
+  ChevronLeft,
+  Check,
+  Star,
+  Plus,
+  Minus,
+  ArrowUpRight
 } from 'lucide-react';
 
 export default function Home() {
@@ -81,18 +81,23 @@ export default function Home() {
 
   return (
     <div className="font-sans text-[#1D1D1B] bg-[#F9F7F2]">
-      
+
       {/* =========================================================================
           1. HERO SECTION (Dark / Luxury City Street Background)
       ========================================================================= */}
-      <section className="relative min-h-[560px] lg:min-h-[620px] flex items-center justify-center text-center px-4 sm:px-6 pt-16 pb-20 bg-black overflow-hidden">
-        {/* Background photo */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url('https://nycpremierlimo.com/wp-content/uploads/2026/08/hero-nyc-limousine-service-chauffeur-manhattan-1-1536x864.webp')` }}
+      <section className="relative min-h-[620px] lg:min-h-[680px] flex items-center justify-center text-center px-4 sm:px-6 pt-28 sm:pt-36 pb-20 bg-black overflow-hidden">
+        {/* Background Video */}
+        <video
+          src="/hero_video.mp4"
+          className="absolute inset-0 w-full h-full object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
         />
+
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/60 backdrop-brightness-90" />
+        <div className="absolute inset-0 bg-black/60 backdrop-brightness-90 pointer-events-none" />
 
         <div className="relative z-10 max-w-4xl mx-auto space-y-5">
           {/* Eyebrow */}
@@ -147,13 +152,11 @@ export default function Home() {
               { num: "04", title: "Tri-State Coverage", desc: "New York, New Jersey, Connecticut" },
               { num: "05", title: "5 Star Rated", desc: "Service trusted by riders" }
             ].map((stat, i) => (
-              <div 
-                key={i} 
-                className={`flex items-start gap-3 px-3 sm:px-5 ${
-                  i === 4 ? 'col-span-2 md:col-span-1' : ''
-                } ${
-                  i > 0 ? 'md:border-l md:border-zinc-200' : ''
-                }`}
+              <div
+                key={i}
+                className={`flex items-start gap-3 px-3 sm:px-5 ${i === 4 ? 'col-span-2 md:col-span-1' : ''
+                  } ${i > 0 ? 'md:border-l md:border-zinc-200' : ''
+                  }`}
               >
                 <span className="font-serif font-bold text-[#e09900] text-sm pt-0.5 shrink-0">
                   {stat.num}
@@ -180,7 +183,7 @@ export default function Home() {
           {/* 3 Review Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {reviews.slice(reviewIdx, reviewIdx + 3).map((rev, idx) => (
-              <div 
+              <div
                 key={idx}
                 className="bg-white rounded-2xl border border-neutral-200/80 p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition text-left"
               >
@@ -314,7 +317,7 @@ export default function Home() {
               image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/special-occasion-limo-service-red-carpet-arrival.webp"
             }
           ].map((item, idx) => (
-            <Link 
+            <Link
               key={idx}
               to={item.link}
               className="group relative h-[430px] sm:h-[450px] overflow-hidden flex flex-col justify-between p-6 sm:p-7 transition-all duration-300 shadow-md hover:shadow-2xl"
@@ -733,9 +736,9 @@ export default function Home() {
 
             {/* Overlapping Gold Floating Badge (Top Left) */}
             <div className="absolute -top-4 -left-3 sm:-top-5 sm:-left-5 bg-[#e09900] text-black rounded-2xl shadow-xl px-5 py-3.5 sm:py-4 flex items-center gap-3.5 z-20">
-              <svg 
-                className="w-7 h-7 sm:w-8 sm:h-8 text-black shrink-0 fill-current" 
-                viewBox="0 0 576 512" 
+              <svg
+                className="w-7 h-7 sm:w-8 sm:h-8 text-black shrink-0 fill-current"
+                viewBox="0 0 576 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path d="M528 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm0 400H48V80h480v352zM208 256c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm-89.6 128h179.2c12.4 0 22.4-8.6 22.4-19.2v-19.2c0-31.8-30.1-57.6-67.2-57.6-10.8 0-18.7 8-44.8 8-26.9 0-33.4-8-44.8-8-37.1 0-67.2 25.8-67.2 57.6v19.2c0 10.6 10 19.2 22.4 19.2zM360 320h112c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8H360c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8zm0-64h112c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8H360c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8zm0-64h112c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8H360c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8z" />
@@ -950,18 +953,16 @@ export default function Home() {
                   </span>
                   <span className="w-8 h-8 rounded-full bg-black/5 group-hover:bg-[#e09900]/10 flex items-center justify-center text-[#6D685F] group-hover:text-[#e09900] transition-colors duration-200 shrink-0">
                     <Plus
-                      className={`w-4 h-4 transition-transform duration-350 ease-in-out ${
-                        isOpen ? 'rotate-45 text-[#e09900]' : 'rotate-0'
-                      }`}
+                      className={`w-4 h-4 transition-transform duration-350 ease-in-out ${isOpen ? 'rotate-45 text-[#e09900]' : 'rotate-0'
+                        }`}
                     />
                   </span>
                 </button>
 
                 {/* Smooth Expand/Collapse Grid Container */}
                 <div
-                  className={`grid transition-all duration-300 ease-in-out ${
-                    isOpen ? 'grid-rows-[1fr] opacity-100 pb-4' : 'grid-rows-[0fr] opacity-0 pb-0'
-                  }`}
+                  className={`grid transition-all duration-300 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100 pb-4' : 'grid-rows-[0fr] opacity-0 pb-0'
+                    }`}
                 >
                   <div className="overflow-hidden">
                     <p className="text-[14px] sm:text-[15px] text-[#6D685F] leading-relaxed pr-8">
