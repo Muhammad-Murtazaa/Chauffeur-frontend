@@ -24,7 +24,7 @@ import {
   Navigation
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
-import { createQuote, createBooking, processBookingPayment } from '../api/booking';
+import { createQuote, createBooking, createBookingPaymentIntent, processBookingPayment } from '../api/booking';
 import { getCurrentGPSLocation } from '../utils/googleMapsLoader';
 import GoogleMapModal from './GoogleMapModal';
 import RouteMapPreview from './RouteMapPreview';
@@ -246,11 +246,21 @@ export default function QuoteBookingWidget({ initialService = "one-way", compact
       // 1. Create Booking
       const booking = await createBooking(bookingPayload);
 
-      // 2. Authorize Mock Payment
-      const paymentRes = await processBookingPayment(booking.id, {
-        provider: 'MOCK',
-        mockSuccess: true,
-      });
+      // 2. Authorize Payment via Stripe / Mock
+      let paymentRes;
+      try {
+        const intent = await createBookingPaymentIntent(booking.id);
+        paymentRes = await processBookingPayment(booking.id, {
+          provider: intent?.isMock ? 'MOCK' : 'STRIPE',
+          paymentMethodId: intent?.paymentIntentId,
+          mockSuccess: true,
+        });
+      } catch {
+        paymentRes = await processBookingPayment(booking.id, {
+          provider: 'MOCK',
+          mockSuccess: true,
+        });
+      }
 
       setConfirmedBooking(paymentRes.booking || booking);
       setStep(3);
