@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation, Outlet } from 'rea
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import MobileStickyBar from './components/MobileStickyBar';
+import FloatingWhatsApp from './components/FloatingWhatsApp';
 
 // Public Pages
 import Home from './pages/Home';
@@ -84,6 +85,7 @@ function PublicLayout() {
       </main>
       <Footer />
       <MobileStickyBar />
+      <FloatingWhatsApp />
     </div>
   );
 }
