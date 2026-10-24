@@ -239,11 +239,11 @@ export default function ManhattanService() {
             },
             {
               number: "04",
-              title: "Executive Stretch Limousine",
-              capacity: "up to 8 passengers",
-              desc: "Ideal for luxury events, milestone galas, and VIP transportation between Manhattan hotels, venues, and airports.",
-              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-stretch-limo-lincoln-town-car-nyc-768x612.png",
-              bookingParam: "stretch"
+              title: "Business SUV",
+              capacity: "up to 6 passengers, 6 suitcases",
+              desc: "A dedicated choice for airport runs, corporate roadshows, and executive travel with ample luggage capacity.",
+              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-business-suv-chevrolet-tahoe-nyc.png",
+              bookingParam: "suv"
             }
           ].map((vehicle, idx) => (
             <div

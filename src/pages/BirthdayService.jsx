@@ -30,7 +30,7 @@ export default function BirthdayService() {
                 Turn the Journey into the Main Event
               </h2>
               <p className="text-sm sm:text-base text-neutral-300 mt-4 leading-relaxed">
-                Whether organizing a 21st, 30th, 40th, or 50th birthday celebration, our party sprinters and stretch limousines keep the entire group together. Enjoy crystal barware, mood lighting, custom music playlists, and door-to-door VIP arrivals at NYC's hottest restaurants and rooftop clubs.
+                Whether organizing a 21st, 30th, 40th, or 50th birthday celebration, our luxury SUVs and VIP party sprinters keep the entire group together. Enjoy crystal barware, mood lighting, custom music playlists, and door-to-door VIP arrivals at NYC's hottest restaurants and rooftop clubs.
               </p>
             </div>
 

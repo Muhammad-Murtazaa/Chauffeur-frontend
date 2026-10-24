@@ -233,10 +233,10 @@ export default function StatenIslandService() {
             },
             {
               number: "04",
-              title: "Executive Stretch Limousine",
-              capacity: "UP TO 8 PASSENGERS",
-              desc: "For celebratory arrivals, wedding guest transport, and executive group movements between Staten Island venues, hotels, and airports. Booked in advance with a routing plan agreed beforehand.",
-              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-stretch-limo-lincoln-town-car-nyc-768x612.png"
+              title: "Business SUV",
+              capacity: "UP TO 6 PASSENGERS",
+              desc: "For reliable airport transfers, corporate groups, and family travel between Staten Island venues, hotels, and airports.",
+              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-business-suv-chevrolet-tahoe-nyc.png"
             }
           ].map((vehicle, idx) => (
             <div

@@ -13,7 +13,6 @@ export default function Fleet() {
     { id: 'sedans', label: 'Executive Sedans' },
     { id: 'suvs', label: 'Luxury SUVs' },
     { id: 'sprinters', label: 'Executive Sprinters' },
-    { id: 'limos', label: 'Executive Stretch' },
   ];
 
   const fleetFaqs = [
@@ -219,13 +218,6 @@ export default function Fleet() {
               image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-premium-suv-cadillac-escalade-nyc-768x512.png"
             },
             {
-              id: "stretch-limo",
-              name: "Executive Stretch",
-              passengers: "8 Passengers",
-              luggage: "2 Luggage",
-              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-stretch-limo-lincoln-town-car-nyc-768x612.png"
-            },
-            {
               id: "jet-sprinter",
               name: "Jet Sprinter VIP",
               passengers: "10 Passengers",
@@ -238,13 +230,6 @@ export default function Fleet() {
               passengers: "14 Passengers",
               luggage: "14 Luggage",
               image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-sprinter-limo-party-van-nyc-768x512.png"
-            },
-            {
-              id: "suv-limo",
-              name: "Executive Extended SUV",
-              passengers: "16 Passengers",
-              luggage: "16 Luggage",
-              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-suv-limo-lincoln-navigator-nyc-768x512.png"
             }
           ].map((veh) => (
             <div
@@ -351,27 +336,27 @@ export default function Fleet() {
               {[
                 {
                   vehicle: "Business Sedan",
-                  models: "Cadillac XTS, Lincoln Continental or similar",
+                  models: "Cadillac Lyriq or similar",
                   bestFor: "Solo travellers and pairs. The everyday choice for airport transfers, meetings and point-to-point rides across Manhattan."
                 },
                 {
                   vehicle: "Premium Sedan",
-                  models: "Mercedes-Benz S-Class, E-Class or similar",
+                  models: "Mercedes-Benz S-Class or similar",
                   bestFor: "Client pickups and executive arrivals where the car itself is part of the impression. Common for corporate travel and VIP airport meet-and-greets."
                 },
                 {
                   vehicle: "Midsize SUV",
-                  models: "Cadillac XT5, XT6 or similar",
+                  models: "Cadillac XT6 or similar",
                   bestFor: "Couples and small families who need more luggage room than a sedan, and anyone travelling in winter weather."
                 },
                 {
                   vehicle: "Business SUV",
-                  models: "Chevrolet Suburban, GMC Yukon or similar",
+                  models: "Chevrolet Suburban or similar",
                   bestFor: "Family airport runs with full-size cases, and small corporate groups moving together between meetings."
                 },
                 {
                   vehicle: "Premium SUV",
-                  models: "Cadillac Escalade, Lincoln Navigator or similar",
+                  models: "Cadillac Escalade or similar",
                   bestFor: "Executive road shows, VIP arrivals and wedding party transportation where space and presence both matter."
                 },
                 {
@@ -383,16 +368,6 @@ export default function Fleet() {
                   vehicle: "Sprinter VIP Lounge",
                   models: "Mercedes-Benz Sprinter, luxury lounge interior",
                   bestFor: "Nights out for celebration groups. Bachelor and bachelorette parties, birthday celebrations and winery tours."
-                },
-                {
-                  vehicle: "Executive Stretch",
-                  models: "Lincoln Continental, Lincoln MKT or similar",
-                  bestFor: "Occasions where the arrival is part of the event — weddings, celebrations and anniversary evenings."
-                },
-                {
-                  vehicle: "Executive Extended SUV",
-                  models: "Cadillac Escalade ESV, Lincoln Navigator L or similar",
-                  bestFor: "Statement arrivals for celebration groups. Prom parties, milestone birthdays and special events."
                 }
               ].map((row, idx) => (
                 <tr 

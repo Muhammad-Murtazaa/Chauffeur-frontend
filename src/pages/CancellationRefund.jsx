@@ -8,7 +8,7 @@ export default function CancellationRefund() {
       <PageHero
         badge="Cancellation Policy"
         title="Cancellation & Refund Policy"
-        subtitle="Clear, fair, and transparent cancellation terms for sedans, executive SUVs, Sprinters, and stretch limousines."
+        subtitle="Clear, fair, and transparent cancellation terms for sedans, executive SUVs, and Mercedes Sprinters."
         bgImage="https://nycpremierlimo.com/wp-content/uploads/2026/08/corporate-travel.jpg"
         breadcrumbs={[{ name: "Cancellation & Refund" }]}
       />
@@ -29,9 +29,9 @@ export default function CancellationRefund() {
         </div>
 
         <div className="space-y-4">
-          <h2 className="font-serif text-2xl font-bold text-white">2. Mercedes Sprinters & Stretch Limousines</h2>
+          <h2 className="font-serif text-2xl font-bold text-white">2. Mercedes Executive Sprinters</h2>
           <p>
-            Due to high demand and specialized vehicle preparation, Sprinters and stretch limousines require cancellation at least <strong>48 hours prior</strong> to the scheduled charter time for a full deposit refund. Cancellations made between 24 and 48 hours will forfeit the 50% deposit; cancellations under 24 hours are billed in full.
+            Due to high demand and specialized vehicle preparation, Sprinters require cancellation at least <strong>48 hours prior</strong> to the scheduled charter time for a full deposit refund. Cancellations made between 24 and 48 hours will forfeit the 50% deposit; cancellations under 24 hours are billed in full.
           </p>
         </div>
 

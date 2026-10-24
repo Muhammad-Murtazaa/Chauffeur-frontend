@@ -38,7 +38,7 @@ export default function SpecialOccasions() {
       <PageHero
         badge="Celebrate in Luxury"
         title="Special Occasions & Milestone Events"
-        subtitle="Make your arrivals memorable. Classic stretch limousines, VIP party sprinters, and luxury vehicles for weddings, proms, anniversaries, and private tours."
+        subtitle="Make your arrivals memorable. VIP party sprinters, luxury SUVs, and executive sedans for weddings, proms, anniversaries, and private tours."
         bgImage="https://nycpremierlimo.com/wp-content/uploads/2026/09/winery-tour-chauffeur-waiting-vineyard-terrace.webp"
         breadcrumbs={[
           { name: "Services", link: "/services" },

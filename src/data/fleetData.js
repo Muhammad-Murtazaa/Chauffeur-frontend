@@ -2,7 +2,7 @@ export const fleetData = [
   {
     id: "premium-sedan",
     name: "Premium Sedan",
-    model: "Mercedes-Benz S-Class / BMW 7 Series",
+    model: "Mercedes-Benz S-Class or similar",
     category: "sedans",
     tagline: "Executive First-Class Travel",
     passengers: 3,
@@ -21,7 +21,7 @@ export const fleetData = [
   {
     id: "business-sedan",
     name: "Business Sedan",
-    model: "Lincoln Continental / Cadillac XTS",
+    model: "Cadillac Lyriq or similar",
     category: "sedans",
     tagline: "Discreet Corporate Standard",
     passengers: 3,
@@ -40,7 +40,7 @@ export const fleetData = [
   {
     id: "premium-suv",
     name: "Premium SUV",
-    model: "Cadillac Escalade ESV / Lincoln Navigator L",
+    model: "Cadillac Escalade or similar",
     category: "suvs",
     tagline: "Prestige, Road Presence & Space",
     passengers: 6,
@@ -59,7 +59,7 @@ export const fleetData = [
   {
     id: "business-suv",
     name: "Business SUV",
-    model: "Chevrolet Suburban / GMC Yukon XL",
+    model: "Chevrolet Suburban or similar",
     category: "suvs",
     tagline: "Versatile Executive Transport",
     passengers: 6,
@@ -78,7 +78,7 @@ export const fleetData = [
   {
     id: "midsize-suv",
     name: "Midsize SUV",
-    model: "Cadillac XT6 / Lincoln Aviator",
+    model: "Cadillac XT6 or similar",
     category: "suvs",
     tagline: "Agile Luxury Crossover",
     passengers: 4,
@@ -93,25 +93,6 @@ export const fleetData = [
     ],
     description: "The ideal balance of compact agility in dense Manhattan traffic and generous luggage room for boutique airport travel.",
     rateEstimate: "From $105 / hr"
-  },
-  {
-    id: "stretch-limo",
-    name: "Executive Stretch",
-    model: "Lincoln MKT / Town Car Stretch",
-    category: "limos",
-    tagline: "Classic Elegance & Celebration",
-    passengers: 8,
-    luggage: 5,
-    image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-stretch-limo-lincoln-town-car-nyc.png",
-    features: [
-      "Illuminated Crystal Barware & Ice Chests",
-      "Fiber-Optic Starlight Ceiling & Accent Lighting",
-      "Privacy Partition & Intercom to Chauffeur",
-      "Bluetooth Surround Sound System",
-      "Full Perimeter J-Seating"
-    ],
-    description: "The timeless luxury private vehicle experience. Designed for weddings, milestone celebrations, and red-carpet galas across New York.",
-    rateEstimate: "From $165 / hr"
   },
   {
     id: "jet-sprinter",

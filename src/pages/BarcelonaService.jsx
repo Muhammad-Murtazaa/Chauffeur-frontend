@@ -239,11 +239,11 @@ export default function BarcelonaService() {
             },
             {
               number: "04",
-              title: "Executive Stretch Limousine",
-              capacity: "up to 8 passengers",
-              desc: "Celebrate gala evenings, weddings in Sitges, and VIP arrivals at Port Olímpic with state-of-the-art stretch luxury.",
-              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-stretch-limo-lincoln-town-car-nyc-768x612.png",
-              bookingParam: "stretch"
+              title: "Business SUV",
+              capacity: "up to 6 passengers, 6 suitcases",
+              desc: "Spacious private transport for corporate congresses, cruise port transfers, and group day trips across Catalonia.",
+              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-business-suv-chevrolet-tahoe-nyc.png",
+              bookingParam: "suv"
             }
           ].map((vehicle, idx) => (
             <div

@@ -401,11 +401,11 @@ export default function Home() {
               image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/Sprinter-Van.webp"
             },
             {
-              badge: "Luxury class",
-              title: "Executive Stretch",
-              passengers: "8 Passengers",
-              luggage: "5 Luggage",
-              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-stretch-limo-lincoln-town-car-nyc-768x612.png"
+              badge: "Business class",
+              title: "Business SUV",
+              passengers: "6 Passengers",
+              luggage: "6 Luggage",
+              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-business-suv-chevrolet-tahoe-nyc.png"
             }
           ].map((veh, idx) => (
             <div
