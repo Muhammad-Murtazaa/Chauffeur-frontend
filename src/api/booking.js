@@ -44,6 +44,12 @@ export async function getBookingDetails(bookingId) {
   });
 }
 
+export async function getSquareConfig() {
+  return apiRequest('/bookings/payment/square-config', {
+    method: 'GET',
+  });
+}
+
 export async function createBookingPaymentIntent(bookingId) {
   return apiRequest(`/bookings/${bookingId}/create-payment-intent`, {
     method: 'POST',
