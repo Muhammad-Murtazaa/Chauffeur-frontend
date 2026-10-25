@@ -33,7 +33,6 @@ Built with **React 18**, **Vite 6**, **Tailwind CSS**, **React Router v6**, and 
      - Staten Island (`/staten-island-limo`)
    - **Reservations & Instant Quote (`/reservations`)**:
      - Interactive multi-step quote calculator with live flat-rate computation based on route and vehicle.
-     - Switchable tab embedding the live **LimoAnywhere / LoginLA** reservation system (`https://member.loginla.com/quick/company/NPL`).
    - **About Us (`/about-us`)**: Company history, four core principles, chauffeur vetting standards.
    - **Contact Us (`/contact-us`)**: 24/7 dispatch info, direct click-to-call `(347) 888-9797`, interactive inquiry form.
    - **Legal & Policy Pages**:
