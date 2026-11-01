@@ -131,3 +131,46 @@ export async function reassignDriverBooking(bookingId, { driverId, reason }) {
     body: JSON.stringify({ driverId, reason }),
   });
 }
+
+/**
+ * Get Route Pricing (Flat-Rate Zone Pricing)
+ * GET /admin/route-pricing
+ */
+export async function fetchRoutePricing() {
+  return apiRequest('/admin/route-pricing', {
+    method: 'GET',
+  });
+}
+
+/**
+ * Create Route Pricing Rule
+ * POST /admin/route-pricing
+ */
+export async function createRoutePricing(payload) {
+  return apiRequest('/admin/route-pricing', {
+    method: 'POST',
+    body: JSON.stringify(payload),
+  });
+}
+
+/**
+ * Update Route Pricing Rule
+ * PATCH /admin/route-pricing/:id
+ */
+export async function updateRoutePricingRule(id, payload) {
+  return apiRequest(`/admin/route-pricing/${id}`, {
+    method: 'PATCH',
+    body: JSON.stringify(payload),
+  });
+}
+
+/**
+ * Delete Route Pricing Rule
+ * DELETE /admin/route-pricing/:id
+ */
+export async function deleteRoutePricingRule(id) {
+  return apiRequest(`/admin/route-pricing/${id}`, {
+    method: 'DELETE',
+  });
+}
+

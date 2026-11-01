@@ -44,10 +44,14 @@ export async function getBookingDetails(bookingId) {
   });
 }
 
-export async function getSquareConfig() {
-  return apiRequest('/bookings/payment/square-config', {
+export async function getStripeConfig() {
+  return apiRequest('/bookings/payment/stripe-config', {
     method: 'GET',
   });
+}
+
+export async function getSquareConfig() {
+  return getStripeConfig();
 }
 
 export async function createBookingPaymentIntent(bookingId) {
