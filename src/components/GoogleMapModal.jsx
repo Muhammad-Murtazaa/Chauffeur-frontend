@@ -65,6 +65,31 @@ export default function GoogleMapModal({
   const [locating, setLocating] = useState(false);
   const [searching, setSearching] = useState(false);
 
+  // Lock background page scroll and listen for Escape key when modal is open
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const originalBodyOverflow = document.body.style.overflow;
+    const originalHtmlOverflow = document.documentElement.style.overflow;
+
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = originalBodyOverflow || 'unset';
+      document.documentElement.style.overflow = originalHtmlOverflow || 'unset';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen, onClose]);
+
   useEffect(() => {
     if (!isOpen) {
       if (leafletMapRef.current) {
@@ -99,6 +124,7 @@ export default function GoogleMapModal({
           mapTypeControl: false,
           streetViewControl: false,
           fullscreenControl: false,
+          gestureHandling: 'greedy',
         });
         googleMapRef.current = map;
 
@@ -338,8 +364,18 @@ export default function GoogleMapModal({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="w-full max-w-4xl bg-[#0E1722] border border-gold/40 rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh]">
+    <div 
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-md animate-in fade-in duration-200 overscroll-contain"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+      onWheel={(e) => e.stopPropagation()}
+      onTouchMove={(e) => e.stopPropagation()}
+    >
+      <div 
+        className="w-full max-w-4xl bg-[#0E1722] border border-gold/40 rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh] overscroll-contain"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Modal Header */}
         <div className="px-6 py-4 border-b border-white/10 flex items-center justify-between bg-[#080E14]">
           <div className="flex items-center gap-2.5">
