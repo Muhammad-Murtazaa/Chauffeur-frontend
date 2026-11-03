@@ -384,28 +384,28 @@ export default function Home() {
               title: "Premium Sedan",
               passengers: "3 Passengers",
               luggage: "3 Luggage",
-              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/Premium-Sedan.webp"
+              image: "/sedan.jfif"
             },
             {
               badge: "First class",
               title: "Premium SUV",
               passengers: "6 Passengers",
               luggage: "6 Luggage",
-              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/Premium-SUV.webp"
+              image: "/suv.jfif"
             },
             {
               badge: "VIP Group class",
               title: "Executive Sprinter VIP",
               passengers: "14 Passengers",
               luggage: "14 Luggage",
-              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/Sprinter-Van.webp"
+              image: "/group-class.jfif"
             },
             {
               badge: "Business class",
               title: "Business SUV",
               passengers: "6 Passengers",
               luggage: "6 Luggage",
-              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-business-suv-chevrolet-tahoe-nyc.png"
+              image: "/business-suv.jfif"
             }
           ].map((veh, idx) => (
             <div
@@ -728,7 +728,7 @@ export default function Home() {
             {/* Main Sunset Fleet Lineup Image */}
             <div className="relative rounded-[28px] overflow-hidden shadow-xl aspect-[4/3] sm:aspect-[16/12]">
               <img
-                src="https://nycpremierlimo.com/wp-content/uploads/2026/08/professional-limousine-service-fleet-lineup-nyc.webp"
+                src="/complete-fleet.png"
                 alt="Professional Chauffeur Service Fleet Lineup"
                 className="w-full h-full object-cover"
               />

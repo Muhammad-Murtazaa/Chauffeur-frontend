@@ -187,49 +187,49 @@ export default function Fleet() {
               name: "Business Sedan",
               passengers: "3 Passengers",
               luggage: "3 Luggage",
-              image: "https://nycpremierlimo.com/wp-content/uploads/2026/09/Premium-sedan-768x512.png"
+              image: "/business.jfif"
             },
             {
               id: "premium-sedan",
               name: "Premium Sedan",
               passengers: "2 Passengers",
               luggage: "2 Luggage",
-              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-premium-sedan-mercedes-s-class-nyc-768x512.webp"
+              image: "/premium-sedan.jfif"
             },
             {
               id: "midsize-suv",
               name: "Midsize SUV",
               passengers: "4 Passengers",
               luggage: "4 Luggage",
-              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-midsize-suv-cadillac-xt6-nyc-768x512.png"
+              image: "midsize-suv.jfif"
             },
             {
               id: "business-suv",
               name: "Business SUV",
               passengers: "6 Passengers",
               luggage: "6 Luggage",
-              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-business-suv-chevrolet-tahoe-nyc-768x512.png"
+              image: "business-suv.jfif"
             },
             {
               id: "premium-suv",
               name: "Premium SUV",
               passengers: "6 Passengers",
               luggage: "6 Luggage",
-              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-premium-suv-cadillac-escalade-nyc-768x512.png"
+              image: "suv.jfif"
             },
             {
               id: "jet-sprinter",
               name: "Jet Sprinter VIP",
               passengers: "10 Passengers",
               luggage: "10 Luggage",
-              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-jet-sprinter-executive-van-nyc-768x512.png"
+              image: "/jet-sprinter.jfif"
             },
             {
               id: "sprinter-limo",
               name: "Sprinter VIP Lounge",
               passengers: "14 Passengers",
               luggage: "14 Luggage",
-              image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-sprinter-limo-party-van-nyc-768x512.png"
+              image: "/sprinter-limo.jfif"
             }
           ].map((veh) => (
             <div
