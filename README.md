@@ -34,7 +34,7 @@ Built with **React 18**, **Vite 6**, **Tailwind CSS**, **React Router v6**, and 
    - **Reservations & Instant Quote (`/reservations`)**:
      - Interactive multi-step quote calculator with live flat-rate computation based on route and vehicle.
    - **About Us (`/about-us`)**: Company history, four core principles, chauffeur vetting standards.
-   - **Contact Us (`/contact-us`)**: 24/7 dispatch info, direct click-to-call `(347) 888-9797`, interactive inquiry form.
+   - **Contact Us (`/contact-us`)**: 24/7 dispatch info, direct click-to-call `(917) 841-0044`, interactive inquiry form.
    - **Legal & Policy Pages**:
      - Terms and Conditions (`/terms-conditions`)
      - Privacy Policy (`/privacy-policy`)

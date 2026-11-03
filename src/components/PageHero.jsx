@@ -78,7 +78,7 @@ export default function PageHero({
             className="border border-white/20 hover:border-gold hover:text-gold text-white px-6 py-3.5 rounded-full font-bold text-sm tracking-wide transition flex items-center gap-2 bg-white/5 backdrop-blur-sm"
           >
             <Phone className="w-4 h-4 text-gold" />
-            <span>(347) 888-9797</span>
+            <span>(917) 841-0044</span>
           </a>
         </div>
       </div>

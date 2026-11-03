@@ -62,7 +62,7 @@ export default function TermsConditions() {
         </div>
 
         <div className="pt-6 border-t border-white/10 text-xs text-neutral-500">
-          Last Updated: January 2026. For inquiries regarding our terms, please contact us at info@nycpremierlimo.com or call (347) 888-9797.
+          Last Updated: January 2026. For inquiries regarding our terms, please contact us at Hmynyc44@gmail.com or call (917) 841-0044.
         </div>
       </section>
     </div>

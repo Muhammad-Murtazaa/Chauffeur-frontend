@@ -50,7 +50,7 @@ export default function HourlyService() {
               href="tel:+13478889797"
               className="bg-[#e09900] hover:bg-[#c88800] text-black font-semibold text-sm px-7 py-3 rounded-full transition-colors shadow-sm"
             >
-              Call (347) 888-9797
+              Call (917) 841-0044
             </a>
             <Link
               to="/reservations"
@@ -398,7 +398,7 @@ export default function HourlyService() {
             </div>
             <div className="md:col-span-5">
               <p className="text-[14px] text-[#6D685F] leading-relaxed">
-                Call us on (347) 888-9797 for availability, pricing, pickup instructions and vehicle confirmation for your specific itinerary.
+                Call us on (917) 841-0044 for availability, pricing, pickup instructions and vehicle confirmation for your specific itinerary.
               </p>
             </div>
           </div>
@@ -409,7 +409,7 @@ export default function HourlyService() {
           {[
             {
               q: "How does hourly car service in NYC work?",
-              a: "You reserve a chauffeur and a private vehicle for a block of time. Within that block you can add stops, wait as long as you need, and change the order of the day. Call us at (347) 888-9797 or request an instant quote with your date, pickup time, starting address, planned stops, passenger count and preferred vehicle."
+              a: "You reserve a chauffeur and a private vehicle for a block of time. Within that block you can add stops, wait as long as you need, and change the order of the day. Call us at (917) 841-0044 or request an instant quote with your date, pickup time, starting address, planned stops, passenger count and preferred vehicle."
             },
             {
               q: "Is there a minimum number of hours?",
@@ -493,7 +493,7 @@ export default function HourlyService() {
               href="tel:+13478889797"
               className="bg-[#e09900] hover:bg-[#c88800] text-black font-semibold text-sm px-7 py-3.5 rounded-full transition-colors text-center shadow-md whitespace-nowrap"
             >
-              Call (347) 888-9797
+              Call (917) 841-0044
             </a>
             <Link
               to="/reservations"

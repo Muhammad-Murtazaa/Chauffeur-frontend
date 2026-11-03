@@ -41,7 +41,7 @@ export default function LegalPrivacy() {
         </div>
 
         <div className="pt-6 border-t border-white/10 text-xs text-neutral-500">
-          Questions regarding privacy? Email info@nycpremierlimo.com or call (347) 888-9797.
+          Questions regarding privacy? Email Hmynyc44@gmail.com or call (917) 841-0044.
         </div>
       </section>
     </div>

@@ -51,7 +51,7 @@ export default function BarcelonaService() {
               href="tel:+13478889797"
               className="bg-[#e09900] hover:bg-[#c88800] text-black font-semibold text-sm px-7 py-3 rounded-full transition-colors shadow-sm"
             >
-              Call (347) 888-9797
+              Call (917) 841-0044
             </a>
             <Link
               to="/reservations"
@@ -634,7 +634,7 @@ export default function BarcelonaService() {
               href="tel:+13478889797"
               className="bg-[#e09900] hover:bg-[#c88800] text-black font-semibold text-sm px-7 py-3.5 rounded-full transition-colors text-center shadow-md whitespace-nowrap"
             >
-              Call (347) 888-9797
+              Call (917) 841-0044
             </a>
             <Link
               to="/reservations"

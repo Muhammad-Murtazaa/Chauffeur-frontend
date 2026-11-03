@@ -105,7 +105,7 @@ export default function SpecialOccasions() {
             href="tel:+13478889797"
             className="inline-flex items-center gap-2 bg-gold text-black font-bold text-sm px-8 py-3.5 rounded-full shadow-lg shadow-gold/20 hover:bg-gold-hover transition"
           >
-            Call Event Dispatch: (347) 888-9797
+            Call Event Dispatch: (917) 841-0044
           </a>
         </div>
       </section>

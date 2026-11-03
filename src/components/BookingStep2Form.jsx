@@ -113,7 +113,7 @@ export default function BookingStep2Form({
         guestName ||
         `${currentUser?.firstName || ''} ${currentUser?.lastName || ''}`.trim() ||
         'Valued Passenger';
-      const passengerPhoneNum = guestPhone || currentUser?.phone || '+1 (347) 888-9797';
+      const passengerPhoneNum = guestPhone || currentUser?.phone || '+1 (917) 841-0044';
       const passengerEmailAddress = guestEmail || currentUser?.email || 'guest@hmynyc.com';
 
       const bookingPayload = {

@@ -36,7 +36,7 @@ export default function PaymentPolicy() {
         </div>
 
         <div className="pt-6 border-t border-white/10 text-xs text-neutral-500">
-          Billing questions? Contact accounts@nycpremierlimo.com or call (347) 888-9797.
+          Billing questions? Contact accounts@nycpremierlimo.com or call (917) 841-0044.
         </div>
       </section>
     </div>

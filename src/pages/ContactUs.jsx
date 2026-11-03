@@ -44,10 +44,10 @@ export default function ContactUs() {
       ========================================================================= */}
       <section className="relative min-h-[460px] lg:min-h-[500px] py-16 sm:py-24 flex items-center justify-center text-center bg-black overflow-hidden">
         {/* Background photo */}
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ 
-            backgroundImage: `url('https://nycpremierlimo.com/wp-content/uploads/2026/09/contact-nyc-premier-limo-chauffeur-service-square.webp')` 
+          style={{
+            backgroundImage: `url('https://nycpremierlimo.com/wp-content/uploads/2026/09/contact-nyc-premier-limo-chauffeur-service-square.webp')`
           }}
         />
         {/* Dark overlay for contrast */}
@@ -83,7 +83,7 @@ export default function ContactUs() {
               href="tel:+13478889797"
               className="bg-[#e09900] hover:bg-[#c88800] text-black font-semibold text-sm px-7 py-3 rounded-full transition-colors shadow-sm"
             >
-              Call (347) 888-9797
+              Call (917) 841-0044
             </a>
             <Link
               to="/reservations"
@@ -132,7 +132,7 @@ export default function ContactUs() {
                       Phone / 24/7 Dispatch
                     </div>
                     <div className="text-white text-base font-semibold group-hover:text-[#e09900] transition-colors">
-                      (347) 888-9797
+                      (917) 841-0044
                     </div>
                     <div className="text-zinc-500 text-[11px] mt-0.5">
                       Direct line for immediate reservations & updates
@@ -142,7 +142,7 @@ export default function ContactUs() {
 
                 {/* Email */}
                 <a
-                  href="mailto:info@nycpremierlimo.com"
+                  href="mailto:Hmynyc44@gmail.com"
                   className="group flex items-start gap-4 p-4 rounded-2xl bg-[#18191E] border border-white/5 hover:border-[#e09900]/40 transition-all"
                 >
                   <div className="w-10 h-10 rounded-xl bg-[#e09900]/15 text-[#e09900] border border-[#e09900]/25 flex items-center justify-center shrink-0 group-hover:bg-[#e09900] group-hover:text-black transition-colors">
@@ -153,7 +153,7 @@ export default function ContactUs() {
                       Email Desk
                     </div>
                     <div className="text-white text-base font-semibold group-hover:text-[#e09900] transition-colors break-all">
-                      info@nycpremierlimo.com
+                      Hmynyc44@gmail.com
                     </div>
                     <div className="text-zinc-500 text-[11px] mt-0.5">
                       Detailed quotes, receipts & corporate billing
@@ -176,7 +176,7 @@ export default function ContactUs() {
                       WhatsApp Dispatch
                     </div>
                     <div className="text-white text-base font-semibold group-hover:text-[#e09900] transition-colors">
-                      (347) 888-9797
+                      (917) 841-0044
                     </div>
                     <div className="text-zinc-500 text-[11px] mt-0.5">
                       Chat, flight sharing & quick itinerary questions
@@ -273,7 +273,7 @@ export default function ContactUs() {
                         required
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="(347) 888-9797"
+                        placeholder="(917) 841-0044"
                         className="w-full bg-[#F9F7F2] border border-zinc-300 rounded-xl px-4 py-3 text-sm text-[#1D1D1B] placeholder-zinc-400 focus:outline-none focus:border-[#e09900] focus:ring-1 focus:ring-[#e09900] transition"
                       />
                     </div>
@@ -589,7 +589,7 @@ export default function ContactUs() {
                 href="tel:+13478889797"
                 className="bg-[#e09900] hover:bg-[#c88800] text-black font-semibold text-sm px-7 py-3 rounded-full transition-colors shadow-sm"
               >
-                Call (347) 888-9797
+                Call (917) 841-0044
               </a>
               <Link
                 to="/reservations"

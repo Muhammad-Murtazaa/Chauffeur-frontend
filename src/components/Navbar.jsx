@@ -381,7 +381,7 @@ export default function Navbar() {
               href="tel:+13478889797"
               className="text-white hover:text-gold text-sm font-semibold transition-colors duration-200"
             >
-              (347) 888-9797
+              (917) 841-0044
             </a>
 
             {/* Customer / VIP User Auth Button */}
@@ -602,7 +602,7 @@ export default function Navbar() {
                 className="w-full bg-white/10 text-white text-center py-3 rounded-xl font-bold text-sm border border-white/20 flex items-center justify-center gap-2"
               >
                 <Phone className="w-4 h-4 text-gold" />
-                Call Dispatch: (347) 888-9797
+                Call Dispatch: (917) 841-0044
               </a>
             </div>
           </div>

@@ -1,7 +1,7 @@
 export const faqData = [
   {
     question: "How do I book a ride with NYC Premier Chauffeur?",
-    answer: "You can book directly online through our real-time Instant Quote & Reservation portal, call our dispatch desk at (347) 888-9797, or email info@nycpremierlimo.com. Our dispatch and customer support teams operate 24 hours a day, 7 days a week to confirm your reservation."
+    answer: "You can book directly online through our real-time Instant Quote & Reservation portal, call our dispatch desk at (917) 841-0044, or email Hmynyc44@gmail.com. Our dispatch and customer support teams operate 24 hours a day, 7 days a week to confirm your reservation."
   },
   {
     question: "What geographic areas do you cover?",

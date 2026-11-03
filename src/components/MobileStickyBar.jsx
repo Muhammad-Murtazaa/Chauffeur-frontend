@@ -14,7 +14,7 @@ export default function MobileStickyBar() {
         className="flex-1 flex items-center justify-center gap-2 bg-[#1A222D] hover:bg-[#253243] text-white py-3 px-4 rounded-full text-sm font-bold border border-white/20 transition"
       >
         <Phone className="w-4 h-4 text-gold" />
-        <span>(347) 888-9797</span>
+        <span>(917) 841-0044</span>
       </a>
       <button
         type="button"

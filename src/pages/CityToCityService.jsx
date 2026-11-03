@@ -59,7 +59,7 @@ export default function CityToCityService() {
               href="tel:+13478889797"
               className="bg-[#e09900] hover:bg-[#c88800] text-black font-semibold text-sm px-7 py-3 rounded-full transition-colors shadow-sm"
             >
-              Call (347) 888-9797
+              Call (917) 841-0044
             </a>
             <Link
               to="/reservations"
@@ -518,7 +518,7 @@ export default function CityToCityService() {
             </div>
             <div className="md:col-span-5">
               <p className="text-[14px] text-[#6D685F] leading-relaxed">
-                Call us on (347) 888-9797 for availability, pricing, pickup instructions and vehicle confirmation for your specific itinerary.
+                Call us on (917) 841-0044 for availability, pricing, pickup instructions and vehicle confirmation for your specific itinerary.
               </p>
             </div>
           </div>
@@ -529,7 +529,7 @@ export default function CityToCityService() {
           {[
             {
               q: "What is city to city car service from NYC?",
-              a: "A private, chauffeured long-distance ride between New York and another city or region — door to door, with no flights, trains or transfers. Call (347) 888-9797 or request a quote with your route, date, time, passengers and luggage."
+              a: "A private, chauffeured long-distance ride between New York and another city or region — door to door, with no flights, trains or transfers. Call (917) 841-0044 or request a quote with your route, date, time, passengers and luggage."
             },
             {
               q: "Which routes do you cover?",
@@ -613,7 +613,7 @@ export default function CityToCityService() {
               href="tel:+13478889797"
               className="bg-[#e09900] hover:bg-[#c88800] text-black font-semibold text-sm px-7 py-3.5 rounded-full transition-colors text-center shadow-md whitespace-nowrap"
             >
-              Call (347) 888-9797
+              Call (917) 841-0044
             </a>
             <Link
               to="/reservations"

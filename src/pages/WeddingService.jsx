@@ -69,7 +69,7 @@ export default function WeddingService() {
                 href="tel:+13478889797"
                 className="bg-gold hover:bg-gold-hover text-black px-6 py-2.5 rounded-full text-xs font-bold shrink-0 transition"
               >
-                (347) 888-9797
+                (917) 841-0044
               </a>
             </div>
           </div>

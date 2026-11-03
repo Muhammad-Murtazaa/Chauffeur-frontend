@@ -43,7 +43,7 @@ export default function CancellationRefund() {
         </div>
 
         <div className="pt-6 border-t border-white/10 text-xs text-neutral-500">
-          To request a cancellation, please call dispatch immediately at (347) 888-9797 or reply directly to your booking confirmation email.
+          To request a cancellation, please call dispatch immediately at (917) 841-0044 or reply directly to your booking confirmation email.
         </div>
       </section>
     </div>

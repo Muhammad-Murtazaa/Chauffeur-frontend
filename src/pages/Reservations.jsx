@@ -26,7 +26,7 @@ export default function Reservations() {
             <span>Need 24/7 Dispatch?</span>
             <a href="tel:+13478889797" className="text-gold font-bold hover:underline flex items-center gap-1">
               <Phone className="w-3.5 h-3.5" />
-              (347) 888-9797
+              (917) 841-0044
             </a>
           </div>
         </div>
