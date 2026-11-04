@@ -80,7 +80,7 @@ export default function ContactUs() {
           {/* Action Buttons: Call & Instant Quote */}
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
             <a
-              href="tel:+13478889797"
+              href="tel:+19178410044"
               className="bg-[#e09900] hover:bg-[#c88800] text-black font-semibold text-sm px-7 py-3 rounded-full transition-colors shadow-sm"
             >
               Call (917) 841-0044
@@ -121,7 +121,7 @@ export default function ContactUs() {
               <div className="space-y-4">
                 {/* Phone */}
                 <a
-                  href="tel:+13478889797"
+                  href="tel:+19178410044"
                   className="group flex items-start gap-4 p-4 rounded-2xl bg-[#18191E] border border-white/5 hover:border-[#e09900]/40 transition-all"
                 >
                   <div className="w-10 h-10 rounded-xl bg-[#e09900]/15 text-[#e09900] border border-[#e09900]/25 flex items-center justify-center shrink-0 group-hover:bg-[#e09900] group-hover:text-black transition-colors">
@@ -163,7 +163,7 @@ export default function ContactUs() {
 
                 {/* WhatsApp */}
                 <a
-                  href="https://wa.me/13478889797"
+                  href="https://wa.me/19178410044"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-start gap-4 p-4 rounded-2xl bg-[#18191E] border border-white/5 hover:border-[#e09900]/40 transition-all"
@@ -193,13 +193,13 @@ export default function ContactUs() {
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <a
-                  href="tel:+13478889797"
+                  href="tel:+19178410044"
                   className="flex-1 bg-[#e09900] hover:bg-[#c88800] text-black font-semibold text-xs py-3 px-4 rounded-full text-center transition-colors shadow-sm"
                 >
                   Call Now
                 </a>
                 <a
-                  href="https://wa.me/13478889797"
+                  href="https://wa.me/19178410044"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 border border-white/20 hover:border-white text-white font-medium text-xs py-3 px-4 rounded-full text-center transition-colors"
@@ -586,7 +586,7 @@ export default function ContactUs() {
 
             <div className="flex flex-wrap items-center justify-center gap-4 pt-3">
               <a
-                href="tel:+13478889797"
+                href="tel:+19178410044"
                 className="bg-[#e09900] hover:bg-[#c88800] text-black font-semibold text-sm px-7 py-3 rounded-full transition-colors shadow-sm"
               >
                 Call (917) 841-0044

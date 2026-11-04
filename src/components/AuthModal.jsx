@@ -328,7 +328,7 @@ export default function AuthModal() {
                 <input
                   type="tel"
                   required
-                  placeholder="(347) 555-0199"
+                  placeholder="(917) 000-0000"
                   value={registerData.phone}
                   onChange={(e) => setRegisterData({ ...registerData, phone: e.target.value })}
                   className="w-full bg-[#14202D] border border-white/15 focus:border-[#e09900] rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-neutral-500 outline-none transition"

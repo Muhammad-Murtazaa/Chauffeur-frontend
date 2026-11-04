@@ -102,7 +102,7 @@ export default function SpecialOccasions() {
             Planning a multi-car wedding motorcade or large convention transfers? Speak directly with our events dispatch manager to design a customized itinerary with vehicle staging and dedicated on-site dispatchers.
           </p>
           <a
-            href="tel:+13478889797"
+            href="tel:+19178410044"
             className="inline-flex items-center gap-2 bg-gold text-black font-bold text-sm px-8 py-3.5 rounded-full shadow-lg shadow-gold/20 hover:bg-gold-hover transition"
           >
             Call Event Dispatch: (917) 841-0044

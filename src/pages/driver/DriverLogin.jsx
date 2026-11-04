@@ -192,7 +192,7 @@ export default function DriverLogin() {
                   <label className="block text-xs font-semibold text-neutral-300">
                     Password
                   </label>
-                  <a href="tel:+13478889797" className="text-xs text-[#e09900] hover:underline">
+                  <a href="tel:+19178410044" className="text-xs text-[#e09900] hover:underline">
                     Forgot Password?
                   </a>
                 </div>
@@ -287,7 +287,7 @@ export default function DriverLogin() {
                     required
                     value={registerForm.phone}
                     onChange={(e) => setRegisterForm({ ...registerForm, phone: e.target.value })}
-                    placeholder="+1 (347) 000-0000"
+                    placeholder="+1 (917) 000-0000"
                     className="w-full bg-black/50 border border-white/15 focus:border-[#e09900] rounded-xl px-3 py-2.5 text-xs text-white outline-none"
                   />
                 </div>

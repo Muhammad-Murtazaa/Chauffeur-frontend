@@ -24,7 +24,7 @@ export default function Reservations() {
 
           <div className="flex items-center gap-2 text-xs sm:text-sm text-neutral-400">
             <span>Need 24/7 Dispatch?</span>
-            <a href="tel:+13478889797" className="text-gold font-bold hover:underline flex items-center gap-1">
+            <a href="tel:+19178410044" className="text-gold font-bold hover:underline flex items-center gap-1">
               <Phone className="w-3.5 h-3.5" />
               (917) 841-0044
             </a>

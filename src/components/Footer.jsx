@@ -64,7 +64,7 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-[13.5px] text-zinc-300">
               <li>
-                <a href="tel:+13478889797" className="hover:text-[#e09900] transition-colors">
+                <a href="tel:+19178410044" className="hover:text-[#e09900] transition-colors">
                   (917) 841-0044
                 </a>
               </li>

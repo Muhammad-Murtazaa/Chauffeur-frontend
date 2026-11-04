@@ -48,7 +48,7 @@ export default function BarcelonaService() {
           {/* Two Buttons: Call & Instant Quote */}
           <div className="flex flex-wrap items-center justify-center gap-4 pt-3">
             <a
-              href="tel:+13478889797"
+              href="tel:+19178410044"
               className="bg-[#e09900] hover:bg-[#c88800] text-black font-semibold text-sm px-7 py-3 rounded-full transition-colors shadow-sm"
             >
               Call (917) 841-0044
@@ -631,7 +631,7 @@ export default function BarcelonaService() {
           {/* Right Buttons */}
           <div className="relative z-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 shrink-0">
             <a
-              href="tel:+13478889797"
+              href="tel:+19178410044"
               className="bg-[#e09900] hover:bg-[#c88800] text-black font-semibold text-sm px-7 py-3.5 rounded-full transition-colors text-center shadow-md whitespace-nowrap"
             >
               Call (917) 841-0044

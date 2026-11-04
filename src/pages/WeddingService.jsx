@@ -66,7 +66,7 @@ export default function WeddingService() {
                 </p>
               </div>
               <a
-                href="tel:+13478889797"
+                href="tel:+19178410044"
                 className="bg-gold hover:bg-gold-hover text-black px-6 py-2.5 rounded-full text-xs font-bold shrink-0 transition"
               >
                 (917) 841-0044

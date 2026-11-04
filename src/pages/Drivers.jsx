@@ -229,7 +229,7 @@ export default function Drivers() {
                     required
                     value={formData.phone}
                     onChange={(e) => handleChange('phone', e.target.value)}
-                    placeholder="+1 (347) 000-0000"
+                    placeholder="+1 (917) 000-0000"
                     className="w-full bg-black/50 border border-white/15 focus:border-[#e09900] rounded-xl pl-10 pr-3.5 py-3 text-xs sm:text-sm text-white placeholder-neutral-500 outline-none transition"
                   />
                 </div>

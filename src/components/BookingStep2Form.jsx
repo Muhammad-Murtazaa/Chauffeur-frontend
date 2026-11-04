@@ -314,7 +314,7 @@ export default function BookingStep2Form({
             <input
               type="tel"
               required
-              placeholder="(347) 000-0000"
+              placeholder="(917) 000-0000"
               value={guestPhone}
               onChange={(e) => setGuestPhone(e.target.value)}
               className="w-full bg-[#080E14] border border-white/10 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-gold transition"

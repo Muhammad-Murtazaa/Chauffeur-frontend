@@ -83,7 +83,7 @@ export default function Fleet() {
           {/* Two Buttons: Call & Instant Quote */}
           <div className="flex flex-wrap items-center justify-center gap-4 pt-3">
             <a
-              href="tel:+13478889797"
+              href="tel:+19178410044"
               className="bg-[#e09900] hover:bg-[#c88800] text-black font-semibold text-sm px-7 py-3 rounded-full transition-colors shadow-sm"
             >
               Call (917) 841-0044
@@ -547,7 +547,7 @@ export default function Fleet() {
           {/* Right Buttons */}
           <div className="relative z-10 flex flex-wrap sm:flex-nowrap items-center gap-3.5 shrink-0">
             <a
-              href="tel:+13478889797"
+              href="tel:+19178410044"
               className="bg-[#e09900] hover:bg-[#c88800] text-black font-bold text-xs sm:text-[13px] px-8 py-3 rounded-full transition-all shadow-md active:scale-95 text-center min-w-[120px]"
             >
               Call Now

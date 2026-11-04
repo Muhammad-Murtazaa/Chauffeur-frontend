@@ -378,7 +378,7 @@ export default function Navbar() {
           {/* Action CTAs */}
           <div className="hidden lg:flex items-center space-x-4">
             <a
-              href="tel:+13478889797"
+              href="tel:+19178410044"
               className="text-white hover:text-gold text-sm font-semibold transition-colors duration-200"
             >
               (917) 841-0044
@@ -460,7 +460,7 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <div className="lg:hidden flex items-center gap-2">
             <a
-              href="tel:+13478889797"
+              href="tel:+19178410044"
               className="p-2 rounded-full bg-gold/15 text-gold border border-gold/30"
               aria-label="Call Dispatch"
             >
@@ -598,7 +598,7 @@ export default function Navbar() {
                 Instant Quote & Book
               </button>
               <a
-                href="tel:+13478889797"
+                href="tel:+19178410044"
                 className="w-full bg-white/10 text-white text-center py-3 rounded-xl font-bold text-sm border border-white/20 flex items-center justify-center gap-2"
               >
                 <Phone className="w-4 h-4 text-gold" />
