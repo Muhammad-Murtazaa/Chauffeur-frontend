@@ -15,6 +15,8 @@ import {
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import RouteMapPreview from './RouteMapPreview';
 import { createBooking, createBookingPaymentIntent, processBookingPayment } from '../api/booking';
+import { setGuestBookingAccessToken } from '../api/client';
+import { getVehicleImage } from '../utils/vehicleImage';
 
 const CARD_ELEMENT_OPTIONS = {
   style: {
@@ -59,9 +61,9 @@ export default function BookingStep2Form({
   setConfirmedBooking,
   setStep,
   user,
-  isAuthenticated,
-  promptInstantQuote,
   setQuoteError,
+  referenceFlow = false,
+  bookingStep = 2,
 }) {
   const stripe = useStripe();
   const elements = useElements();
@@ -78,20 +80,13 @@ export default function BookingStep2Form({
       return;
     }
 
-    if (!cardComplete) {
-      setCardError('Please enter your complete credit card details (card number, expiration date, CVC, and billing zip).');
+    if (referenceFlow && bookingStep === 2) {
+      setStep(3);
       return;
     }
 
-    if (!isAuthenticated) {
-      promptInstantQuote(null, null, async (authedUser) => {
-        if (authedUser) {
-          setGuestName(`${authedUser.firstName || ''} ${authedUser.lastName || ''}`.trim());
-          setGuestPhone(authedUser.phone || '');
-          setGuestEmail(authedUser.email || '');
-          await executeBookingAndPayment(authedUser);
-        }
-      });
+    if (!cardComplete) {
+      setCardError('Please enter your complete credit card details (card number, expiration date, CVC, and billing zip).');
       return;
     }
 
@@ -128,6 +123,9 @@ export default function BookingStep2Form({
 
       // 1. Create Booking in database
       const booking = await createBooking(bookingPayload);
+      if (booking.bookingAccessToken) {
+        setGuestBookingAccessToken(booking.id, booking.bookingAccessToken);
+      }
 
       // 2. Initialize Stripe PaymentIntent session
       const intentData = await createBookingPaymentIntent(booking.id);
@@ -177,7 +175,7 @@ export default function BookingStep2Form({
       }
 
       setConfirmedBooking(paymentRes.booking || booking);
-      setStep(3);
+      setStep(referenceFlow ? 4 : 3);
     } catch (err) {
       console.error('Booking submission error:', err);
       const msg = err?.response?.data?.message || err.message || 'Failed to complete reservation. Please try again.';
@@ -190,8 +188,7 @@ export default function BookingStep2Form({
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6 animate-in fade-in duration-300">
-      {/* Header Strip with Route & Countdown Timer */}
-      <div className="p-4 rounded-2xl bg-[#14202D] border border-gold/30 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+      {referenceFlow ? <h2 className="text-lg font-bold text-white">{bookingStep === 2 ? 'Your details' : 'Payment'}</h2> : <div className="p-4 rounded-2xl bg-[#14202D] border border-gold/30 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
           <div className="flex items-center gap-2">
             <span className="text-xs text-gold uppercase tracking-wider font-bold">Route Calculated</span>
@@ -212,17 +209,17 @@ export default function BookingStep2Form({
 
         <div className="flex items-center gap-3 bg-[#080E14] px-3.5 py-2 rounded-xl border border-white/10">
           <Timer className="w-4 h-4 text-gold animate-pulse" />
-          <div className="text-right">
+          {!referenceFlow && <div className="text-right">
             <div className="text-[10px] uppercase tracking-wider text-neutral-400">Price Lock</div>
             <div className={`font-mono text-sm font-bold ${countdown < 120 ? 'text-rose-400' : 'text-gold'}`}>
               {formatSeconds(countdown)}
             </div>
-          </div>
+          </div>}
         </div>
-      </div>
+      </div>}
 
       {/* Visual Interactive Google Map Route Preview */}
-      <RouteMapPreview
+      {!referenceFlow && <RouteMapPreview
         pickupAddress={activeQuote.pickupAddress}
         pickupLat={activeQuote.pickupLat}
         pickupLng={activeQuote.pickupLng}
@@ -231,10 +228,10 @@ export default function BookingStep2Form({
         dropoffLng={activeQuote.dropoffLng}
         distanceMiles={routeSummary?.distanceMiles}
         durationMinutes={routeSummary?.durationMinutes}
-      />
+      />}
 
       {/* Vehicle Category Selector */}
-      <div>
+      {!referenceFlow && <div>
         <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-3 flex items-center gap-1.5">
           <Car className="w-3.5 h-3.5 text-gold" />
           Choose Chauffeur Vehicle Class
@@ -253,6 +250,7 @@ export default function BookingStep2Form({
                     : 'bg-[#14202D] border-white/10 hover:border-white/25'
                 }`}
               >
+                <img src={getVehicleImage(opt)} alt={opt.name} className="mb-4 h-36 w-full rounded-xl bg-[#101820] object-cover" loading="lazy" />
                 {isSelected && (
                   <div className="absolute top-3 right-3 w-5 h-5 rounded-full bg-gold text-black flex items-center justify-center">
                     <Check className="w-3 h-3 stroke-[3]" />
@@ -283,19 +281,16 @@ export default function BookingStep2Form({
             );
           })}
         </div>
-      </div>
+      </div>}
 
       {/* Passenger Information */}
-      <div className="p-5 rounded-2xl bg-[#14202D] border border-white/10 space-y-4">
-        <div className="text-xs uppercase font-bold tracking-wider text-gold flex items-center gap-2">
-          <UserCheck className="w-4 h-4" />
-          <span>Passenger Information & Preferences</span>
-        </div>
+      {(!referenceFlow || bookingStep === 2) && <div className="p-5 rounded-2xl bg-[#14202D] border border-white/10 space-y-4">
+        {!referenceFlow && <div className="text-xs uppercase font-bold tracking-wider text-gold flex items-center gap-2"><UserCheck className="w-4 h-4" /><span>Passenger Information & Preferences</span></div>}
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div>
+          <div className="order-1">
             <label className="block text-xs font-semibold text-neutral-400 mb-1">
-              Full Name *
+              Full name
             </label>
             <input
               type="text"
@@ -307,9 +302,9 @@ export default function BookingStep2Form({
             />
           </div>
 
-          <div>
+          <div className={referenceFlow ? 'order-3' : ''}>
             <label className="block text-xs font-semibold text-neutral-400 mb-1">
-              Mobile Phone *
+              Mobile phone
             </label>
             <input
               type="tel"
@@ -321,9 +316,9 @@ export default function BookingStep2Form({
             />
           </div>
 
-          <div>
+          <div className={referenceFlow ? 'order-2' : ''}>
             <label className="block text-xs font-semibold text-neutral-400 mb-1">
-              Email Address *
+              Email
             </label>
             <input
               type="email"
@@ -336,12 +331,12 @@ export default function BookingStep2Form({
           </div>
         </div>
 
-        <div>
+        <div className={referenceFlow ? 'space-y-1' : ''}>
           <label className="block text-xs font-semibold text-neutral-400 mb-1">
-            Special Chauffeur Instructions (Child Seat, Bottled Water, Quiet Ride)
+            {referenceFlow ? 'Notes for your chauffeur (optional)' : 'Special Chauffeur Instructions (Child Seat, Bottled Water, Quiet Ride)'}
           </label>
-          <input
-            type="text"
+          <textarea
+            rows={3}
             placeholder="e.g. Please provide child safety seat / meet inside airport gate"
             value={specialNotes}
             onChange={(e) => setSpecialNotes(e.target.value)}
@@ -349,6 +344,10 @@ export default function BookingStep2Form({
           />
         </div>
 
+      </div>}
+
+      {(!referenceFlow || bookingStep === 3) && <div className="p-5 rounded-2xl bg-[#14202D] border border-white/10 space-y-4">
+        {referenceFlow && <h2 className="text-lg font-bold text-white">Payment</h2>}
         {/* Live Interactive Stripe Card Payment Card */}
         <div className="p-4 rounded-2xl bg-[#091017] border border-white/10 space-y-3 focus-within:border-gold/50 transition">
           <div className="flex items-center justify-between">
@@ -406,25 +405,25 @@ export default function BookingStep2Form({
             <span className="text-[10px] text-neutral-500">Zero sensitive card data stored on server</span>
           </div>
         </div>
-      </div>
+      </div>}
 
       {/* Pricing Summary & Action */}
       <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/10">
         <button
           type="button"
-          onClick={() => setStep(1)}
+          onClick={() => setStep(referenceFlow && bookingStep === 3 ? 2 : 1)}
           className="text-xs text-neutral-400 hover:text-white underline transition"
         >
-          ← Recalculate Itinerary
+          {referenceFlow ? 'Back' : '← Recalculate Itinerary'}
         </button>
 
         <div className="flex items-center gap-4 w-full sm:w-auto">
-          <div className="text-right">
+          {!referenceFlow && <div className="text-right">
             <div className="text-[10px] text-neutral-400 uppercase">Guaranteed Total</div>
             <div className="font-serif text-2xl font-bold text-gold">
               ${selectedOption ? Number(selectedOption.totalPrice).toFixed(2) : '0.00'}
             </div>
-          </div>
+          </div>}
 
           <button
             type="submit"
@@ -439,7 +438,7 @@ export default function BookingStep2Form({
             ) : (
               <>
                 <CreditCard className="w-4 h-4" />
-                <span>Pay & Confirm Reservation</span>
+                <span>{referenceFlow && bookingStep === 2 ? 'Continue' : referenceFlow ? 'Pay now' : 'Pay & Confirm Reservation'}</span>
               </>
             )}
           </button>

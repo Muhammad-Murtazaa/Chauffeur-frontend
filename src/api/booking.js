@@ -1,4 +1,4 @@
-import { apiRequest } from './client';
+import { apiRequest, getGuestBookingAccessToken } from './client';
 
 /**
  * =========================
@@ -41,6 +41,7 @@ export async function getMyBookings() {
 export async function getBookingDetails(bookingId) {
   return apiRequest(`/bookings/${bookingId}`, {
     method: 'GET',
+    headers: guestBookingHeaders(bookingId),
   });
 }
 
@@ -57,6 +58,7 @@ export async function getSquareConfig() {
 export async function createBookingPaymentIntent(bookingId) {
   return apiRequest(`/bookings/${bookingId}/create-payment-intent`, {
     method: 'POST',
+    headers: guestBookingHeaders(bookingId),
   });
 }
 
@@ -64,6 +66,7 @@ export async function processBookingPayment(bookingId, data = {}) {
   return apiRequest(`/bookings/${bookingId}/payment`, {
     method: 'POST',
     body: JSON.stringify(data),
+    headers: guestBookingHeaders(bookingId),
   });
 }
 
@@ -71,7 +74,13 @@ export async function cancelBooking(bookingId, data) {
   return apiRequest(`/bookings/${bookingId}/cancel`, {
     method: 'POST',
     body: JSON.stringify(data),
+    headers: guestBookingHeaders(bookingId),
   });
+}
+
+function guestBookingHeaders(bookingId) {
+  const token = getGuestBookingAccessToken(bookingId);
+  return token ? { 'X-Booking-Access-Token': token } : {};
 }
 
 /**

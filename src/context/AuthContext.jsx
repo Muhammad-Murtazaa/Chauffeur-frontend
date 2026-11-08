@@ -102,27 +102,8 @@ export function AuthProvider({ children }) {
   };
 
   const promptInstantQuote = (navigate, targetPath = '/reservations', onConfirmed = null) => {
-    if (token && user) {
-      if (onConfirmed) {
-        onConfirmed(user);
-      } else if (navigate && targetPath) {
-        navigate(targetPath);
-      }
-    } else {
-      openAuthModal({
-        defaultTab: 'signin',
-        title: 'Sign In for Instant Quote & Booking',
-        subtitle: 'Please sign in or create a VIP account to view guaranteed flat-rate pricing and book your ride.',
-        redirectOnSuccess: targetPath,
-        onAuthSuccess: (authedUser) => {
-          if (onConfirmed) {
-            onConfirmed(authedUser);
-          } else if (navigate && targetPath) {
-            navigate(targetPath);
-          }
-        },
-      });
-    }
+    if (onConfirmed) onConfirmed(user || null);
+    else if (navigate && targetPath) navigate(targetPath);
   };
 
   const value = {

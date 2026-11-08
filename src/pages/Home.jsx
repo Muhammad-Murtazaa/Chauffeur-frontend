@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import QuoteBookingWidget from '../components/QuoteBookingWidget';
 import {
   Phone,
   ChevronRight,
@@ -99,7 +100,7 @@ export default function Home() {
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/60 backdrop-brightness-90 pointer-events-none" />
 
-        <div className="relative z-10 max-w-4xl mx-auto space-y-5">
+        <div className="relative z-10 max-w-7xl mx-auto space-y-5">
           {/* Eyebrow */}
           <div className="flex items-center justify-center gap-2 text-xs sm:text-[13px] font-medium tracking-wide text-[#e09900]">
             <span>&mdash;</span>
@@ -120,22 +121,11 @@ export default function Home() {
             Chauffeured airport transfers, corporate car service, hourly hire and point-to-point rides across New York, New Jersey and Connecticut — flat rates confirmed before you travel, 24/7 dispatch, no surge pricing.
           </p>
 
-          {/* Two Buttons: Call & Get A Quote */}
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-3">
-            <a
-              href="tel:+19178410044"
-              className="bg-[#e09900] hover:bg-[#c98600] text-black font-semibold text-sm px-7 py-3 rounded-full transition-colors shadow-sm"
-            >
-              Call (917) 841-0044
-            </a>
-            <Link
-              to="/reservations"
-              className="border border-white text-white hover:bg-white hover:text-black font-medium text-sm px-7 py-3 rounded-full transition-colors flex items-center gap-2"
-            >
-              <span>Get A Quote</span>
-              <span className="text-base leading-none">&rarr;</span>
-            </Link>
+          <div className="pt-2 sm:pt-4 text-left">
+            <QuoteBookingWidget compact />
+            <p className="mt-2 text-center text-[11px] text-white/75">No account required · Secure checkout · 24/7 dispatch</p>
           </div>
+
         </div>
       </section>
 

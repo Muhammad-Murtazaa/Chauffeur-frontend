@@ -2,6 +2,27 @@ const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
 export const TOKEN_KEY = 'chauffeur_driver_token';
 export const USER_KEY = 'chauffeur_driver_user';
+const GUEST_BOOKING_TOKENS_KEY = 'chauffeur_guest_booking_tokens';
+
+export function setGuestBookingAccessToken(bookingId, token) {
+  let tokens = {};
+  try {
+    tokens = JSON.parse(sessionStorage.getItem(GUEST_BOOKING_TOKENS_KEY) || '{}');
+  } catch {
+    tokens = {};
+  }
+  tokens[bookingId] = token;
+  sessionStorage.setItem(GUEST_BOOKING_TOKENS_KEY, JSON.stringify(tokens));
+}
+
+export function getGuestBookingAccessToken(bookingId) {
+  try {
+    const tokens = JSON.parse(sessionStorage.getItem(GUEST_BOOKING_TOKENS_KEY) || '{}');
+    return tokens[bookingId] || null;
+  } catch {
+    return null;
+  }
+}
 
 export function getAuthToken() {
   return localStorage.getItem(TOKEN_KEY);

@@ -6,6 +6,7 @@ import { useAuth } from '../context/AuthContext';
 export default function Navbar() {
   const navigate = useNavigate();
   const { user, isAuthenticated, logout, promptInstantQuote, openAuthModal } = useAuth();
+  const hasStaffAccess = isAuthenticated && ['DRIVER', 'ADMIN'].includes(user?.role);
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
@@ -384,8 +385,8 @@ export default function Navbar() {
               (917) 841-0044
             </a>
 
-            {/* Customer / VIP User Auth Button */}
-            {isAuthenticated ? (
+            {/* Staff account menu; customers book as guests. */}
+            {hasStaffAccess ? (
               <div className="relative">
                 <button
                   type="button"
@@ -417,6 +418,12 @@ export default function Navbar() {
                         className="block px-3 py-2 rounded-xl text-xs font-semibold text-[#e09900] hover:bg-white/5"
                       >
                         Chauffeur Portal →
+                      </Link>
+                    )}
+
+                    {user?.role === 'ADMIN' && (
+                      <Link to="/admin/dashboard" className="block px-3 py-2 rounded-xl text-xs font-semibold text-[#e09900] hover:bg-white/5">
+                        Admin Console →
                       </Link>
                     )}
 
@@ -480,7 +487,7 @@ export default function Navbar() {
         {mobileMenuOpen && (
           <div className="lg:hidden bg-[#0D151F] border-b border-white/10 px-4 pt-3 pb-6 space-y-3 max-h-[85vh] overflow-y-auto">
             {/* User status in mobile drawer */}
-            {isAuthenticated ? (
+            {hasStaffAccess ? (
               <div className="p-3 bg-white/5 rounded-2xl border border-white/10 flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
                   <div className="w-8 h-8 rounded-full bg-[#e09900] text-black font-bold flex items-center justify-center text-xs">
@@ -506,7 +513,7 @@ export default function Navbar() {
               </div>
             ) : (
               <div className="p-3 bg-white/5 rounded-2xl border border-white/10 flex items-center justify-between">
-                <span className="text-xs text-neutral-300">VIP Client Account</span>
+                <span className="text-xs text-neutral-300">Staff sign in</span>
                 <button
                   type="button"
                   onClick={() => {
@@ -515,7 +522,7 @@ export default function Navbar() {
                   }}
                   className="px-3 py-1 rounded-full bg-[#e09900] text-black font-bold text-xs"
                 >
-                  Sign In / Register
+                  Sign In
                 </button>
               </div>
             )}

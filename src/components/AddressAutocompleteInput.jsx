@@ -13,7 +13,8 @@ import {
 } from 'lucide-react';
 import { 
   fetchAddressPredictions, 
-  geocodeAddressQuery 
+  geocodeAddressQuery,
+  loadGoogleMapsScript,
 } from '../utils/googleMapsLoader';
 
 export default function AddressAutocompleteInput({
@@ -27,6 +28,7 @@ export default function AddressAutocompleteInput({
   onPickOnMap,
   onUseCurrentGPS,
   locatingGPS = false,
+  transparent = false,
 }) {
   const [inputValue, setInputValue] = useState(value);
   const [predictions, setPredictions] = useState([]);
@@ -36,6 +38,19 @@ export default function AddressAutocompleteInput({
 
   const wrapperRef = useRef(null);
   const debounceTimerRef = useRef(null);
+  const requestIdRef = useRef(0);
+
+  // Load Places before a visitor starts typing, so suggestions do not depend
+  // on opening the map first.
+  useEffect(() => {
+    void loadGoogleMapsScript().catch((error) => {
+      console.warn('Google Places could not be loaded; address search will use its fallback.', error);
+    });
+    return () => {
+      requestIdRef.current += 1;
+      if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
+    };
+  }, []);
 
   // Sync internal input value when prop changes from outside (e.g. GPS or Map Picker)
   useEffect(() => {
@@ -56,6 +71,7 @@ export default function AddressAutocompleteInput({
   // Handle typing with debounce
   const handleInputChange = (e) => {
     const text = e.target.value;
+    const requestId = ++requestIdRef.current;
     setInputValue(text);
     onChange(text);
 
@@ -66,26 +82,36 @@ export default function AddressAutocompleteInput({
     if (text.trim().length < 2) {
       setPredictions([]);
       setIsOpen(false);
+      setLoading(false);
       return;
     }
 
+    setPredictions([]);
+    setIsOpen(true);
     setLoading(true);
     debounceTimerRef.current = setTimeout(async () => {
       try {
         const results = await fetchAddressPredictions(text);
+        if (requestId !== requestIdRef.current) return;
         setPredictions(results);
-        setIsOpen(results.length > 0);
+        setIsOpen(true);
         setHighlightedIndex(-1);
       } catch (err) {
+        if (requestId !== requestIdRef.current) return;
         console.error('Prediction fetch error:', err);
+        setPredictions([]);
+        setIsOpen(true);
       } finally {
-        setLoading(false);
+        if (requestId === requestIdRef.current) setLoading(false);
       }
     }, 200);
   };
 
   // Select prediction
   const handleSelectPrediction = async (item) => {
+    requestIdRef.current += 1;
+    if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
+    setLoading(false);
     const fullAddr = item.fullAddress || item.mainText;
     setInputValue(fullAddr);
     onChange(fullAddr);
@@ -199,7 +225,7 @@ export default function AddressAutocompleteInput({
           }}
           onKeyDown={handleKeyDown}
           autoComplete="off"
-          className="w-full bg-[#14202D] border border-white/10 rounded-xl pl-4 pr-16 py-3 text-sm text-white placeholder:text-neutral-500 focus:outline-none focus:border-gold transition shadow-inner"
+          className={`w-full ${transparent ? 'bg-[#14202D]/65' : 'bg-[#14202D]'} border border-white/10 rounded-xl pl-4 pr-16 py-3 text-sm text-white placeholder:text-neutral-500 focus:outline-none focus:border-gold transition shadow-inner`}
         />
 
         {/* Right side loader / clear button */}
@@ -238,11 +264,11 @@ export default function AddressAutocompleteInput({
       </div>
 
       {/* Floating Autocomplete Recommendations Dropdown */}
-      {isOpen && predictions.length > 0 && (
+      {isOpen && (
         <div className="absolute left-0 right-0 top-full mt-1.5 z-40 bg-[#0E1722]/98 border border-gold/40 rounded-2xl shadow-2xl backdrop-blur-xl overflow-hidden divide-y divide-white/5 animate-in fade-in slide-in-from-top-1 duration-150">
           <div className="px-3.5 py-1.5 bg-[#080E14] text-[10px] uppercase font-bold tracking-wider text-gold flex items-center justify-between">
-            <span>Recommended Locations</span>
-            <span className="text-neutral-500 lowercase font-normal">select or press enter</span>
+            <span>Location suggestions</span>
+            {predictions.length > 0 && <span className="text-neutral-500 lowercase font-normal">select or press enter</span>}
           </div>
 
           <div className="max-h-64 overflow-y-auto">
@@ -282,6 +308,14 @@ export default function AddressAutocompleteInput({
                 </button>
               );
             })}
+            {loading && (
+              <div className="flex items-center gap-2 px-4 py-3 text-xs text-neutral-400" role="status">
+                <Loader2 className="h-4 w-4 animate-spin text-gold" /> Searching nearby locations…
+              </div>
+            )}
+            {!loading && predictions.length === 0 && (
+              <div className="px-4 py-3 text-xs text-neutral-400">No matching suggestions. Try a street, city, airport, or hotel.</div>
+            )}
           </div>
         </div>
       )}

@@ -7,7 +7,7 @@ export const fleetData = [
     tagline: "Executive First-Class Travel",
     passengers: 3,
     luggage: 3,
-    image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-premium-sedan-mercedes-s-class-nyc.webp",
+    image: "/premium-sedan.jfif",
     features: [
       "Heated & Ventilated Nappa Leather Seats",
       "Executive Rear Recline & Climate Controls",
@@ -26,7 +26,7 @@ export const fleetData = [
     tagline: "Discreet Corporate Standard",
     passengers: 3,
     luggage: 3,
-    image: "https://nycpremierlimo.com/wp-content/uploads/2026/09/Premium-sedan.png",
+    image: "/sedan.jfif",
     features: [
       "Supple Leather Interior",
       "Spacious Rear Legroom",
@@ -45,7 +45,7 @@ export const fleetData = [
     tagline: "Prestige, Road Presence & Space",
     passengers: 6,
     luggage: 6,
-    image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-premium-suv-cadillac-escalade-nyc.png",
+    image: "/suv.jfif",
     features: [
       "Extended Wheelbase Cargo Capacity (ESV)",
       "Captains Chairs with Premium Leather",
@@ -64,7 +64,7 @@ export const fleetData = [
     tagline: "Versatile Executive Transport",
     passengers: 6,
     luggage: 6,
-    image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-business-suv-chevrolet-tahoe-nyc.png",
+    image: "/business-suv.jfif",
     features: [
       "Ample 3-Row Seating",
       "Cavernous Rear Luggage Space",
@@ -83,7 +83,7 @@ export const fleetData = [
     tagline: "Agile Luxury Crossover",
     passengers: 4,
     luggage: 4,
-    image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-midsize-suv-cadillac-xt6-nyc.png",
+    image: "/midsize-suv.jfif",
     features: [
       "Modern Luxury Trim & Panoramic Sunroof",
       "Quiet Cabin Insulation",
@@ -102,7 +102,7 @@ export const fleetData = [
     tagline: "Private Jet on Wheels",
     passengers: 10,
     luggage: 10,
-    image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-jet-sprinter-executive-van-nyc.png",
+    image: "/jet-sprinter.jfif",
     features: [
       "Ultra-Plush Maybach-Style Reclining Captains Chairs",
       "Retractable Wooden Executive Tables",
@@ -121,7 +121,7 @@ export const fleetData = [
     tagline: "Celebration on the Move",
     passengers: 14,
     luggage: 8,
-    image: "https://nycpremierlimo.com/wp-content/uploads/2026/08/fleet-sprinter-limo-party-van-nyc.png",
+    image: "/sprinter-limo.jfif",
     features: [
       "Perimeter Custom Two-Tone Leather Lounges",
       "Dynamic Club Laser & Starlight Mood Lighting",
