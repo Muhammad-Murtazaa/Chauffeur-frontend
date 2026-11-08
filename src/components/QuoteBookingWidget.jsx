@@ -35,7 +35,7 @@ import GoogleMapModal from './GoogleMapModal';
 import RouteMapPreview from './RouteMapPreview';
 import AddressAutocompleteInput from './AddressAutocompleteInput';
 import BookingStep2Form from './BookingStep2Form';
-import { getVehicleImage } from '../utils/vehicleImage';
+import { getVehicleBackgroundClass, getVehicleImage } from '../utils/vehicleImage';
 import { fleetData } from '../data/fleetData';
 import ReservationTripSummary from './ReservationTripSummary';
 import { orderReservationVehicles, reservationVehicleLabel } from '../utils/reservationVehicles';
@@ -632,7 +632,7 @@ export default function QuoteBookingWidget({ initialService = "one-way", compact
             {displayVehicleOptions.map((option) => {
               const selected = hasQuotedVehicles && selectedOption?.vehicleTypeId === option.vehicleTypeId;
               return <button key={option.id} type="button" disabled={!hasQuotedVehicles} onClick={() => setSelectedOption(option)} className={`w-[260px] shrink-0 snap-start rounded-2xl border p-3 text-left transition ${selected ? 'border-gold bg-gold/10 ring-1 ring-gold/60' : 'border-white/10 bg-white/[.03]'} ${hasQuotedVehicles ? 'hover:border-gold/60' : 'cursor-default opacity-80'}`}>
-                <img src={getVehicleImage(option)} alt={reservationVehicleLabel(option)} className="mb-3 h-40 w-full rounded-xl bg-[#090F16] object-contain" loading="lazy" />
+                <img src={getVehicleImage(option)} alt={reservationVehicleLabel(option)} className={`mb-3 h-40 w-full rounded-xl object-contain ${getVehicleBackgroundClass(option)}`} loading="lazy" />
                 <div className="flex items-start justify-between gap-2"><div><div className="text-sm font-bold text-white">{reservationVehicleLabel(option)}</div><div className="mt-1 text-xs text-neutral-400">{option.passengerCapacity} passengers · {option.luggageCapacity} bags</div></div>{selected && <Check className="h-4 w-4 text-gold" />}</div>
                 {(option.modelDescription || option.description) && <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-neutral-400">{option.modelDescription || option.description}</p>}
                 <div className="mt-4 border-t border-white/10 pt-3 text-sm font-semibold text-gold">{hasQuotedVehicles ? `$${Number(option.totalPrice).toFixed(2)}` : 'Enter your trip to see the price'}</div>

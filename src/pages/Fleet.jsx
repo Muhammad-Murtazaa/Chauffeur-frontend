@@ -3,6 +3,7 @@ import VehicleCard from '../components/VehicleCard';
 import { fleetData } from '../data/fleetData';
 import { Clock, Star, CheckCircle2, Plus } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { getVehicleBackgroundClass } from '../utils/vehicleImage';
 
 export default function Fleet() {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -185,10 +186,10 @@ export default function Fleet() {
             {
               id: "business-sedan",
               name: "Business Sedan",
-              model: "Cadillac CT6 or similar",
+              model: "Cadillac Lyriq or similar",
               passengers: "3 Passengers",
               luggage: "3 Luggage",
-              image: "/WhatsApp%20Image%202026-11-08%20at%209.05.40%20PM.jpeg"
+              image: "/vehicle-business-sedan.png"
             },
             {
               id: "premium-sedan",
@@ -196,7 +197,7 @@ export default function Fleet() {
               model: "Mercedes-Benz S-Class or similar",
               passengers: "2 Passengers",
               luggage: "2 Luggage",
-              image: "/s-class.jpeg"
+              image: "/vehicle-premium-sedan.png"
             },
             {
               id: "midsize-suv",
@@ -204,7 +205,7 @@ export default function Fleet() {
               model: "Cadillac Lyriq or similar",
               passengers: "4 Passengers",
               luggage: "4 Luggage",
-              image: "/WhatsApp%20Image%202026-11-08%20at%209.05.39%20PM.jpeg"
+              image: "/vehicle-midsize-suv.png"
             },
             {
               id: "business-suv",
@@ -212,15 +213,15 @@ export default function Fleet() {
               model: "Chevrolet Suburban or similar",
               passengers: "6 Passengers",
               luggage: "6 Luggage",
-              image: "business-suv.jfif"
+              image: "/vehicle-business-suv.png"
             },
             {
               id: "premium-suv",
               name: "Premium SUV",
-              model: "Cadillac Escalade or similar",
+              model: "Cadillac Escalade or Chevrolet Suburban or similar",
               passengers: "6 Passengers",
               luggage: "6 Luggage",
-              image: "/WhatsApp%20Image%202026-11-08%20at%209.05.41%20PM.jpeg"
+              image: "/vehicle-premium-suv.png"
             },
             {
               id: "jet-sprinter",
@@ -228,7 +229,7 @@ export default function Fleet() {
               model: "Mercedes-Benz Sprinter Executive",
               passengers: "10 Passengers",
               luggage: "10 Luggage",
-              image: "/sprinter.jpeg"
+              image: "/vehicle-sprinter.png"
             },
             {
               id: "sprinter-limo",
@@ -236,7 +237,7 @@ export default function Fleet() {
               model: "Mercedes-Benz Sprinter or similar",
               passengers: "14 Passengers",
               luggage: "14 Luggage",
-              image: "/sprinter.jpeg"
+              image: "/vehicle-sprinter.png"
             }
           ].map((veh) => (
             <div
@@ -245,7 +246,7 @@ export default function Fleet() {
             >
               <div>
                 {/* Photo */}
-                <div className="relative w-full h-[220px] sm:h-[250px] overflow-hidden bg-[#090F16] flex items-center justify-center">
+                <div className={`relative w-full h-[220px] sm:h-[250px] overflow-hidden flex items-center justify-center ${getVehicleBackgroundClass(veh)}`}>
                   <img
                     src={veh.image}
                     alt={veh.name}
@@ -344,7 +345,7 @@ export default function Fleet() {
               {[
                 {
                   vehicle: "Business Sedan",
-                  models: "Cadillac CT6 or similar",
+                  models: "Cadillac Lyriq or similar",
                   bestFor: "Solo travellers and pairs. The everyday choice for airport transfers, meetings and point-to-point rides across Manhattan."
                 },
                 {
@@ -364,7 +365,7 @@ export default function Fleet() {
                 },
                 {
                   vehicle: "Premium SUV",
-                  models: "Cadillac Escalade or similar",
+                  models: "Cadillac Escalade or Chevrolet Suburban or similar",
                   bestFor: "Executive road shows, VIP arrivals and wedding party transportation where space and presence both matter."
                 },
                 {

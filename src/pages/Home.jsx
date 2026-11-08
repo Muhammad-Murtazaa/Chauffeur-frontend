@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import QuoteBookingWidget from '../components/QuoteBookingWidget';
+import { getVehicleBackgroundClass } from '../utils/vehicleImage';
 import {
   Phone,
   ChevronRight,
@@ -374,28 +375,28 @@ export default function Home() {
               title: "Premium Sedan",
               passengers: "3 Passengers",
               luggage: "3 Luggage",
-              image: "/sedan.jfif"
+              image: "/vehicle-premium-sedan.png"
             },
             {
               badge: "First class",
               title: "Premium SUV",
               passengers: "6 Passengers",
               luggage: "6 Luggage",
-              image: "/suv.jfif"
+              image: "/vehicle-premium-suv.png"
             },
             {
               badge: "VIP Group class",
               title: "Executive Sprinter VIP",
               passengers: "14 Passengers",
               luggage: "14 Luggage",
-              image: "/group-class.jfif"
+              image: "/vehicle-sprinter.png"
             },
             {
               badge: "Business class",
               title: "Business SUV",
               passengers: "6 Passengers",
               luggage: "6 Luggage",
-              image: "/business-suv.jfif"
+              image: "/vehicle-business-suv.png"
             }
           ].map((veh, idx) => (
             <div
@@ -404,11 +405,11 @@ export default function Home() {
             >
               <div>
                 {/* Photo with top-left black class badge */}
-                <div className="relative w-full h-[270px] sm:h-[310px] overflow-hidden bg-neutral-100">
+                <div className={`relative w-full h-[270px] sm:h-[310px] overflow-hidden flex items-center justify-center ${getVehicleBackgroundClass(veh)}`}>
                   <img
                     src={veh.image}
                     alt={veh.title}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out"
+                    className="w-full h-full object-contain hover:scale-105 transition-transform duration-700 ease-out"
                   />
                   <div className="absolute top-4 left-4 bg-black text-white text-xs font-bold px-3.5 py-1.5 tracking-wide">
                     {veh.badge}

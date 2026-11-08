@@ -7,7 +7,7 @@ export const fleetData = [
     tagline: "Executive First-Class Travel",
     passengers: 3,
     luggage: 3,
-    image: "/s-class.jpeg",
+    image: "/vehicle-premium-sedan.png",
     features: [
       "Heated & Ventilated Nappa Leather Seats",
       "Executive Rear Recline & Climate Controls",
@@ -21,12 +21,12 @@ export const fleetData = [
   {
     id: "business-sedan",
     name: "Business Sedan",
-    model: "Cadillac CT6 or similar",
+    model: "Cadillac Lyriq or similar",
     category: "sedans",
     tagline: "Discreet Corporate Standard",
     passengers: 3,
     luggage: 3,
-    image: "/WhatsApp%20Image%202026-11-08%20at%209.05.40%20PM.jpeg",
+    image: "/vehicle-business-sedan.png",
     features: [
       "Supple Leather Interior",
       "Spacious Rear Legroom",
@@ -40,12 +40,12 @@ export const fleetData = [
   {
     id: "premium-suv",
     name: "Premium SUV",
-    model: "Cadillac Escalade or similar",
+    model: "Cadillac Escalade or Chevrolet Suburban or similar",
     category: "suvs",
     tagline: "Prestige, Road Presence & Space",
     passengers: 6,
     luggage: 6,
-    image: "/WhatsApp%20Image%202026-11-08%20at%209.05.41%20PM.jpeg",
+    image: "/vehicle-premium-suv.png",
     features: [
       "Extended Wheelbase Cargo Capacity (ESV)",
       "Captains Chairs with Premium Leather",
@@ -64,7 +64,7 @@ export const fleetData = [
     tagline: "Versatile Executive Transport",
     passengers: 6,
     luggage: 6,
-    image: "/business-suv.jfif",
+    image: "/vehicle-business-suv.png",
     features: [
       "Ample 3-Row Seating",
       "Cavernous Rear Luggage Space",
@@ -83,7 +83,7 @@ export const fleetData = [
     tagline: "Agile Luxury Crossover",
     passengers: 4,
     luggage: 4,
-    image: "/WhatsApp%20Image%202026-11-08%20at%209.05.39%20PM.jpeg",
+    image: "/vehicle-midsize-suv.png",
     features: [
       "Modern Luxury Trim & Panoramic Sunroof",
       "Quiet Cabin Insulation",
@@ -102,7 +102,7 @@ export const fleetData = [
     tagline: "Private Jet on Wheels",
     passengers: 10,
     luggage: 10,
-    image: "/sprinter.jpeg",
+    image: "/vehicle-sprinter.png",
     features: [
       "Ultra-Plush Maybach-Style Reclining Captains Chairs",
       "Retractable Wooden Executive Tables",
@@ -121,7 +121,7 @@ export const fleetData = [
     tagline: "Celebration on the Move",
     passengers: 14,
     luggage: 8,
-    image: "/sprinter.jpeg",
+    image: "/vehicle-sprinter.png",
     features: [
       "Perimeter Custom Two-Tone Leather Lounges",
       "Dynamic Club Laser & Starlight Mood Lighting",

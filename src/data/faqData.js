@@ -9,7 +9,7 @@ export const faqData = [
   },
   {
     question: "What vehicle types are available in your fleet?",
-    answer: "Our modern luxury fleet consists of Business & Premium Executive Sedans (Mercedes-Benz S-Class, Cadillac Lyriq), Executive SUVs (Cadillac Escalade, Chevrolet Suburban, Cadillac XT6), and Mercedes-Benz VIP Jet Sprinters."
+    answer: "Our modern luxury fleet includes a Business Sedan (Cadillac Lyriq or similar), First Class (Mercedes-Benz S-Class or similar), Executive Full-Size SUVs (Cadillac Escalade or Chevrolet Suburban or similar), and Mercedes-Benz VIP Sprinters."
   },
   {
     question: "Do you offer flat rates or hourly pricing?",
