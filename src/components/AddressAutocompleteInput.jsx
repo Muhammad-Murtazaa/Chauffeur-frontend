@@ -79,7 +79,7 @@ export default function AddressAutocompleteInput({
       clearTimeout(debounceTimerRef.current);
     }
 
-    if (text.trim().length < 2) {
+    if (text.trim().length < 1) {
       setPredictions([]);
       setIsOpen(false);
       setLoading(false);

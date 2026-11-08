@@ -185,27 +185,31 @@ export default function Fleet() {
             {
               id: "business-sedan",
               name: "Business Sedan",
+              model: "Cadillac CT6 or similar",
               passengers: "3 Passengers",
               luggage: "3 Luggage",
-              image: "/business.jfif"
+              image: "/WhatsApp%20Image%202026-11-08%20at%209.05.40%20PM.jpeg"
             },
             {
               id: "premium-sedan",
               name: "Premium Sedan",
+              model: "Mercedes-Benz S-Class or similar",
               passengers: "2 Passengers",
               luggage: "2 Luggage",
-              image: "/premium-sedan.jfif"
+              image: "/s-class.jpeg"
             },
             {
               id: "midsize-suv",
               name: "Midsize SUV",
+              model: "Cadillac Lyriq or similar",
               passengers: "4 Passengers",
               luggage: "4 Luggage",
-              image: "midsize-suv.jfif"
+              image: "/WhatsApp%20Image%202026-11-08%20at%209.05.39%20PM.jpeg"
             },
             {
               id: "business-suv",
               name: "Business SUV",
+              model: "Chevrolet Suburban or similar",
               passengers: "6 Passengers",
               luggage: "6 Luggage",
               image: "business-suv.jfif"
@@ -213,23 +217,26 @@ export default function Fleet() {
             {
               id: "premium-suv",
               name: "Premium SUV",
+              model: "Cadillac Escalade or similar",
               passengers: "6 Passengers",
               luggage: "6 Luggage",
-              image: "suv.jfif"
+              image: "/WhatsApp%20Image%202026-11-08%20at%209.05.41%20PM.jpeg"
             },
             {
               id: "jet-sprinter",
               name: "Jet Sprinter VIP",
+              model: "Mercedes-Benz Sprinter Executive",
               passengers: "10 Passengers",
               luggage: "10 Luggage",
-              image: "/jet-sprinter.jfif"
+              image: "/sprinter.jpeg"
             },
             {
               id: "sprinter-limo",
               name: "Sprinter VIP Lounge",
+              model: "Mercedes-Benz Sprinter or similar",
               passengers: "14 Passengers",
               luggage: "14 Luggage",
-              image: "/sprinter-limo.jfif"
+              image: "/sprinter.jpeg"
             }
           ].map((veh) => (
             <div
@@ -238,11 +245,11 @@ export default function Fleet() {
             >
               <div>
                 {/* Photo */}
-                <div className="relative w-full h-[220px] sm:h-[250px] overflow-hidden bg-neutral-100">
+                <div className="relative w-full h-[220px] sm:h-[250px] overflow-hidden bg-[#090F16] flex items-center justify-center">
                   <img
                     src={veh.image}
                     alt={veh.name}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out"
+                    className="w-full h-full object-contain hover:scale-105 transition-transform duration-700 ease-out"
                     loading="lazy"
                   />
                 </div>
@@ -252,6 +259,7 @@ export default function Fleet() {
                   <h3 className="font-serif text-2xl sm:text-[26px] font-bold text-black leading-tight mb-4">
                     {veh.name}
                   </h3>
+                  <p className="-mt-3 mb-4 text-sm text-zinc-600">{veh.model}</p>
 
                   {/* Thin Divider Line */}
                   <div className="w-full h-[1px] bg-zinc-200 mb-5" />
@@ -336,7 +344,7 @@ export default function Fleet() {
               {[
                 {
                   vehicle: "Business Sedan",
-                  models: "Cadillac Lyriq or similar",
+                  models: "Cadillac CT6 or similar",
                   bestFor: "Solo travellers and pairs. The everyday choice for airport transfers, meetings and point-to-point rides across Manhattan."
                 },
                 {
@@ -346,7 +354,7 @@ export default function Fleet() {
                 },
                 {
                   vehicle: "Midsize SUV",
-                  models: "Cadillac XT6 or similar",
+                  models: "Cadillac Lyriq or similar",
                   bestFor: "Couples and small families who need more luggage room than a sedan, and anyone travelling in winter weather."
                 },
                 {

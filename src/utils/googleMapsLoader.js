@@ -448,7 +448,7 @@ export const curatedLandmarks = [
  * Fetch address recommendations/predictions as user types
  */
 export async function fetchAddressPredictions(query) {
-  if (!query || query.trim().length < 2) return [];
+  if (!query || query.trim().length < 1) return [];
 
   const cleanQuery = query.trim().toLowerCase();
 
@@ -461,6 +461,7 @@ export async function fetchAddressPredictions(query) {
           {
             input: query,
             types: ['geocode', 'establishment'],
+            componentRestrictions: { country: 'us' },
           },
           (results, status) => {
             if (status === window.google.maps.places.PlacesServiceStatus.OK && results) {
@@ -505,7 +506,7 @@ export async function fetchAddressPredictions(query) {
   // 3. Fallback Live OSM Nominatim Search
   let osmResults = [];
   try {
-    const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&limit=5&addressdetails=1`;
+    const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&countrycodes=us&limit=5&addressdetails=1`;
     const res = await fetch(url, { headers: { 'Accept-Language': 'en' } });
     if (res.ok) {
       const data = await res.json();

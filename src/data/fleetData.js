@@ -7,7 +7,7 @@ export const fleetData = [
     tagline: "Executive First-Class Travel",
     passengers: 3,
     luggage: 3,
-    image: "/premium-sedan.jfif",
+    image: "/s-class.jpeg",
     features: [
       "Heated & Ventilated Nappa Leather Seats",
       "Executive Rear Recline & Climate Controls",
@@ -21,12 +21,12 @@ export const fleetData = [
   {
     id: "business-sedan",
     name: "Business Sedan",
-    model: "Cadillac Lyriq or similar",
+    model: "Cadillac CT6 or similar",
     category: "sedans",
     tagline: "Discreet Corporate Standard",
     passengers: 3,
     luggage: 3,
-    image: "/sedan.jfif",
+    image: "/WhatsApp%20Image%202026-11-08%20at%209.05.40%20PM.jpeg",
     features: [
       "Supple Leather Interior",
       "Spacious Rear Legroom",
@@ -45,7 +45,7 @@ export const fleetData = [
     tagline: "Prestige, Road Presence & Space",
     passengers: 6,
     luggage: 6,
-    image: "/suv.jfif",
+    image: "/WhatsApp%20Image%202026-11-08%20at%209.05.41%20PM.jpeg",
     features: [
       "Extended Wheelbase Cargo Capacity (ESV)",
       "Captains Chairs with Premium Leather",
@@ -78,12 +78,12 @@ export const fleetData = [
   {
     id: "midsize-suv",
     name: "Midsize SUV",
-    model: "Cadillac XT6 or similar",
+    model: "Cadillac Lyriq or similar",
     category: "suvs",
     tagline: "Agile Luxury Crossover",
     passengers: 4,
     luggage: 4,
-    image: "/midsize-suv.jfif",
+    image: "/WhatsApp%20Image%202026-11-08%20at%209.05.39%20PM.jpeg",
     features: [
       "Modern Luxury Trim & Panoramic Sunroof",
       "Quiet Cabin Insulation",
@@ -102,7 +102,7 @@ export const fleetData = [
     tagline: "Private Jet on Wheels",
     passengers: 10,
     luggage: 10,
-    image: "/jet-sprinter.jfif",
+    image: "/sprinter.jpeg",
     features: [
       "Ultra-Plush Maybach-Style Reclining Captains Chairs",
       "Retractable Wooden Executive Tables",
@@ -121,7 +121,7 @@ export const fleetData = [
     tagline: "Celebration on the Move",
     passengers: 14,
     luggage: 8,
-    image: "/sprinter-limo.jfif",
+    image: "/sprinter.jpeg",
     features: [
       "Perimeter Custom Two-Tone Leather Lounges",
       "Dynamic Club Laser & Starlight Mood Lighting",

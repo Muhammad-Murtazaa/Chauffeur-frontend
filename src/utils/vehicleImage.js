@@ -8,15 +8,15 @@ export function getVehicleImage(option) {
 
   // Prefer the locally bundled, branded fleet images over remote database URLs.
   if (name.includes('firstclass') || name.includes('executiveclass') || (name.includes('premium') && name.includes('sedan'))) {
-    return '/premium-sedan.jfif';
+    return '/s-class.jpeg';
   }
-  if (name.includes('business') && name.includes('sedan')) return '/sedan.jfif';
-  if (name.includes('midsize') && name.includes('suv')) return '/midsize-suv.jfif';
+  if (name.includes('business') && name.includes('sedan')) return '/WhatsApp%20Image%202026-11-08%20at%209.05.40%20PM.jpeg';
+  if (name.includes('midsize') && name.includes('suv')) return '/WhatsApp%20Image%202026-11-08%20at%209.05.39%20PM.jpeg';
   if (name.includes('business') && name.includes('suv')) return '/business-suv.jfif';
   if (category.includes('sprinter') || category.includes('van')) {
-    return name.includes('limo') ? '/sprinter-limo.jfif' : '/jet-sprinter.jfif';
+    return name.includes('limo') ? '/sprinter-limo.jfif' : '/sprinter.jpeg';
   }
-  if (category.includes('suv') || category.includes('utility')) return '/suv.jfif';
+  if (category.includes('suv') || category.includes('utility')) return '/WhatsApp%20Image%202026-11-08%20at%209.05.41%20PM.jpeg';
   if (category.includes('sedan')) return '/premium-sedan.jfif';
 
   const exactMatch = fleetData.find((vehicle) => normalize(vehicle.name) === name);
