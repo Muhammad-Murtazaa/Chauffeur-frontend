@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { 
   Car, 
-  Users, 
-  Briefcase, 
-  Check, 
   Lock, 
   ShieldCheck, 
   UserCheck, 
@@ -16,7 +13,7 @@ import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import RouteMapPreview from './RouteMapPreview';
 import { createBooking, createBookingPaymentIntent, processBookingPayment } from '../api/booking';
 import { setGuestBookingAccessToken } from '../api/client';
-import { getVehicleImage } from '../utils/vehicleImage';
+import VehicleSelectionCard from './VehicleSelectionCard';
 
 const CARD_ELEMENT_OPTIONS = {
   style: {
@@ -236,48 +233,18 @@ export default function BookingStep2Form({
           <Car className="w-3.5 h-3.5 text-gold" />
           Choose Chauffeur Vehicle Class
         </label>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div className="flex flex-wrap justify-center gap-3">
           {quoteOptions.map((opt) => {
             const isSelected = selectedOption?.vehicleTypeId === opt.vehicleTypeId;
             return (
-              <button
+              <VehicleSelectionCard
                 key={opt.id}
-                type="button"
-                onClick={() => setSelectedOption(opt)}
-                className={`p-4 rounded-2xl text-left border transition flex flex-col justify-between relative overflow-hidden ${
-                  isSelected
-                    ? 'bg-gradient-to-br from-gold/20 via-[#14202D] to-[#0E1722] border-gold shadow-lg shadow-gold/15 ring-1 ring-gold'
-                    : 'bg-[#14202D] border-white/10 hover:border-white/25'
-                }`}
-              >
-                <img src={getVehicleImage(opt)} alt={opt.name} className="mb-4 h-36 w-full rounded-xl bg-[#101820] object-cover" loading="lazy" />
-                {isSelected && (
-                  <div className="absolute top-3 right-3 w-5 h-5 rounded-full bg-gold text-black flex items-center justify-center">
-                    <Check className="w-3 h-3 stroke-[3]" />
-                  </div>
-                )}
-                <div>
-                  <div className="text-xs uppercase tracking-wider text-gold font-bold">{opt.category}</div>
-                  <div className="text-sm font-bold text-white mt-0.5">{opt.name}</div>
-                  <div className="text-xs text-neutral-400 mt-1 flex items-center gap-3">
-                    <span>
-                      <Users className="w-3 h-3 inline mr-1 text-gold" />
-                      {opt.passengerCapacity} Pax
-                    </span>
-                    <span>
-                      <Briefcase className="w-3 h-3 inline mr-1 text-gold" />
-                      {opt.luggageCapacity} Bags
-                    </span>
-                  </div>
-                </div>
-
-                <div className="mt-4 pt-3 border-t border-white/10 flex items-baseline justify-between">
-                  <span className="text-[11px] text-neutral-400">Total Flat Fare</span>
-                  <span className="font-serif text-xl font-bold text-gold">
-                    ${Number(opt.totalPrice).toFixed(2)}
-                  </span>
-                </div>
-              </button>
+                option={opt}
+                selected={isSelected}
+                disabled={opt.requestOnly}
+                onSelect={() => !opt.requestOnly && setSelectedOption(opt)}
+                priceLabel={opt.requestOnly ? 'Request custom quote' : `$${Number(opt.totalPrice).toFixed(2)}`}
+              />
             );
           })}
         </div>

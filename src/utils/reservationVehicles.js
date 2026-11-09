@@ -1,4 +1,10 @@
 const priorityNames = ['Business Sedan', 'Executive Full-Size SUV', 'First Class', 'Sprinter'];
+const priorityModels = [
+  'Cadillac Lyriq or similar.',
+  'Cadillac Escalade or Chevrolet Suburban or similar.',
+  'Mercedes-Benz S-Class or similar.',
+  'Mercedes-Benz Sprinter or similar.',
+];
 
 function normalizedName(option) {
   return `${option?.name || ''} ${option?.category || ''}`.toLowerCase().replace(/[^a-z0-9]/g, '');
@@ -16,6 +22,12 @@ export function reservationVehicleRank(option) {
 export function reservationVehicleLabel(option) {
   const rank = reservationVehicleRank(option);
   return rank >= 0 ? priorityNames[rank] : option?.name || 'Vehicle';
+}
+
+export function reservationVehicleModel(option) {
+  const rank = reservationVehicleRank(option);
+  if (rank >= 0) return priorityModels[rank];
+  return option?.modelDescription || option?.description || '';
 }
 
 export function orderReservationVehicles(options = []) {

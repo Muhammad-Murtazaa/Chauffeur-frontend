@@ -35,10 +35,10 @@ import GoogleMapModal from './GoogleMapModal';
 import RouteMapPreview from './RouteMapPreview';
 import AddressAutocompleteInput from './AddressAutocompleteInput';
 import BookingStep2Form from './BookingStep2Form';
-import { getVehicleBackgroundClass, getVehicleImage } from '../utils/vehicleImage';
 import { fleetData } from '../data/fleetData';
 import ReservationTripSummary from './ReservationTripSummary';
-import { orderReservationVehicles, reservationVehicleLabel } from '../utils/reservationVehicles';
+import { orderReservationVehicles } from '../utils/reservationVehicles';
+import VehicleSelectionCard from './VehicleSelectionCard';
 
 const fleetVehicle = (fleetId, name, category) => {
   const vehicle = fleetData.find((item) => item.id === fleetId);
@@ -60,6 +60,21 @@ const fallbackReservationVehicles = [
   fleetVehicle('premium-sedan', 'First Class', 'EXECUTIVE'),
   fleetVehicle('jet-sprinter', 'Sprinter', 'VAN'),
 ];
+
+const requestOnlySprinter = {
+  ...fleetVehicle('jet-sprinter', 'Sprinter', 'VAN'),
+  id: 'request-only-sprinter',
+  vehicleTypeId: 'request-only-sprinter',
+  displayName: 'Sprinter',
+  passengerCapacity: 12,
+  luggageCapacity: 12,
+  requestOnly: true,
+};
+
+function includeSprinterOption(options = []) {
+  const hasSprinter = options.some((option) => `${option?.name || ''} ${option?.displayName || ''}`.toLowerCase().includes('sprinter'));
+  return hasSprinter ? options : [...options, requestOnlySprinter];
+}
 
 const stripePromise = loadStripe(
   import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY ||
@@ -255,7 +270,7 @@ export default function QuoteBookingWidget({ initialService = "one-way", compact
       setActiveQuote(quoteRes.quote);
       setRouteSummary(quoteRes.route);
       const availableOptions = quoteRes.vehicleOptions || [];
-      const reservationOptions = referenceFlow ? orderReservationVehicles(availableOptions) : availableOptions;
+      const reservationOptions = orderReservationVehicles(availableOptions);
       setQuoteOptions(reservationOptions);
       setCountdown(quoteRes.expiresInSeconds || 900);
 
@@ -292,7 +307,7 @@ export default function QuoteBookingWidget({ initialService = "one-way", compact
     vehicleCarouselRef.current?.scrollBy({ left: direction * 300, behavior: 'smooth' });
   };
 
-  const displayVehicleOptions = activeQuote ? quoteOptions : vehicleCatalog;
+  const displayVehicleOptions = activeQuote ? includeSprinterOption(quoteOptions) : vehicleCatalog;
   const hasQuotedVehicles = Boolean(activeQuote && quoteOptions.length);
 
   return (
@@ -631,12 +646,14 @@ export default function QuoteBookingWidget({ initialService = "one-way", compact
           <div ref={vehicleCarouselRef} className="flex snap-x gap-4 overflow-x-auto scroll-smooth pb-2">
             {displayVehicleOptions.map((option) => {
               const selected = hasQuotedVehicles && selectedOption?.vehicleTypeId === option.vehicleTypeId;
-              return <button key={option.id} type="button" disabled={!hasQuotedVehicles} onClick={() => setSelectedOption(option)} className={`w-[260px] shrink-0 snap-start rounded-2xl border p-3 text-left transition ${selected ? 'border-gold bg-gold/10 ring-1 ring-gold/60' : 'border-white/10 bg-white/[.03]'} ${hasQuotedVehicles ? 'hover:border-gold/60' : 'cursor-default opacity-80'}`}>
-                <img src={getVehicleImage(option)} alt={reservationVehicleLabel(option)} className={`mb-3 h-40 w-full rounded-xl object-contain ${getVehicleBackgroundClass(option)}`} loading="lazy" />
-                <div className="flex items-start justify-between gap-2"><div><div className="text-sm font-bold text-white">{reservationVehicleLabel(option)}</div><div className="mt-1 text-xs text-neutral-400">{option.passengerCapacity} passengers · {option.luggageCapacity} bags</div></div>{selected && <Check className="h-4 w-4 text-gold" />}</div>
-                {(option.modelDescription || option.description) && <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-neutral-400">{option.modelDescription || option.description}</p>}
-                <div className="mt-4 border-t border-white/10 pt-3 text-sm font-semibold text-gold">{hasQuotedVehicles ? `$${Number(option.totalPrice).toFixed(2)}` : 'Enter your trip to see the price'}</div>
-              </button>;
+              return <VehicleSelectionCard
+                key={option.id}
+                option={option}
+                selected={selected}
+                disabled={!hasQuotedVehicles || option.requestOnly}
+                onSelect={() => !option.requestOnly && setSelectedOption(option)}
+                priceLabel={option.requestOnly ? 'Request custom quote' : hasQuotedVehicles ? `$${Number(option.totalPrice).toFixed(2)}` : 'Enter your trip to see the price'}
+              />;
             })}
           </div>
           <div className="flex flex-wrap items-center justify-between gap-3">
@@ -658,7 +675,7 @@ export default function QuoteBookingWidget({ initialService = "one-way", compact
             routeSummary={routeSummary}
             countdown={countdown}
             formatSeconds={formatSeconds}
-            quoteOptions={quoteOptions}
+            quoteOptions={displayVehicleOptions}
             selectedOption={selectedOption}
             setSelectedOption={setSelectedOption}
             flightNumber={flightNumber}
